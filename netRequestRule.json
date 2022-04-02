@@ -11,20 +11,7 @@
         "condition": {
             "regexFilter": "^https://www\\.youtube\\.com/shorts/(.+)",
             "resourceTypes": [
-                "main_frame",
-                "sub_frame",
-                "script",
-                "image",
-                "font",
-                "object",
-                "xmlhttprequest",
-                "ping",
-                "csp_report",
-                "media",
-                "websocket",
-                "webtransport",
-                "webbundle",
-                "other"
+                "main_frame"
             ]
         }
     }

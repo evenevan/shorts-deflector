@@ -1,23 +1,31 @@
 {
     "name": "Shorts Deflector",
-    "description": "",
+    "description": "A browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz",
     "version": "0.0.0",
     "manifest_version": 3,
     "background": {
         "service_worker": "./out/background.js"
     },
-    "declarative_net_request" : {
-        "rule_resources" : [{
-          "id": "shorts",
-          "enabled": true,
-          "path": "./netRequestRule.json"
-        }]
-      },
+    "declarative_net_request": {
+        "rule_resources": [
+            {
+                "id": "shorts",
+                "enabled": true,
+                "path": "./netRequestRule.json"
+            }
+        ]
+    },
     "permissions": [
         "declarativeNetRequest",
         "tabs"
     ],
     "host_permissions": [
         "https://www.youtube.com/"
-    ]
-  }
+    ],
+    "icons": {
+        "16": "./assets/Shorts Deflector Icon 16.png",
+        "32": "./assets/Shorts Deflector Icon 32.png",
+        "48": "./assets/Shorts Deflector Icon 48.png",
+        "128": "./assets/Shorts Deflector Icon 128.png"
+    }
+}
