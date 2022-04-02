@@ -9,5 +9,8 @@
       "esModuleInterop": true,
       "downlevelIteration": true,
       "outDir": "out",
+      "types": [
+        "chrome",
+      ]
     }
   }

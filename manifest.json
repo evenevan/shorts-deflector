@@ -1,0 +1,23 @@
+{
+    "name": "Shorts Deflector",
+    "description": "",
+    "version": "0.0.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker": "./out/background.js"
+    },
+    "declarative_net_request" : {
+        "rule_resources" : [{
+          "id": "shorts",
+          "enabled": true,
+          "path": "./netRequestRule.json"
+        }]
+      },
+    "permissions": [
+        "declarativeNetRequest",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://www.youtube.com/"
+    ]
+  }
