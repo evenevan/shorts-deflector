@@ -8,6 +8,7 @@
                 [newPagesKey]: true,
                 [directKey]: true,
             });
+            console.log('Set default settings');
         }
     });
     //@ts-expect-error FireFox can handle async onBeforeRequest

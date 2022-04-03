@@ -8,6 +8,8 @@
                 [newPagesKey]: true,
                 [directKey]: true,
             });
+
+            console.log('Set default settings');
         }
     });
 
