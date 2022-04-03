@@ -5,26 +5,32 @@
         <script src="./main.js" type="module"></script>
     </head>
     <body>
-        <div class="flex flex-col items-start justify-start bg-white dark:bg-zinc-800 w-[30rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
+        <div class="flex flex-col items-start justify-start bg- dark:bg-neutral-900 w-[30rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
             <div class="flex items-center self-center">
                 <img class="w-10 h-10 mr-2" src="./assets/Shorts Deflector Icon 128.png">
                 <span class="font-semibold text-4xl mb-1">Shorts Deflector</span>
             </div>
-            <div class="flex flex-col items-start justify-start gap-1">
-                <label class="relative flex justify-between items-center text-xl">
-                    <input id="new-pages" type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full group peer appearance-none rounded-md"/>
-                    <span class="w-10 h-3 flex items-center flex-shrink-0 mr-2 bg-gray-300 rounded-full duration-500 ease-in-out peer-checked:bg-youtube-red peer-disabled:bg-red-800 after:w-5 after:h-5 after:bg-neutral-100 peer-disabled:after:bg-neutral-400 peer-disabled:hover:cursor-not-allowed after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-5"></span>
-                    <span class="font-semibold text-2xl">New Pages</span>
-                </label>
-                <span class="text-base">Redirect when you click on hyperlinks, reload the page, or open a Shorts video in a new tab or window. You can still use the Shorts item on the YouTube navigation menu normally.</span>
+            <div class="border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg rounded-md p-4">
+                <div class="flex items-center justify-start gap-1 -mt-2">
+                    <div class="flex items-center justify-start w-10 h-5 mr-2">
+                        <input id="new-pages" type="checkbox" class="absolute w-10 h-5 z-10 appearance-none hover:cursor-pointer peer"/>
+                        <span class="w-10 h-3 rounded-full bg-neutral-400 ease-in-out duration-150 peer-checked:bg-youtube-red"></span>
+                        <span class="absolute w-5 h-5 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+                    </div>
+                    <span class="font-semibold text-2xl mb-1">New Pages</span>
+                </div>
+                <span class="text-sm">Redirect when you click on hyperlinks, reload the page, or open a Shorts video in a new tab or window. You can still use the Shorts item on the YouTube navigation menu normally.</span>
             </div>
-            <div class="flex flex-col items-start justify-start gap-1">
-                <label class="relative flex justify-between items-center text-xl">
-                    <input id="direct" type="checkbox" class="absolute left-1/2 -translate-x-1/2 w-full h-full group peer appearance-none rounded-md"/>
-                    <span class="w-10 h-3 flex items-center flex-shrink-0 mr-2 bg-neutral-300 peer-disabled:bg-neutral-500 rounded-full duration-500 ease-in-out peer-checked:bg-youtube-red peer-checked:peer-disabled:bg-red-800 after:w-5 after:h-5 after:bg-neutral-100 peer-disabled:after:bg-neutral-400 peer-disabled:hover:cursor-not-allowed after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-5"></span>
-                    <span class="font-semibold text-2xl">Direct Actions</span>
-                </label>
-                <span class="text-base">This option enables redirecting for left click/direct actions, such as clicking on a video with the Shorts icon or the Shorts item on the YouTube navigation menu.</span>
+            <div class="border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg rounded-md p-4">
+                <div class="flex items-center justify-start gap-1 -mt-2">
+                    <div class="flex items-center justify-start w-10 h-5 mr-2">
+                        <input id="direct" type="checkbox" class="absolute w-10 h-5 z-10 appearance-none hover:cursor-pointer peer"/>
+                        <span class="w-10 h-3 rounded-full bg-neutral-400 ease-in-out duration-150 peer-checked:bg-youtube-red"></span>
+                        <span class="absolute w-5 h-5 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+                    </div>
+                    <span class="font-semibold text-2xl mb-1">Direct Actions</span>
+                </div>
+                <span class="text-sm">This option enables redirecting for left click/direct actions, such as clicking on a video with the Shorts icon or the Shorts item on the YouTube navigation menu.</span>
             </div>
             <div class="flex items-center self-center">
                 <span class="text-sm">v1.0.0 &#169; Attituding 2022. All rights reserved.</span>

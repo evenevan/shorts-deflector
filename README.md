@@ -1,8 +1,8 @@
 ## Shorts Deflector
-Shorts Deflector is a browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz.
+Why does clicking on a Short on desktop bring up the stupid interface with no video scrubbing, harder to access comments, harder to access comment, etc?
 
-No longer will you click on a video and see the cumbersome Shorts format.
+Shorts Deflector is a browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz.
 
 Best paired with uBlock Origin, which you can use to remove the Shorts item on the YouTube navigation menu permanently.
 
-Chrome & Mozilla pages coming soon™
+Chromium and Mozilla store pages coming soon™
