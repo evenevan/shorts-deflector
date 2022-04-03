@@ -3,11 +3,11 @@
     const newPagesKey = 'new-pages';
     const directKey = 'direct';
     const newPagesButton = document.getElementById(newPagesKey);
-    const leftClickButton = document.getElementById(directKey);
+    const directButton = document.getElementById(directKey);
     const enabledObject = await chrome.storage.sync.get([newPagesKey]);
-    const leftClickObject = await chrome.storage.sync.get([directKey]);
+    const directObject = await chrome.storage.sync.get([directKey]);
     newPagesButton.checked = enabledObject[newPagesKey];
-    leftClickButton.checked = leftClickObject[directKey];
+    directButton.checked = directObject[directKey];
     newPagesButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
             [newPagesKey]: newPagesButton.checked,
@@ -19,9 +19,9 @@
             [declarativeNetRequestKey]: ['shorts'],
         });
     });
-    leftClickButton.addEventListener('click', async () => {
+    directButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [directKey]: leftClickButton.checked,
+            [directKey]: directButton.checked,
         });
     });
 })();
