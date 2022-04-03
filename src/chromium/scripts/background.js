@@ -1,12 +1,16 @@
 "use strict";
 (() => {
-    const newPagesKey = 'new-pages';
-    const directKey = 'direct';
+    const requestKey = 'request';
+    const updateKey = 'update';
     chrome.runtime.onInstalled.addListener(async (details) => {
-        if (details.reason === 'install') {
+        if (details.reason === 'install' || details.reason === 'update') {
+            const keys = await chrome.storage.sync.get([
+                requestKey,
+                updateKey,
+            ]);
             await chrome.storage.sync.set({
-                [newPagesKey]: true,
-                [directKey]: true,
+                [requestKey]: keys[requestKey] ?? true,
+                [updateKey]: keys[updateKey] ?? true,
             });
             console.log('Set default settings');
         }
@@ -15,10 +19,10 @@
         const regex = /^https:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
         if (tab.url && tab.id && url && info?.status === 'complete') {
-            const leftClickObject = await chrome.storage.sync.get([
-                directKey,
+            const updateObject = await chrome.storage.sync.get([
+                updateKey,
             ]);
-            if (leftClickObject[directKey] === true) {
+            if (updateObject[updateKey] === true) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
                 await chrome.tabs.goBack();
                 await chrome.tabs.update(tab.id, {

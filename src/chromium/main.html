@@ -10,29 +10,35 @@
                 <img class="w-10 h-10 mr-2" src="./assets/Shorts Deflector Icon 128.png">
                 <span class="font-semibold text-4xl mb-1">Shorts Deflector</span>
             </div>
-            <div class="border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg rounded-md p-4">
-                <div class="flex items-center justify-start gap-1 -mt-2">
-                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
-                        <input id="new-pages" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>
-                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400"></span>
-                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red ease-in-out duration-150 peer-checked:w-8"></span>
-                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+            <div class="flex flex-col rounded-md border-2  border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg gap-2 p-4">
+                <div class="flex items-center justify-between gap-1 -mt-2 w-full">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                            <input id="request" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>
+                            <span class="w-10 h-3 z-10 rounded-full bg-neutral-400"></span>
+                            <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red ease-in-out duration-150 peer-checked:w-8"></span>
+                            <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+                        </div>
+                        <span class="font-semibold text-2xl mb-1">Requests</span>
                     </div>
-                    <span class="font-semibold text-2xl mb-1">New Pages</span>
+                    <span class="text-sm dark:text-neutral-400 mb-1">chrome.declarativeNetRequest</span>
                 </div>
-                <span class="text-sm">Redirect when you click on hyperlinks, reload the page, or open a Shorts video in a new tab or window. You can still use the Shorts item on the YouTube navigation menu normally.</span>
+                <span class="text-sm">Enable redirecting except when using Shorts from the YouTube navigation menu or left-clicking on a Short. This method of redirecting is faster and will be used whenever possible.</span>
             </div>
-            <div class="border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg rounded-md p-4">
-                <div class="flex items-center justify-start gap-1 -mt-2">
-                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
-                        <input id="direct" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>
-                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400"></span>
-                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red ease-in-out duration-150 peer-checked:w-8"></span>
-                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+            <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg gap-2 p-4">
+                <div class="flex items-center justify-between gap-1 -mt-2">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                            <input id="update" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>
+                            <span class="w-10 h-3 z-10 rounded-full bg-neutral-400"></span>
+                            <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red ease-in-out duration-150 peer-checked:w-8"></span>
+                            <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+                        </div>
+                        <span class="font-semibold text-2xl mb-1">Page Updates</span>
                     </div>
-                    <span class="font-semibold text-2xl mb-1">Direct Actions</span>
+                    <span class="text-sm dark:text-neutral-400 mb-1">chrome.tabs</span>
                 </div>
-                <span class="text-sm">This option enables redirecting for left click/direct actions, such as clicking on a video with the Shorts icon or the Shorts item on the YouTube navigation menu.</span>
+                <span class="text-sm">Enable redirecting when using Shorts and left-clicking on a Short. This option does not redirect new tabs, new windows, or external hyperlinks.</span>
             </div>
             <div class="flex items-center self-center">
                 <span class="text-sm">v1.0.1 &#169; Attituding 2022. All rights reserved.</span>

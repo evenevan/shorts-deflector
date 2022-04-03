@@ -1,12 +1,16 @@
 "use strict";
 (() => {
-    const newPagesKey = 'new-pages';
-    const directKey = 'direct';
+    const requestKey = 'request';
+    const updateKey = 'update';
     browser.runtime.onInstalled.addListener(async (details) => {
-        if (details.reason === 'install') {
+        if (details.reason === 'install' || details.reason === 'update') {
+            const keys = await browser.storage.sync.get([
+                requestKey,
+                updateKey,
+            ]);
             await browser.storage.sync.set({
-                [newPagesKey]: true,
-                [directKey]: true,
+                [requestKey]: keys[requestKey] ?? true,
+                [updateKey]: keys[updateKey] ?? true,
             });
             console.log('Set default settings');
         }
@@ -17,8 +21,10 @@
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = details.url?.match(regex);
         if (details.url && url?.[0]) {
-            const enabledObject = await browser.storage.sync.get([newPagesKey]);
-            if (enabledObject[newPagesKey] === true) {
+            const requestObject = await browser.storage.sync.get([
+                requestKey,
+            ]);
+            if (requestObject[requestKey] === true) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
                 return {
                     redirectUrl: cleanURL,
@@ -36,12 +42,12 @@
         const regex = /^https:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
         if (tab.url && tab.id && url && info?.status === 'complete') {
-            const leftClickObject = await browser.storage.sync.get([
-                directKey,
+            const updateObject = await browser.storage.sync.get([
+                updateKey,
             ]);
-            if (leftClickObject[directKey] === true) {
+            if (updateObject[updateKey] === true) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
-                await browser.tabs.goBack();
+                await browser.tabs.goBack(tab.id);
                 await browser.tabs.update(tab.id, {
                     url: cleanURL,
                 });

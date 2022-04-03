@@ -1,27 +1,29 @@
 "use strict";
 (async () => {
-    const newPagesKey = 'new-pages';
-    const directKey = 'direct';
-    const newPagesButton = document.getElementById(newPagesKey);
-    const directButton = document.getElementById(directKey);
-    const enabledObject = await chrome.storage.sync.get([newPagesKey]);
-    const directObject = await chrome.storage.sync.get([directKey]);
-    newPagesButton.checked = enabledObject[newPagesKey];
-    directButton.checked = directObject[directKey];
-    newPagesButton.addEventListener('click', async () => {
+    const requestKey = 'request';
+    const updateKey = 'update';
+    const requestButton = document.getElementById(requestKey);
+    const updateButton = document.getElementById(updateKey);
+    const keys = await chrome.storage.sync.get([
+        requestKey,
+        updateKey,
+    ]);
+    requestButton.checked = keys[requestKey];
+    updateButton.checked = keys[updateKey];
+    requestButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [newPagesKey]: newPagesButton.checked,
+            [requestKey]: requestButton.checked,
         });
-        const declarativeNetRequestKey = newPagesButton.checked
+        const declarativeNetRequestKey = requestButton.checked
             ? 'enableRulesetIds'
             : 'disableRulesetIds';
         await chrome.declarativeNetRequest.updateEnabledRulesets({
             [declarativeNetRequestKey]: ['shorts'],
         });
     });
-    directButton.addEventListener('click', async () => {
+    updateButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [directKey]: directButton.checked,
+            [updateKey]: updateButton.checked,
         });
     });
 })();
