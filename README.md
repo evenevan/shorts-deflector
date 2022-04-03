@@ -7,16 +7,16 @@ Best paired with uBlock Origin, you can use it remove the Shorts item on the You
 
 Chromium and Mozilla store pages coming soon™
 
-Option Table
+### Option Table
 
-### Mozilla Firefox
-| Method       | Reload Page | Open in New Tab | Open in New Window | External Hyperlink | Left Click on Short | YouTube Navigation Bar |
-|--------------|-------------|-----------------|--------------------|--------------------|---------------------|------------------------|
-| Requests     | Redirects   | Redirects       | Redirects          | Redirects          | Doesn't Redirect    | Doesn't Redirect       |
-| Page Updates | Redirects   | Redirects       | Redirects          | Redirects          | Redirects           | Redirects              |
+#### Mozilla Firefox
+|           Method/API           | Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
+|:------------------------------:|:---------------:|:------------------:|:-------------------:|:-----------:|:----------------:|:----------------:|
+| Requests<br>browser.webRequest |    Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
+| Page Updates<br>browser.tabs   |     Redirect    |      Redirect      |       Redirect      |  Redirects  |     Redirects    |     Redirects    |
 
-### Chromium
-| Method       | Reload Page | Open in New Tab  | Open in New Window | External Hyperlink | Left Click on Short | YouTube Navigation Bar |
-|--------------|-------------|------------------|--------------------|--------------------|---------------------|------------------------|
-| Requests     | Redirects   | Redirects        | Redirects          | Redirects          | Doesn't Redirect    | Doesn't Redirect       |
-| Page Updates | Redirects   | Doesn't Redirect | Doesn't Redirect   | Doesn't Redirect   | Redirects           | Redirects              |
+#### Chromium
+|                Method/API                |  Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
+|:----------------------------------------:|:----------------:|:------------------:|:-------------------:|:-----------:|:----------------:|:----------------:|
+| Requests<br>chrome.declaritiveNetRequest |     Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
+| Page Updates<br>chrome.tabs              | Doesn't Redirect |  Doesn't Redirect  |   Doesn't Redirect  |  Redirects  |     Redirects    |     Redirects    |
