@@ -3,7 +3,6 @@
     "description": "A browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz",
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
-    "main": "src/main.ts",
     "devDependencies": {
         "@types/chrome": "^0.0.180",
         "@types/turndown": "^5.0.1",
