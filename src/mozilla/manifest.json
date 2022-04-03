@@ -1,11 +1,11 @@
 {
     "name": "Shorts Deflector",
     "description": "A browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "manifest_version": 2,
     "background": {
         "scripts": [
-            "./background.js"
+            "./scripts/background.js"
         ]
     },
     "browser_specific_settings": {

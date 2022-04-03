@@ -2,7 +2,7 @@
 <html lang="en" class="h-full">
     <head>
         <link href="./resources/tailwind.css" rel="stylesheet">
-        <script src="./main.js" type="module"></script>
+        <script src="./scripts/main.js" type="module"></script>
     </head>
     <body>
         <div class="flex flex-col items-start justify-start bg- dark:bg-neutral-900 w-[30rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
@@ -12,10 +12,11 @@
             </div>
             <div class="border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg rounded-md p-4">
                 <div class="flex items-center justify-start gap-1 -mt-2">
-                    <div class="flex items-center justify-start w-10 h-5 mr-2">
-                        <input id="new-pages" type="checkbox" class="absolute w-10 h-5 z-10 appearance-none hover:cursor-pointer peer"/>
-                        <span class="w-10 h-3 rounded-full bg-neutral-400 ease-in-out duration-150 peer-checked:bg-youtube-red"></span>
-                        <span class="absolute w-5 h-5 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                        <input id="new-pages" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>
+                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400"></span>
+                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red ease-in-out duration-150 peer-checked:w-8"></span>
+                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
                     </div>
                     <span class="font-semibold text-2xl mb-1">New Pages</span>
                 </div>
@@ -23,17 +24,18 @@
             </div>
             <div class="border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg rounded-md p-4">
                 <div class="flex items-center justify-start gap-1 -mt-2">
-                    <div class="flex items-center justify-start w-10 h-5 mr-2">
-                        <input id="direct" type="checkbox" class="absolute w-10 h-5 z-10 appearance-none hover:cursor-pointer peer"/>
-                        <span class="w-10 h-3 rounded-full bg-neutral-400 ease-in-out duration-150 peer-checked:bg-youtube-red"></span>
-                        <span class="absolute w-5 h-5 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
+                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                        <input id="direct" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>
+                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400"></span>
+                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red ease-in-out duration-150 peer-checked:w-8"></span>
+                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 ease-in-out duration-150 peer-checked:translate-x-5"></span>
                     </div>
                     <span class="font-semibold text-2xl mb-1">Direct Actions</span>
                 </div>
                 <span class="text-sm">This option enables redirecting for left click/direct actions, such as clicking on a video with the Shorts icon or the Shorts item on the YouTube navigation menu.</span>
             </div>
             <div class="flex items-center self-center">
-                <span class="text-sm">v1.0.0 &#169; Attituding 2022. All rights reserved.</span>
+                <span class="text-sm">v1.0.1 &#169; Attituding 2022. All rights reserved.</span>
             </div>
         </div>
     </body>
