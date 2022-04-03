@@ -1,16 +1,16 @@
 "use strict";
 (async () => {
-    const normalKey = 'normal';
+    const newPagesKey = 'new-pages';
     const directKey = 'direct';
-    const enabledButton = document.getElementById(normalKey);
+    const newPagesButton = document.getElementById(newPagesKey);
     const leftClickButton = document.getElementById(directKey);
-    const enabledObject = await browser.storage.sync.get([normalKey]);
+    const enabledObject = await browser.storage.sync.get([newPagesKey]);
     const leftClickObject = await browser.storage.sync.get([directKey]);
-    enabledButton.checked = enabledObject[normalKey];
+    newPagesButton.checked = enabledObject[newPagesKey];
     leftClickButton.checked = leftClickObject[directKey];
-    enabledButton.addEventListener('click', async () => {
+    newPagesButton.addEventListener('click', async () => {
         await browser.storage.sync.set({
-            [normalKey]: enabledButton.checked,
+            [newPagesKey]: newPagesButton.checked,
         });
     });
     leftClickButton.addEventListener('click', async () => {

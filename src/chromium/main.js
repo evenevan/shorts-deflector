@@ -1,18 +1,18 @@
 "use strict";
 (async () => {
-    const normalKey = 'normal';
+    const newPagesKey = 'new-pages';
     const directKey = 'direct';
-    const enabledButton = document.getElementById(normalKey);
+    const newPagesButton = document.getElementById(newPagesKey);
     const leftClickButton = document.getElementById(directKey);
-    const enabledObject = await chrome.storage.sync.get([normalKey]);
+    const enabledObject = await chrome.storage.sync.get([newPagesKey]);
     const leftClickObject = await chrome.storage.sync.get([directKey]);
-    enabledButton.checked = enabledObject[normalKey];
+    newPagesButton.checked = enabledObject[newPagesKey];
     leftClickButton.checked = leftClickObject[directKey];
-    enabledButton.addEventListener('click', async () => {
+    newPagesButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [normalKey]: enabledButton.checked,
+            [newPagesKey]: newPagesButton.checked,
         });
-        const declarativeNetRequestKey = enabledButton.checked
+        const declarativeNetRequestKey = newPagesButton.checked
             ? 'enableRulesetIds'
             : 'disableRulesetIds';
         await chrome.declarativeNetRequest.updateEnabledRulesets({

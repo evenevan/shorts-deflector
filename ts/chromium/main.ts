@@ -1,27 +1,27 @@
 (async () => {
-    const normalKey = 'normal';
+    const newPagesKey = 'new-pages';
     const directKey = 'direct';
 
-    const enabledButton = document.getElementById(
-        normalKey,
+    const newPagesButton = document.getElementById(
+        newPagesKey,
     ) as HTMLFormElement;
 
-    const leftClickButton = document.getElementById(
+    const directButton = document.getElementById(
         directKey,
     ) as HTMLFormElement;
 
-    const enabledObject = await chrome.storage.sync.get([normalKey]);
-    const leftClickObject = await chrome.storage.sync.get([directKey]);
+    const enabledObject = await chrome.storage.sync.get([newPagesKey]);
+    const directObject = await chrome.storage.sync.get([directKey]);
 
-    enabledButton.checked = enabledObject[normalKey];
-    leftClickButton.checked = leftClickObject[directKey];
+    newPagesButton.checked = enabledObject[newPagesKey];
+    directButton.checked = directObject[directKey];
 
-    enabledButton.addEventListener('click', async () => {
+    newPagesButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [normalKey]: enabledButton.checked,
+            [newPagesKey]: newPagesButton.checked,
         });
 
-        const declarativeNetRequestKey = enabledButton.checked
+        const declarativeNetRequestKey = newPagesButton.checked
             ? 'enableRulesetIds'
             : 'disableRulesetIds';
 
@@ -30,9 +30,9 @@
         });
     });
 
-    leftClickButton.addEventListener('click', async () => {
+    directButton.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [directKey]: leftClickButton.checked,
+            [directKey]: directButton.checked,
         });
     });
 })();

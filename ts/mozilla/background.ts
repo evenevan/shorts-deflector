@@ -1,11 +1,11 @@
 (() => {
-    const normalKey = 'normal';
+    const newPagesKey = 'new-pages';
     const directKey = 'direct';
 
     browser.runtime.onInstalled.addListener(async details => {
         if (details.reason === 'install') {
             await browser.storage.sync.set({
-                [normalKey]: true,
+                [newPagesKey]: true,
                 [directKey]: true,
             });
         }
@@ -18,9 +18,9 @@
         const url = details.url?.match(regex);
 
         if (details.url && url?.[0]) {
-            const enabledObject = await browser.storage.sync.get([normalKey]);
+            const enabledObject = await browser.storage.sync.get([newPagesKey]);
 
-            if (enabledObject[normalKey] === true) {
+            if (enabledObject[newPagesKey] === true) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
                 return {

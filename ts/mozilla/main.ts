@@ -1,30 +1,30 @@
 (async () => {
-    const normalKey = 'normal';
+    const newPagesKey = 'new-pages';
     const directKey = 'direct';
 
-    const enabledButton = document.getElementById(
-        normalKey,
+    const newPagesButton = document.getElementById(
+        newPagesKey,
     ) as HTMLFormElement;
 
-    const leftClickButton = document.getElementById(
+    const directButton = document.getElementById(
         directKey,
     ) as HTMLFormElement;
 
-    const enabledObject = await browser.storage.sync.get([normalKey]);
-    const leftClickObject = await browser.storage.sync.get([directKey]);
+    const enabledObject = await browser.storage.sync.get([newPagesKey]);
+    const directObject = await browser.storage.sync.get([directKey]);
 
-    enabledButton.checked = enabledObject[normalKey];
-    leftClickButton.checked = leftClickObject[directKey];
+    newPagesButton.checked = enabledObject[newPagesKey];
+    directButton.checked = directObject[directKey];
 
-    enabledButton.addEventListener('click', async () => {
+    newPagesButton.addEventListener('click', async () => {
         await browser.storage.sync.set({
-            [normalKey]: enabledButton.checked,
+            [newPagesKey]: newPagesButton.checked,
         });
     });
 
-    leftClickButton.addEventListener('click', async () => {
+    directButton.addEventListener('click', async () => {
         await browser.storage.sync.set({
-            [directKey]: leftClickButton.checked,
+            [directKey]: directButton.checked,
         });
     });
 })();

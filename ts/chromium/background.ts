@@ -1,11 +1,11 @@
 (() => {
-    const normalKey = 'normal';
+    const newPagesKey = 'new-pages';
     const directKey = 'direct';
 
     chrome.runtime.onInstalled.addListener(async details => {
         if (details.reason === 'install') {
             await chrome.storage.sync.set({
-                [normalKey]: true,
+                [newPagesKey]: true,
                 [directKey]: true,
             });
         }
