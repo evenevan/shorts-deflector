@@ -8,7 +8,7 @@
       "alwaysStrict": true,
       "esModuleInterop": true,
       "downlevelIteration": true,
-      "outDir": "out",
+      "outDir": "src",
       "types": [
         "chrome",
       ]
