@@ -5,11 +5,12 @@
         <script src="./scripts/main.js" type="module"></script>
     </head>
     <body>
-        <div class="flex flex-col items-start justify-start bg-white dark:bg-neutral-900 w-[32rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
-            <div class="flex items-center justify-center w-full">
-                <img class="w-10 h-10 mr-2" src="./assets/Shorts Deflector Icon 128.png">
+        <div class="flex flex-col items-center justify-start bg-white dark:bg-neutral-900 w-[32rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
+            <div class="flex items-center justify-center w-full h-10 -mb-1">
+                <img class="w-10 h-full mr-2" src="./assets/Shorts Deflector Icon 128.png">
                 <span class="font-semibold text-4xl mb-1">Shorts Deflector</span>
             </div>
+            <span class="text-base text-center">An extension that redirects YouTube Shorts to the desktop UI</span>
             <div class="flex flex-col rounded-md border-2  border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg gap-2 p-4">
                 <div class="flex items-center justify-between gap-1 -mt-2 w-full">
                     <div class="flex items-center">
@@ -23,7 +24,7 @@
                     </div>
                     <span class="text-sm text-neutral-500 dark:text-neutral-400 mb-1">chrome.declarativeNetRequest</span>
                 </div>
-                <span class="text-sm">Enable redirecting except when using Shorts from the YouTube navigation menu or left-clicking on a Short. This method of redirecting is faster than Page Updates and is used whenever possible.</span>
+                <span class="text-sm">Enables all redirecting except for the Shorts item from the YouTube navigation menu or left-clicking on a Short. This method of redirecting is faster than Page Updates and is used whenever possible.</span>
             </div>
             <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-0 dark:bg-neutral-800 shadow-lg gap-2 p-4">
                 <div class="flex items-center justify-between gap-1 -mt-2">
@@ -38,7 +39,7 @@
                     </div>
                     <span class="text-sm text-neutral-500 dark:text-neutral-400 mb-1">chrome.tabs</span>
                 </div>
-                <span class="text-sm">Enable redirecting when using Shorts and left-clicking on a Short, but does not redirect new tabs, new windows, or external hyperlinks. You can also enable the Requests option for better overall performance.</span>
+                <span class="text-sm">Enables all redirecting except for new tabs, new windows, or external hyperlinks. Enabling the Request option will improve performance for overlapping redirects as this method is slower.</span>
             </div>
         </div>
     </body>
