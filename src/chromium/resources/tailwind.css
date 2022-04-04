@@ -530,12 +530,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 32rem;
 }
 
-.w-10 {
-  width: 2.5rem;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-5 {
@@ -562,6 +562,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .justify-start {
   justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {
