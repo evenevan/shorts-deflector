@@ -12,7 +12,7 @@
                 [requestKey]: keys[requestKey] ?? true,
                 [updateKey]: keys[updateKey] ?? true,
             });
-            console.log('Set default settings');
+            console.log('Set settings');
         }
     });
     //@ts-expect-error FireFox can handle async onBeforeRequest
@@ -21,10 +21,10 @@
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = details.url?.match(regex);
         if (details.url && url?.[0]) {
-            const requestObject = await browser.storage.sync.get([
+            const { [requestKey]: request } = await browser.storage.sync.get([
                 requestKey,
             ]);
-            if (requestObject[requestKey] === true) {
+            if (request) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
                 return {
                     redirectUrl: cleanURL,
@@ -38,14 +38,20 @@
     }, [
         'blocking',
     ]);
-    browser.tabs.onUpdated.addListener(async (_id, info, tab) => {
+    const requestStatus = {};
+    browser.tabs.onUpdated.addListener(async (id, info, tab) => {
         const regex = /^https:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
-        if (tab.url && tab.id && url && info?.status === 'complete') {
-            const updateObject = await browser.storage.sync.get([
+        if (tab.status === 'complete' && requestStatus[id]) {
+            delete requestStatus[id];
+            return;
+        }
+        if (url && tab.url && tab.id && typeof requestStatus[id] === 'undefined') {
+            requestStatus[id] = tab.status;
+            const { [updateKey]: update } = await browser.storage.sync.get([
                 updateKey,
             ]);
-            if (updateObject[updateKey] === true) {
+            if (update) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
                 await browser.tabs.goBack(tab.id);
                 await browser.tabs.update(tab.id, {

@@ -12,19 +12,25 @@
                 [requestKey]: keys[requestKey] ?? true,
                 [updateKey]: keys[updateKey] ?? true,
             });
-            console.log('Set default settings');
+            console.log('Set settings');
         }
     });
-    chrome.tabs.onUpdated.addListener(async (_id, info, tab) => {
+    const requestStatus = {};
+    chrome.tabs.onUpdated.addListener(async (id, info, tab) => {
         const regex = /^https:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
-        if (tab.url && tab.id && url && info?.status === 'complete') {
-            const updateObject = await chrome.storage.sync.get([
+        if (tab.status === 'complete' && requestStatus[id]) {
+            delete requestStatus[id];
+            return;
+        }
+        if (url && tab.url && tab.id && typeof requestStatus[id] === 'undefined') {
+            requestStatus[id] = tab.status;
+            const { [updateKey]: update } = await chrome.storage.sync.get([
                 updateKey,
             ]);
-            if (updateObject[updateKey] === true) {
+            if (update) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
-                await chrome.tabs.goBack();
+                await chrome.tabs.goBack(tab.id);
                 await chrome.tabs.update(tab.id, {
                     url: cleanURL,
                 });
