@@ -4,17 +4,16 @@
 
     browser.runtime.onInstalled.addListener(async details => {
         if (details.reason === 'install' || details.reason === 'update') {
-            const keys = await browser.storage.sync.get([
-                requestKey,
-                updateKey,
-            ]);
+            const keys = await browser.storage.sync.get(null);
 
-            await browser.storage.sync.set({
+            const newKeys = {
                 [requestKey]: keys[requestKey] ?? true,
                 [updateKey]: keys[updateKey] ?? true,
-            });
+            };
 
-            console.log('Set settings');
+            await browser.storage.sync.set(newKeys);
+
+            console.log('Set settings', newKeys);
         }
     });
 

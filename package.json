@@ -1,6 +1,6 @@
 {
     "name": "shorts-deflector",
-    "description": "A browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz",
+    "description": "An extension that changes the Shorts UI to the desktop UI",
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {

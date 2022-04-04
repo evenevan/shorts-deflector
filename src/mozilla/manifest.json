@@ -1,6 +1,6 @@
 {
     "name": "Shorts Deflector",
-    "description": "A browser extension that redirects youtube.com/shorts/xyz to youtube.com/watch?v=xyz",
+    "description": "An extension that changes the YouTube Shorts UI to the desktop UI",
     "version": "1.0.1",
     "manifest_version": 2,
     "background": {

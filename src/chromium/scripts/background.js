@@ -4,15 +4,13 @@
     const updateKey = 'update';
     chrome.runtime.onInstalled.addListener(async (details) => {
         if (details.reason === 'install' || details.reason === 'update') {
-            const keys = await chrome.storage.sync.get([
-                requestKey,
-                updateKey,
-            ]);
-            await chrome.storage.sync.set({
+            const keys = await chrome.storage.sync.get(null);
+            const newKeys = {
                 [requestKey]: keys[requestKey] ?? true,
                 [updateKey]: keys[updateKey] ?? true,
-            });
-            console.log('Set settings');
+            };
+            await chrome.storage.sync.set(newKeys);
+            console.log('Set settings', newKeys);
         }
     });
     const requestStatus = {};
