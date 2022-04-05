@@ -1,6 +1,6 @@
 {
     "name": "Shorts Deflector",
-    "description": "An extension that changes the Shorts UI to the desktop UI",
+    "description": "Redirects YouTube Shorts to the normal desktop interface",
     "version": "1.0.1",
     "manifest_version": 3,
     "background": {

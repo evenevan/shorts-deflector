@@ -2,8 +2,10 @@
 (() => {
     const requestKey = 'request';
     const updateKey = 'update';
+    //Install/Update Handling
     chrome.runtime.onInstalled.addListener(async (details) => {
-        if (details.reason === 'install' || details.reason === 'update') {
+        if (details.reason === chrome.runtime.OnInstalledReason.INSTALL ||
+            details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
             const keys = await chrome.storage.sync.get(null);
             const newKeys = {
                 [requestKey]: keys[requestKey] ?? true,
@@ -13,9 +15,10 @@
             console.log('Set settings', newKeys);
         }
     });
+    //Page Update Option Redirecting
     const requestStatus = {};
     chrome.tabs.onUpdated.addListener(async (id, info, tab) => {
-        const regex = /^https:\/\/www\.youtube\.com\/shorts\/(.+)$/;
+        const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
         if (tab.status === 'complete' && requestStatus[id]) {
             delete requestStatus[id];

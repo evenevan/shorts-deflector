@@ -2,8 +2,10 @@
 (() => {
     const requestKey = 'request';
     const updateKey = 'update';
+    //Install/Update Handling
     browser.runtime.onInstalled.addListener(async (details) => {
-        if (details.reason === 'install' || details.reason === 'update') {
+        if (details.reason === browser.runtime.OnInstalledReason.INSTALL ||
+            details.reason === browser.runtime.OnInstalledReason.UPDATE) {
             const keys = await browser.storage.sync.get(null);
             const newKeys = {
                 [requestKey]: keys[requestKey] ?? true,
@@ -13,6 +15,7 @@
             console.log('Set settings', newKeys);
         }
     });
+    //Request Option Redirecting
     //@ts-expect-error FireFox can handle async onBeforeRequest
     //eslint-disable-next-line consistent-return
     browser.webRequest.onBeforeRequest.addListener(async (details) => {
@@ -36,9 +39,10 @@
     }, [
         'blocking',
     ]);
+    //Page Update Option Redirecting
     const requestStatus = {};
     browser.tabs.onUpdated.addListener(async (id, info, tab) => {
-        const regex = /^https:\/\/www\.youtube\.com\/shorts\/(.+)$/;
+        const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
         if (tab.status === 'complete' && requestStatus[id]) {
             delete requestStatus[id];

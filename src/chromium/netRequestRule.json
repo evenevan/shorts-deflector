@@ -9,10 +9,7 @@
             }
         },
         "condition": {
-            "regexFilter": "^https://www\\.youtube\\.com/shorts/(.+)",
-            "resourceTypes": [
-                "main_frame"
-            ]
+            "regexFilter": "^https://www\\.youtube\\.com/shorts/(.+)"
         }
     }
 ]

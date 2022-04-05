@@ -9,7 +9,10 @@
             <img class="w-10 h-full mr-2" src="./assets/Shorts Deflector Icon 128.png">
             <span class="font-semibold text-4xl mb-1">Shorts Deflector</span>
         </div>
-        <span class="text-base">An extension that changes the Shorts UI to the desktop UI</span>
+        <span id="description" class="text-base"></span>
+        <button id="desktop" class="flex items-center justify-center rounded-md border-2  border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 disabled:hover:bg-white dark:disabled:hover:bg-neutral-900 cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-300 dark:disabled:text-neutral-700 shadow-lg gap-2 p-4 w-full" disabled>
+            <span class="font-semibold text-2xl mb-1">Switch to Desktop Interface</span>
+        </button>
         <div class="flex flex-col rounded-md border-2  border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
             <div class="flex items-center justify-between gap-1 -mt-2 w-full">
                 <div class="flex items-center">
@@ -23,7 +26,7 @@
                 </div>
                 <span class="text-xs text-neutral-800 dark:text-neutral-200 mb-1">browser.webRequest</span>
             </div>
-            <span class="text-xs text-neutral-800 dark:text-neutral-200">Enables all redirecting except for the Shorts item from the YouTube navigation menu or left-clicking on a Short. This method of redirecting is faster than Page Updates and is used whenever possible.</span>
+            <span class="text-sm text-neutral-800 dark:text-neutral-200">Enable all redirecting except from the Shorts category on the YouTube navigation menu and left-clicking on a Short</span>
         </div>
         <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
             <div class="flex items-center justify-between gap-1 -mt-2">
@@ -38,7 +41,7 @@
                 </div>
                 <span class="text-xs text-neutral-800 dark:text-neutral-200 mb-1">browser.tabs</span>
             </div>
-            <span class="text-xs text-neutral-800 dark:text-neutral-200">Enables all redirecting in all situations, which includes clicking the Shorts item from the navigation menu or left-clicking on a Short. You should also enable the Requests option for improved performance.</span>
+            <span class="text-sm text-neutral-800 dark:text-neutral-200">Enable complete redirecting, which includes clicking the Shorts category on the navigation menu and left-clicking on a Short</span>
         </div>
     </body>
 </html>
