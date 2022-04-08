@@ -6,15 +6,19 @@
     </head>
     <body class="flex flex-col items-center justify-start bg-white dark:bg-neutral-900 w-[28rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
         <div class="flex items-center justify-center w-full h-10 -mb-1">
-            <img class="w-10 h-full mr-2" src="./assets/Shorts Deflector Icon 128.png">
-            <span class="font-semibold text-4xl mb-1">Shorts Deflector</span>
+            <img class="w-10 h-full mr-2 transition-all ease-in-out duration-1000 hover:rotate-[360deg]" src="./assets/Shorts Deflector Icon 128.png">
+            <span id="name" class="font-semibold text-4xl mb-1"></span>
         </div>
         <span id="description" class="text-base"></span>
-        <button id="desktop" class="flex items-center justify-center rounded-md border-2  border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 disabled:hover:bg-white dark:disabled:hover:bg-neutral-900 cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-300 dark:disabled:text-neutral-700 shadow-lg gap-2 p-4 w-full" disabled>
+        <button id="desktop" class="flex items-center justify-center rounded-md border-2  border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 disabled:hover:bg-white dark:disabled:hover:bg-neutral-900 cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-300 dark:disabled:text-neutral-700 ease-in-out duration-150 shadow-lg gap-2 p-4 w-full relative group" disabled>
             <span class="font-semibold text-2xl mb-1">Switch to Desktop Interface</span>
+            <div class="absolute w-fit h-fit px-2 pb-1 -top-1/4 rounded-md bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white scale-0 group-hover:group-disabled:scale-100 transition-all group-hover:delay-500 translate-y-5 group-hover:-translate-y-5 opacity-0 group-hover:opacity-100 ease-in-out">
+                <span class="absolute w-2 h-2 -bottom-1 left-1/2 rotate-45 bg-inherit"></span>
+                <span class="text-xs">Available when this popup is opened on a page with a YouTube Short</span>
+            </div>
         </button>
-        <div class="flex flex-col rounded-md border-2  border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
-            <div class="flex items-center justify-between gap-1 -mt-2 w-full">
+        <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
+            <div class="flex items-center justify-between gap-1 -mt-2">
                 <div class="flex items-center">
                     <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
                         <input id="request" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer peer"/>

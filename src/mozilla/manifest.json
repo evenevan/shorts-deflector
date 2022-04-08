@@ -1,7 +1,7 @@
 {
     "name": "Shorts Deflector",
-    "description": "Redirects YouTube Shorts to the normal desktop interface",
-    "version": "1.0.2",
+    "description": "Redirect YouTube Shorts to the normal desktop interface.",
+    "version": "1.0.3",
     "manifest_version": 2,
     "background": {
         "scripts": [

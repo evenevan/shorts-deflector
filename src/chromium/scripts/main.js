@@ -1,12 +1,17 @@
 "use strict";
 (async () => {
+    const nameKey = 'name';
     const descriptionKey = 'description';
     const desktopKey = 'desktop';
     const requestKey = 'request';
     const updateKey = 'update';
+    //Title
+    const name = document.getElementById(nameKey);
+    name.textContent = String(chrome.runtime.getManifest().name);
     //Description
     const description = document.getElementById(descriptionKey);
-    description.textContent = String(chrome.runtime.getManifest().description);
+    description.textContent = String(chrome.runtime.getManifest().description
+        ?.replace('.', ''));
     //Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
     const requestStatus = {};
@@ -26,6 +31,7 @@
         delete requestStatus[id];
     });
     desktopButton.addEventListener('click', async () => {
+        desktopButton.disabled = true;
         const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
         await chrome.tabs.update(tab.id, {
             url: cleanURL,

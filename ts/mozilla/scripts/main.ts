@@ -1,8 +1,18 @@
 (async () => {
+    const nameKey = 'name';
     const descriptionKey = 'description';
     const desktopKey = 'desktop';
     const requestKey = 'request';
     const updateKey = 'update';
+
+    //Title
+    const name = document.getElementById(
+        nameKey,
+    ) as HTMLSpanElement;
+
+    name.textContent = String(
+        browser.runtime.getManifest().name,
+    );
 
     //Description
     const description = document.getElementById(
@@ -10,7 +20,8 @@
     ) as HTMLSpanElement;
 
     description.textContent = String(
-        browser.runtime.getManifest().description,
+        browser.runtime.getManifest().description
+            ?.replace('.', ''),
     );
 
     //Desktop Interface Button
@@ -40,6 +51,7 @@
     });
 
     desktopButton.addEventListener('click', async () => {
+        desktopButton.disabled = true;
         const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
         await browser.tabs.update(tab.id!, {
             url: cleanURL,
