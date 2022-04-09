@@ -41,27 +41,28 @@
         currentWindow: true,
     });
 
-    if (tab.status === 'complete') {
-        desktopButtonLoading.classList.add('hidden');
-    } else {
+    if (tab.status === 'loading') {
+        desktopButton.disabled = true;
         desktopButtonLoading.classList.remove('hidden');
+    } else {
+        desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
     }
 
-    desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
+    browser.tabs.onUpdated.addListener((_id, _changes, newTab) => {
+        tab = newTab;
 
-    browser.tabs.onUpdated.addListener((id, _changes, newTab) => {
         if (newTab.status === 'complete') {
-            tab = newTab;
             desktopButtonLoading.classList.add('hidden');
             desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
         } else {
-            desktopButtonLoading.classList.remove('hidden');
             desktopButton.disabled = true;
+            desktopButtonLoading.classList.remove('hidden');
         }
     });
 
     desktopButton.addEventListener('click', async () => {
         desktopButton.disabled = true;
+        desktopButtonLoading.classList.add('hidden');
         const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
         await browser.tabs.update(tab.id!, {
             url: cleanURL,
