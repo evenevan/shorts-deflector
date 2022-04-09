@@ -3,18 +3,18 @@
     <head>
         <link href="./resources/tailwind.css" rel="stylesheet">
         <script src="./scripts/main.js" type="module"></script>
-    </head>
-    <body class="flex flex-col items-center justify-start bg-white dark:bg-neutral-900 w-[28rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
+    </head><body class="flex flex-col items-center justify-start bg-white dark:bg-neutral-900 w-[28rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
         <div class="flex items-center justify-center w-full h-10 -mb-1">
             <img class="w-10 h-full mr-2 transition-all ease-in-out duration-1000 hover:rotate-[720deg]" src="./assets/Shorts Deflector Icon 128.png">
             <span id="name" class="font-semibold text-4xl mb-1"></span>
         </div>
         <span id="description" class="text-base"></span>
-        <button id="desktop" class="flex items-center justify-center rounded-md border-2  border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 disabled:hover:bg-white dark:disabled:hover:bg-neutral-900 cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-300 dark:disabled:text-neutral-700 ease-in-out duration-150 shadow-lg gap-2 p-4 w-full relative group" disabled>
+        <button id="desktop" class="flex items-center justify-center rounded-md border-2  border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 disabled:hover:bg-white dark:disabled:hover:bg-neutral-900 cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-300 dark:disabled:text-neutral-700 ease-in-out duration-150 shadow-lg gap-4 p-4 w-full relative group" disabled>
+            <div id="desktopLoading" class="hidden w-6 h-6 rounded-full border-2 animate-spin border-neutral-200 dark:border-neutral-800 border-t-black dark:border-t-white"></div>
             <span class="font-semibold text-2xl mb-1">Switch to Desktop Interface</span>
-            <div class="absolute w-fit h-fit px-2 pb-1 -top-1/4 rounded-md bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white scale-0 group-hover:group-disabled:scale-100 transition-all group-hover:delay-500 translate-y-5 group-hover:-translate-y-5 opacity-0 group-hover:opacity-100 ease-in-out">
-                <span class="absolute w-2 h-2 -bottom-1 left-1/2 rotate-45 bg-inherit"></span>
-                <span class="text-xs">Available when this popup is opened on a page with a YouTube Short</span>
+            <div class="absolute w-fit max-h-fit px-2 py-1 -top-1/4 rounded-md bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white scale-0 group-hover:group-disabled:scale-100 transition-all group-hover:delay-500 translate-y-5 group-hover:-translate-y-5 opacity-0 group-hover:opacity-100 ease-in-out text-xs">
+                <div class="absolute w-2 h-2 -bottom-1 left-1/2 rotate-45 bg-inherit"></div>
+                Available when this popup is opened on a loaded YouTube Shorts page
             </div>
         </button>
         <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
@@ -30,7 +30,7 @@
                 </div>
                 <span class="text-xs text-neutral-800 dark:text-neutral-200 mb-1">chrome.declarativeNetRequest</span>
             </div>
-            <span class="text-sm text-neutral-800 dark:text-neutral-200">Enable all redirecting except from the Shorts category on the YouTube navigation menu and left-clicking on a Short</span>
+            <span class="text-sm text-neutral-800 dark:text-neutral-200">Enable all redirecting, except from the Shorts category on the YouTube navigation menu and left-clicking on a Short</span>
         </div>
         <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
             <div class="flex items-center justify-between gap-1 -mt-2">
@@ -45,7 +45,7 @@
                 </div>
                 <span class="text-xs text-neutral-800 dark:text-neutral-200 mb-1">chrome.tabs</span>
             </div>
-            <span class="text-sm text-neutral-800 dark:text-neutral-200">Enable all redirecting except when opening from new tabs, new windows, or through external hyperlinks</span>
+            <span class="text-sm text-neutral-800 dark:text-neutral-200">Enable all redirecting, except when opening from new tabs, new windows, or through external hyperlinks</span>
         </div>
     </body>
 </html>

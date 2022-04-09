@@ -2,6 +2,7 @@
     const nameKey = 'name';
     const descriptionKey = 'description';
     const desktopKey = 'desktop';
+    const desktopLoadingKey = 'desktopLoading';
     const requestKey = 'request';
     const updateKey = 'update';
 
@@ -26,28 +27,37 @@
 
     //Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
-    const requestStatus: {[key: string]: string | undefined} = {};
 
     const desktopButton = document.getElementById(
         desktopKey,
     ) as HTMLButtonElement;
+
+    const desktopButtonLoading = document.getElementById(
+        desktopLoadingKey,
+    ) as HTMLElement;
 
     let [tab] = await chrome.tabs.query({
         active: true,
         currentWindow: true,
     });
 
+    if (tab.status === 'complete') {
+        desktopButtonLoading.classList.add('hidden');
+    } else {
+        desktopButtonLoading.classList.remove('hidden');
+    }
+
     desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
 
     chrome.tabs.onUpdated.addListener((id, _changes, newTab) => {
-        if (typeof requestStatus[id] === 'undefined') {
-            requestStatus[id] = tab.status;
+        if (newTab.status === 'complete') {
             tab = newTab;
+            desktopButtonLoading.classList.add('hidden');
             desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
-            return;
+        } else {
+            desktopButtonLoading.classList.remove('hidden');
+            desktopButton.disabled = true;
         }
-
-        delete requestStatus[id];
     });
 
     desktopButton.addEventListener('click', async () => {

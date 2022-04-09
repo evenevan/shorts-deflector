@@ -5,18 +5,16 @@ Shorts Deflector is a browser extension that redirects youtube.com/shorts/xyz to
 
 Best paired with uBlock Origin, you can use it remove the Shorts item on the YouTube navigation menu permanently.
 
-Chromium and Mozilla store pages coming soon™
-
 ### Option Table
 
-#### Mozilla Firefox
-|           Method/API           | Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
-|:------------------------------:|:---------------:|:------------------:|:-------------------:|:-----------:|:----------------:|:----------------:|
-| Requests<br>browser.webRequest |    Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
-| Page Updates<br>browser.tabs   |     Redirect    |      Redirect      |       Redirect      |  Redirects  |     Redirects    |     Redirects    |
-
-#### Chromium
+#### [Chromium](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg)
 |                Method/API                |  Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
 |:----------------------------------------:|:----------------:|:------------------:|:-------------------:|:-----------:|:----------------:|:----------------:|
 | Requests<br>chrome.declaritiveNetRequest |     Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
 | Page Updates<br>chrome.tabs              | Doesn't Redirect |  Doesn't Redirect  |   Doesn't Redirect  |  Redirects  |     Redirects    |     Redirects    |
+
+#### [Mozilla](https://addons.mozilla.org/en-CA/firefox/addon/shorts-deflector/)
+|           Method/API           | Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
+|:------------------------------:|:---------------:|:------------------:|:-------------------:|:-----------:|:----------------:|:----------------:|
+| Requests<br>browser.webRequest |    Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
+| Page Updates<br>browser.tabs   |     Redirect    |      Redirect      |       Redirect      |  Redirects  |     Redirects    |     Redirects    |
