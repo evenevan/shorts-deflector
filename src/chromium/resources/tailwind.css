@@ -488,6 +488,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 50%;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .z-40 {
   z-index: 40;
 }
