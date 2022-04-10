@@ -17,21 +17,35 @@
                 Available when this popup is opened on a YouTube Shorts page
             </div>
         </button>
-        <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4 w-full">
+        <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-4 p-4 w-full">
             <div class="flex items-center justify-between gap-1 w-full">
                 <div class="flex items-center justify-between gap-1 w-full">
-                    <div class="relative flex items-center justify-center w-full">
-                        <div class="absolute flex items-center justify-start left-0 w-10 h-5 mr-2 rounded-full overflow-clip">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
                             <input id="automatic" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
                             <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 peer-disabled:bg-neutral-600"></span>
                             <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
                             <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 peer-disabled:bg-neutral-500 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
                         </div>
-                        <span class="font-semibold text-2xl mb-1">Automatic Redirecting</span>
+                        <span class="font-semibold text-2xl leading-6 h-6">Automatic Redirecting</span>
                     </div>
                 </div>
             </div>
             <span class="text-sm text-neutral-800 dark:text-neutral-200">Automatically redirect YouTube Shorts to the desktop UI</span>
+            <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
+                <div class="flex items-center justify-between gap-1 -mt-2">
+                    <div class="flex items-center">
+                        <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                            <input id="new-pages-only" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
+                            <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 peer-disabled:bg-neutral-600"></span>
+                            <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
+                            <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 peer-disabled:bg-neutral-500 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
+                        </div>
+                        <span class="font-semibold text-2xl mb-1">New Pages Only</span>
+                    </div>
+                </div>
+                <span class="text-sm text-neutral-800 dark:text-neutral-200">Only automatically redirect when the YouTube Short is opened in a new tab or window</span>
+            </div>
         </div>
     </body>
 </html>

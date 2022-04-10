@@ -1,5 +1,6 @@
 (() => {
     const automaticKey = 'automatic';
+    const newPagesOnlyKey = 'new-pages-only';
 
     //Legacy Keys
     const requestKey = 'request';
@@ -18,6 +19,9 @@
                     keys[automaticKey] ??
                     (keys[requestKey] || keys[updateKey]) ??
                     true,
+                [newPagesOnlyKey]:
+                    (keys[requestKey] === false) ||
+                    false,
             };
 
             await browser.storage.sync.set(newKeys);
@@ -71,11 +75,14 @@
         if (url && tab.url && tab.id && typeof requestStatus[id] === 'undefined') {
             requestStatus[id] = tab.status;
 
-            const { [automaticKey]: auto } = await browser.storage.sync.get([
+            const keys = await browser.storage.sync.get([
                 automaticKey,
+                newPagesOnlyKey,
             ]);
 
-            if (auto) {
+            console.log(keys);
+
+            if (keys[automaticKey] && keys[newPagesOnlyKey] === false) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
                 await browser.tabs.goBack(tab.id);

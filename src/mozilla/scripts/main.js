@@ -2,6 +2,7 @@
 (async () => {
     const automaticKey = 'automatic';
     const nameKey = 'name';
+    const newPagesOnlyKey = 'new-pages-only';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
     //Title
@@ -43,13 +44,22 @@
     });
     //Settings Handling
     const automaticSwitch = document.getElementById(automaticKey);
+    const newPagesOnlySwitch = document.getElementById(newPagesOnlyKey);
     const keys = await browser.storage.sync.get([
         automaticKey,
+        newPagesOnlyKey,
     ]);
     automaticSwitch.checked = keys[automaticKey];
+    newPagesOnlySwitch.checked = keys[newPagesOnlyKey];
     automaticSwitch.addEventListener('click', async () => {
+        newPagesOnlySwitch.disabled = automaticSwitch.checked === false;
         await browser.storage.sync.set({
             [automaticKey]: automaticSwitch.checked,
+        });
+    });
+    newPagesOnlySwitch.addEventListener('click', async () => {
+        await chrome.storage.sync.set({
+            [newPagesOnlyKey]: newPagesOnlySwitch.checked,
         });
     });
 })();
