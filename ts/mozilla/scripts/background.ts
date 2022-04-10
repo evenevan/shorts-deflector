@@ -80,7 +80,6 @@
                 newPagesOnlyKey,
             ]);
 
-            console.log(keys);
 
             if (keys[automaticKey] && keys[newPagesOnlyKey] === false) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
