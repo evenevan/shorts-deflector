@@ -1,10 +1,8 @@
 (async () => {
+    const automaticKey = 'automatic';
     const nameKey = 'name';
-    const descriptionKey = 'description';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
-    const requestKey = 'request';
-    const updateKey = 'update';
 
     //Title
     const name = document.getElementById(
@@ -13,16 +11,6 @@
 
     name.textContent = String(
         browser.runtime.getManifest().name,
-    );
-
-    //Description
-    const description = document.getElementById(
-        descriptionKey,
-    ) as HTMLSpanElement;
-
-    description.textContent = String(
-        browser.runtime.getManifest().description
-            ?.replace('.', ''),
     );
 
     //Desktop Interface Button
@@ -70,31 +58,19 @@
     });
 
     //Settings Handling
-    const requestButton = document.getElementById(
-        requestKey,
-    ) as HTMLFormElement;
-
-    const updateButton = document.getElementById(
-        updateKey,
-    ) as HTMLFormElement;
+    const automaticSwitch = document.getElementById(
+        automaticKey,
+    ) as HTMLInputElement;
 
     const keys = await browser.storage.sync.get([
-        requestKey,
-        updateKey,
+        automaticKey,
     ]);
 
-    requestButton.checked = keys[requestKey];
-    updateButton.checked = keys[updateKey];
+    automaticSwitch.checked = keys[automaticKey];
 
-    requestButton.addEventListener('click', async () => {
+    automaticSwitch.addEventListener('click', async () => {
         await browser.storage.sync.set({
-            [requestKey]: requestButton.checked,
-        });
-    });
-
-    updateButton.addEventListener('click', async () => {
-        await browser.storage.sync.set({
-            [updateKey]: updateButton.checked,
+            [automaticKey]: automaticSwitch.checked,
         });
     });
 })();

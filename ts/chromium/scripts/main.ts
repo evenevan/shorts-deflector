@@ -1,10 +1,8 @@
 (async () => {
+    const automaticKey = 'automatic';
     const nameKey = 'name';
-    const descriptionKey = 'description';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
-    const requestKey = 'request';
-    const updateKey = 'update';
 
     //Title
     const name = document.getElementById(
@@ -13,16 +11,6 @@
 
     name.textContent = String(
         chrome.runtime.getManifest().name,
-    );
-
-    //Description
-    const description = document.getElementById(
-        descriptionKey,
-    ) as HTMLSpanElement;
-
-    description.textContent = String(
-        chrome.runtime.getManifest().description
-            ?.replace('.', ''),
     );
 
     //Desktop Interface Button
@@ -70,39 +58,27 @@
     });
 
     //Settings Handling
-    const requestButton = document.getElementById(
-        requestKey,
-    ) as HTMLFormElement;
-
-    const updateButton = document.getElementById(
-        updateKey,
-    ) as HTMLFormElement;
+    const automaticSwitch = document.getElementById(
+        automaticKey,
+    ) as HTMLInputElement;
 
     const keys = await chrome.storage.sync.get([
-        requestKey,
-        updateKey,
+        automaticKey,
     ]);
 
-    requestButton.checked = keys[requestKey];
-    updateButton.checked = keys[updateKey];
+    automaticSwitch.checked = keys[automaticKey];
 
-    requestButton.addEventListener('click', async () => {
+    automaticSwitch.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [requestKey]: requestButton.checked,
+            [automaticKey]: automaticSwitch.checked,
         });
 
-        const declarativeNetRequestKey = requestButton.checked
+        const declarativeNetRequestKey = automaticSwitch.checked
             ? 'enableRulesetIds'
             : 'disableRulesetIds';
 
         await chrome.declarativeNetRequest.updateEnabledRulesets({
             [declarativeNetRequestKey]: ['shorts'],
-        });
-    });
-
-    updateButton.addEventListener('click', async () => {
-        await chrome.storage.sync.set({
-            [updateKey]: updateButton.checked,
         });
     });
 })();

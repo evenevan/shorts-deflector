@@ -1,5 +1,7 @@
 "use strict";
 (() => {
+    const automaticKey = 'automatic';
+    //Legacy Keys
     const requestKey = 'request';
     const updateKey = 'update';
     //Install/Update Handling
@@ -8,8 +10,9 @@
             details.reason === browser.runtime.OnInstalledReason.UPDATE) {
             const keys = await browser.storage.sync.get(null);
             const newKeys = {
-                [requestKey]: keys[requestKey] ?? true,
-                [updateKey]: keys[updateKey] ?? true,
+                [automaticKey]: keys[automaticKey] ??
+                    (keys[requestKey] || keys[updateKey]) ??
+                    true,
             };
             await browser.storage.sync.set(newKeys);
             console.log('Set settings', newKeys);
@@ -22,10 +25,10 @@
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = details.url?.match(regex);
         if (details.url && url?.[0]) {
-            const { [requestKey]: request } = await browser.storage.sync.get([
-                requestKey,
+            const { [automaticKey]: auto } = await browser.storage.sync.get([
+                automaticKey,
             ]);
-            if (request) {
+            if (auto) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
                 return {
                     redirectUrl: cleanURL,
@@ -50,10 +53,10 @@
         }
         if (url && tab.url && tab.id && typeof requestStatus[id] === 'undefined') {
             requestStatus[id] = tab.status;
-            const { [updateKey]: update } = await browser.storage.sync.get([
-                updateKey,
+            const { [automaticKey]: auto } = await browser.storage.sync.get([
+                automaticKey,
             ]);
-            if (update) {
+            if (auto) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
                 await browser.tabs.goBack(tab.id);
                 await browser.tabs.update(tab.id, {

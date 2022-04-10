@@ -1,18 +1,12 @@
 "use strict";
 (async () => {
+    const automaticKey = 'automatic';
     const nameKey = 'name';
-    const descriptionKey = 'description';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
-    const requestKey = 'request';
-    const updateKey = 'update';
     //Title
     const name = document.getElementById(nameKey);
     name.textContent = String(chrome.runtime.getManifest().name);
-    //Description
-    const description = document.getElementById(descriptionKey);
-    description.textContent = String(chrome.runtime.getManifest().description
-        ?.replace('.', ''));
     //Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
     const desktopButton = document.getElementById(desktopKey);
@@ -48,28 +42,20 @@
         });
     });
     //Settings Handling
-    const requestButton = document.getElementById(requestKey);
-    const updateButton = document.getElementById(updateKey);
+    const automaticSwitch = document.getElementById(automaticKey);
     const keys = await chrome.storage.sync.get([
-        requestKey,
-        updateKey,
+        automaticKey,
     ]);
-    requestButton.checked = keys[requestKey];
-    updateButton.checked = keys[updateKey];
-    requestButton.addEventListener('click', async () => {
+    automaticSwitch.checked = keys[automaticKey];
+    automaticSwitch.addEventListener('click', async () => {
         await chrome.storage.sync.set({
-            [requestKey]: requestButton.checked,
+            [automaticKey]: automaticSwitch.checked,
         });
-        const declarativeNetRequestKey = requestButton.checked
+        const declarativeNetRequestKey = automaticSwitch.checked
             ? 'enableRulesetIds'
             : 'disableRulesetIds';
         await chrome.declarativeNetRequest.updateEnabledRulesets({
             [declarativeNetRequestKey]: ['shorts'],
-        });
-    });
-    updateButton.addEventListener('click', async () => {
-        await chrome.storage.sync.set({
-            [updateKey]: updateButton.checked,
         });
     });
 })();

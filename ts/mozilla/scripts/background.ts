@@ -1,4 +1,7 @@
 (() => {
+    const automaticKey = 'automatic';
+
+    //Legacy Keys
     const requestKey = 'request';
     const updateKey = 'update';
 
@@ -11,8 +14,10 @@
             const keys = await browser.storage.sync.get(null);
 
             const newKeys = {
-                [requestKey]: keys[requestKey] ?? true,
-                [updateKey]: keys[updateKey] ?? true,
+                [automaticKey]:
+                    keys[automaticKey] ??
+                    (keys[requestKey] || keys[updateKey]) ??
+                    true,
             };
 
             await browser.storage.sync.set(newKeys);
@@ -29,11 +34,11 @@
         const url = details.url?.match(regex);
 
         if (details.url && url?.[0]) {
-            const { [requestKey]: request } = await browser.storage.sync.get([
-                requestKey,
+            const { [automaticKey]: auto } = await browser.storage.sync.get([
+                automaticKey,
             ]);
 
-            if (request) {
+            if (auto) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
                 return {
@@ -66,11 +71,11 @@
         if (url && tab.url && tab.id && typeof requestStatus[id] === 'undefined') {
             requestStatus[id] = tab.status;
 
-            const { [updateKey]: update } = await browser.storage.sync.get([
-                updateKey,
+            const { [automaticKey]: auto } = await browser.storage.sync.get([
+                automaticKey,
             ]);
 
-            if (update) {
+            if (auto) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
                 await browser.tabs.goBack(tab.id);
