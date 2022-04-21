@@ -1,0 +1,20 @@
+{
+    "extensionName": {
+        "message": "Shorts Deflector"
+    },
+    "extensionDescription": {
+        "message": "Redirect YouTube Shorts to the normal desktop interface."
+    },
+    "switchToDesktopInterfaceTitle": {
+        "message": "Switch to Desktop Interface"
+    },
+    "switchToDesktopInterfaceTooltip": {
+        "message": "Available when this popup is opened on a YouTube Shorts page"
+    },
+    "automaticRedirectingTitle": {
+        "message": "Automatic Redirecting"
+    },
+    "automaticRedirectingDescription": {
+        "message": "Automatically redirect YouTube Shorts to the desktop UI"
+    }
+}

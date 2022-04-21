@@ -1,13 +1,21 @@
 "use strict";
 (async () => {
+    [
+        'extensionName',
+        'switchToDesktopInterfaceTitle',
+        'switchToDesktopInterfaceTooltip',
+        'automaticRedirectingTitle',
+        'automaticRedirectingDescription',
+        'newPagesOnlyTitle',
+        'newPagesOnlyDescription',
+    ].forEach(value => {
+        const element = document.getElementById(value);
+        element.textContent = chrome.i18n.getMessage(value);
+    });
     const automaticKey = 'automatic';
-    const nameKey = 'name';
     const newPagesOnlyKey = 'new-pages-only';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
-    //Title
-    const name = document.getElementById(nameKey);
-    name.textContent = String(browser.runtime.getManifest().name);
     //Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
     const desktopButton = document.getElementById(desktopKey);

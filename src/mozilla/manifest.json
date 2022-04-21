@@ -1,25 +1,9 @@
 {
-    "name": "Shorts Deflector",
-    "description": "Redirect YouTube Shorts to the normal desktop interface.",
-    "version": "1.2.0",
-    "manifest_version": 2,
     "background": {
         "scripts": [
             "./scripts/background.js"
         ]
     },
-    "browser_specific_settings": {
-        "gecko": {
-            "id": "shortsdeflector@addons.com"
-        }
-    },
-    "permissions": [
-        "tabs",
-        "storage",
-        "webRequest",
-        "webRequestBlocking",
-        "*://www.youtube.com/*"
-    ],
     "browser_action": {
         "default_popup": "./main.html",
         "default_icon": {
@@ -29,10 +13,27 @@
             "128": "./assets/Shorts Deflector Icon 128.png"
         }
     },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "shortsdeflector@addons.com"
+        }
+    },
+    "default_locale": "en",
+    "description": "__MSG_extensionDescription__",
     "icons": {
         "16": "./assets/Shorts Deflector Icon 16.png",
         "32": "./assets/Shorts Deflector Icon 32.png",
         "48": "./assets/Shorts Deflector Icon 48.png",
         "128": "./assets/Shorts Deflector Icon 128.png"
-    }
+    },
+    "manifest_version": 2,
+    "name": "__MSG_extensionName__",
+    "permissions": [
+        "tabs",
+        "storage",
+        "webRequest",
+        "webRequestBlocking",
+        "*://www.youtube.com/*"
+    ],
+    "version": "1.2.0"
 }
