@@ -7,10 +7,9 @@
     "browser_action": {
         "default_popup": "./main.html",
         "default_icon": {
-            "16": "./assets/Shorts Deflector Icon 16.png",
-            "32": "./assets/Shorts Deflector Icon 32.png",
-            "48": "./assets/Shorts Deflector Icon 48.png",
-            "128": "./assets/Shorts Deflector Icon 128.png"
+            "16": "./assets/Shorts Deflector Icon.svg",
+            "48": "./assets/Shorts Deflector Icon.svg",
+            "128": "./assets/Shorts Deflector Icon.svg"
         }
     },
     "browser_specific_settings": {
@@ -21,10 +20,9 @@
     "default_locale": "en",
     "description": "__MSG_extensionDescription__",
     "icons": {
-        "16": "./assets/Shorts Deflector Icon 16.png",
-        "32": "./assets/Shorts Deflector Icon 32.png",
-        "48": "./assets/Shorts Deflector Icon 48.png",
-        "128": "./assets/Shorts Deflector Icon 128.png"
+        "16": "./assets/Shorts Deflector Icon.svg",
+        "48": "./assets/Shorts Deflector Icon.svg",
+        "128": "./assets/Shorts Deflector Icon.svg"
     },
     "manifest_version": 2,
     "name": "__MSG_extensionName__",
@@ -35,5 +33,5 @@
         "webRequestBlocking",
         "*://www.youtube.com/*"
     ],
-    "version": "1.2.0"
+    "version": "1.2.1"
 }

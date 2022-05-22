@@ -1,7 +1,7 @@
 {
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "manifest_version": 3,
     "default_locale": "en",
     "background": {
@@ -28,14 +28,12 @@
         "default_popup": "./main.html",
         "default_icon": {
             "16": "./assets/Shorts Deflector Icon 16.png",
-            "32": "./assets/Shorts Deflector Icon 32.png",
             "48": "./assets/Shorts Deflector Icon 48.png",
             "128": "./assets/Shorts Deflector Icon 128.png"
         }
     },
     "icons": {
         "16": "./assets/Shorts Deflector Icon 16.png",
-        "32": "./assets/Shorts Deflector Icon 32.png",
         "48": "./assets/Shorts Deflector Icon 48.png",
         "128": "./assets/Shorts Deflector Icon 128.png"
     }
