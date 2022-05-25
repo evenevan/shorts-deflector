@@ -14,7 +14,6 @@ By using the convenient "Switch to Desktop" button, you can continue to watch Yo
   <img src="./assets/promo/Shorts%20Deflector%20User%20Interface.png">
   <img src="./assets/promo/Shorts%20Deflector%20User%20Interface.png">
 </details>
-<br>
 
 # API Table
 #### [Chromium](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg)
