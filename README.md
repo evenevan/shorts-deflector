@@ -12,7 +12,6 @@ By using the convenient "Switch to Desktop" button, you can continue to watch Yo
 <details>
   <summary><b>User Interface</b></summary>
   <img src="./assets/promo/Shorts%20Deflector%20User%20Interface.png">
-  <img src="./assets/promo/Shorts%20Deflector%20User%20Interface.png">
 </details>
 
 # API Table
