@@ -488,28 +488,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
-.h-fit {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-.h-16 {
-  height: 4rem;
+.h-20 {
+  height: 5rem;
 }
 
 .h-\[3rem\] {
   height: 3rem;
-}
-
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .w-full {
@@ -526,12 +510,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 12rem;
 }
 
-.w-16 {
-  width: 4rem;
-}
-
-.w-\[4rem\] {
-  width: 4rem;
+.w-20 {
+  width: 5rem;
 }
 
 .grid-cols-\[repeat\(auto-fit\2c minmax\(15rem\2c 1fr\)\)\] {
@@ -755,8 +735,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 750px) {
-  .desktop\:h-full {
-    height: 100%;
+  .desktop\:h-screen {
+    height: 100vh;
   }
 
   .desktop\:h-fit {
@@ -765,14 +745,8 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: fit-content;
   }
 
-  .desktop\:h-screen {
-    height: 100vh;
-  }
-
-  .desktop\:h-max {
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
+  .desktop\:w-\[50rem\] {
+    width: 50rem;
   }
 
   .desktop\:w-fit {
