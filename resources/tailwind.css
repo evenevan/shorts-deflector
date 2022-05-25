@@ -480,6 +480,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: grid;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-full {
   height: 100%;
 }
@@ -488,32 +492,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 4rem;
 }
 
-.h-fit {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-
-.h-16 {
-  height: 4rem;
+.h-20 {
+  height: 5rem;
 }
 
 .h-\[3rem\] {
   height: 3rem;
 }
 
-.h-max {
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-}
-
-.h-screen {
-  height: 100vh;
-}
-
-.h-20 {
-  height: 5rem;
+.w-screen {
+  width: 100vw;
 }
 
 .w-full {
@@ -528,14 +516,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[12rem\] {
   width: 12rem;
-}
-
-.w-16 {
-  width: 4rem;
-}
-
-.w-\[4rem\] {
-  width: 4rem;
 }
 
 .w-20 {
@@ -691,12 +671,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.shadow {
-  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -763,10 +737,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 750px) {
-  .desktop\:h-full {
-    height: 100%;
-  }
-
   .desktop\:h-fit {
     height: -webkit-fit-content;
     height: -moz-fit-content;
@@ -775,12 +745,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .desktop\:h-screen {
     height: 100vh;
-  }
-
-  .desktop\:h-max {
-    height: -webkit-max-content;
-    height: -moz-max-content;
-    height: max-content;
   }
 
   .desktop\:w-fit {
