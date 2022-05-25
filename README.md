@@ -1,4 +1,4 @@
-![](./assets/Shorts%20Deflector%20Promo%20Tile%201400%20560.png)
+![](./assets/promo/Shorts%20Deflector%20Promo%20Tile%201400%20560.png)
 
 # Introduction
 
