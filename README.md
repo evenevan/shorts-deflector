@@ -1,5 +1,3 @@
-![](./assets/promo/Shorts%20Deflector%20Promo%20Tile%201400%20560.png)
-
 # Introduction
 
 Why does clicking on a YouTube Short on a desktop bring up the mobile-optimized interface with no video scrubbing, harder to access comments, less accessible view count, and an overall worse experience than the normal viewer?
