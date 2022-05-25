@@ -14,6 +14,9 @@ By using the convenient "Switch to Desktop" button, you can continue to watch Yo
   <img src="./assets/promo/Shorts%20Deflector%20User%20Interface.png">
 </details>
 
+# Home Page
+[https://shortsdeflector.attituding.live/](https://attituding.github.io/Shorts-Deflector/)
+
 # API Table
 #### [Chromium](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg)
 |                Method/API                |  Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
@@ -21,7 +24,7 @@ By using the convenient "Switch to Desktop" button, you can continue to watch Yo
 | Requests<br>chrome.declaritiveNetRequest |     Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
 | Page Updates<br>chrome.tabs              | Doesn't Redirect |  Doesn't Redirect  |   Doesn't Redirect  |  Redirects  |     Redirects    |     Redirects    |
 
-#### [Mozilla](https://addons.mozilla.org/en-CA/firefox/addon/shorts-deflector/)
+#### [Firefox](https://addons.mozilla.org/en-CA/firefox/addon/shorts-deflector/)
 |           Method/API           | Open in New Tab | Open in New Window | External Hyperlinks | Reload Page |    Left Click    |  Navigation Bar  |
 |:------------------------------:|:---------------:|:------------------:|:-------------------:|:-----------:|:----------------:|:----------------:|
 | Requests<br>browser.webRequest |    Redirects    |      Redirects     |      Redirects      |  Redirects  | Doesn't Redirect | Doesn't Redirect |
