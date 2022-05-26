@@ -8,13 +8,23 @@ By using the convenient "Switch to Desktop" button, you can continue to watch Yo
 
 # Screenshots
 <details>
-  <summary><b>User Interface w/ Light Mode</b></summary>
-  <img src="./assets/promo/Shorts%20Deflector%20User%20Interface%20Light.png">
+  <summary><b>Chromium User Interface w/ Light Mode</b></summary>
+  <img src="./assets/promo/Shorts%20Deflector%20Chromium%20Light.png">
 </details>
 
 <details>
-  <summary><b>User Interface w/ Dark Mode</b></summary>
-  <img src="./assets/promo/Shorts%20Deflector%20User%20Interface%20Dark.png">
+  <summary><b>Chromium User Interface w/ Dark Mode</b></summary>
+  <img src="./assets/promo/Shorts%20Deflector%20Chromium%20Dark.png">
+</details>
+
+<details>
+  <summary><b>Firefox User Interface w/ Light Mode</b></summary>
+  <img src="./assets/promo/Shorts%20Deflector%20Firefox%20Light.png">
+</details>
+
+<details>
+  <summary><b>Firefox User Interface w/ Dark Mode</b></summary>
+  <img src="./assets/promo/Shorts%20Deflector%20Firefox%20Dark.png">
 </details>
 
 # Home Page
