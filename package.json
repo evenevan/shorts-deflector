@@ -15,7 +15,7 @@
         "typescript": "^4.6.3"
     },
     "scripts": {
-        "build": "tsc -p . && npx tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/mozilla/resources/tailwind.css",
-        "tailwind": "npx tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/mozilla/resources/tailwind.css"
+        "build": "tsc -p . && npx tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css",
+        "tailwind": "npx tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css"
     }
 }
