@@ -708,6 +708,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
+.bg-neutral-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
 .bg-neutral-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
@@ -792,12 +797,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   opacity: 0;
 }
 
-.shadow-lg {
-  --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .transition-all {
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -834,18 +833,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: not-allowed;
 }
 
-.disabled\:text-neutral-300:disabled {
+.disabled\:bg-neutral-100:disabled {
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
+.disabled\:text-neutral-600:disabled {
   --tw-text-opacity: 1;
-  color: rgb(212 212 212 / var(--tw-text-opacity));
+  color: rgb(82 82 82 / var(--tw-text-opacity));
 }
 
 .disabled\:hover\:cursor-not-allowed:hover:disabled {
   cursor: not-allowed;
-}
-
-.disabled\:hover\:bg-white:hover:disabled {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .group:hover .group-hover\:-translate-y-5 {
@@ -896,6 +895,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (prefers-color-scheme: dark) {
+  .dark\:border-neutral-700 {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity));
+  }
+
   .dark\:border-neutral-800 {
     --tw-border-opacity: 1;
     border-color: rgb(38 38 38 / var(--tw-border-opacity));
@@ -926,18 +930,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     color: rgb(229 229 229 / var(--tw-text-opacity));
   }
 
-  .dark\:hover\:bg-neutral-800:hover {
+  .dark\:hover\:bg-neutral-700:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+  }
+
+  .disabled\:dark\:bg-neutral-800:disabled {
     --tw-bg-opacity: 1;
     background-color: rgb(38 38 38 / var(--tw-bg-opacity));
   }
 
-  .dark\:disabled\:text-neutral-700:disabled {
+  .dark\:disabled\:text-neutral-400:disabled {
     --tw-text-opacity: 1;
-    color: rgb(64 64 64 / var(--tw-text-opacity));
-  }
-
-  .dark\:disabled\:hover\:bg-neutral-900:hover:disabled {
-    --tw-bg-opacity: 1;
-    background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+    color: rgb(163 163 163 / var(--tw-text-opacity));
   }
 }

@@ -59,6 +59,7 @@
     ]);
     automaticSwitch.checked = keys[automaticKey];
     newPagesOnlySwitch.checked = keys[newPagesOnlyKey];
+    newPagesOnlySwitch.disabled = keys[automaticKey] === false;
     automaticSwitch.addEventListener('click', async () => {
         newPagesOnlySwitch.disabled = automaticSwitch.checked === false;
         await browser.storage.sync.set({
@@ -66,7 +67,7 @@
         });
     });
     newPagesOnlySwitch.addEventListener('click', async () => {
-        await chrome.storage.sync.set({
+        await browser.storage.sync.set({
             [newPagesOnlyKey]: newPagesOnlySwitch.checked,
         });
     });

@@ -9,14 +9,14 @@
             <img class="w-10 h-full mr-2 transition-all ease-in-out duration-1000 hover:rotate-[720deg]" src="./assets/Shorts Deflector Icon.svg">
             <span id="extensionName" class="font-semibold text-4xl mb-1"></span>
         </div>
-        <button id="desktop" class="flex items-center justify-center rounded-md border-2  border-neutral-200 dark:border-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-800 disabled:hover:bg-white dark:disabled:hover:bg-neutral-900 cursor-pointer disabled:cursor-not-allowed disabled:text-neutral-300 dark:disabled:text-neutral-700 ease-in-out duration-150 shadow-lg gap-4 p-4 w-full relative group" disabled>
+        <button id="desktop" class="flex items-center justify-center rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700   disabled:bg-neutral-100 disabled:dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 disabled:text-neutral-600 dark:disabled:text-neutral-400 cursor-pointer disabled:cursor-not-allowed ease-in-out duration-150 gap-4 p-4 w-full relative group" disabled>
             <div id="desktopLoading" class="hidden w-6 h-6 rounded-full border-[3px] animate-spin border-neutral-200 dark:border-neutral-800 border-t-black dark:border-t-white"></div>
             <span id="switchToDesktopInterfaceTitle" class="font-semibold text-2xl mb-1"></span>
             <div id="switchToDesktopInterfaceTooltip" class="absolute w-fit max-h-fit px-2 py-1 -top-1/4 rounded-md bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white scale-0 group-hover:group-disabled:scale-100 transition-all group-hover:delay-500 translate-y-5 group-hover:-translate-y-5 opacity-0 group-hover:opacity-100 ease-in-out text-xs">
                 <div class="absolute w-2 h-2 -bottom-1 left-1/2 rotate-45 bg-inherit"></div>
             </div>
         </button>
-        <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-4 p-4 w-full">
+        <div class="flex flex-col rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 gap-2 p-4 w-full">
             <div class="flex items-center justify-between gap-1 w-full">
                 <div class="flex items-center justify-between gap-1 w-full">
                     <div class="flex items-center">
@@ -31,20 +31,20 @@
                 </div>
             </div>
             <span id="automaticRedirectingDescription" class="text-sm text-neutral-800 dark:text-neutral-200"></span>
-            <div class="flex flex-col rounded-md border-2 border-neutral-200 dark:border-neutral-800 shadow-lg gap-2 p-4">
-                <div class="flex items-center justify-between gap-1 -mt-2">
-                    <div class="flex items-center">
-                        <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
-                            <input id="new-pages-only" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
-                            <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 peer-disabled:bg-neutral-600"></span>
-                            <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
-                            <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 peer-disabled:bg-neutral-500 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
-                        </div>
-                        <span id="newPagesOnlyTitle" class="font-semibold text-2xl mb-1"></span>
+        </div>
+        <div class="flex flex-col rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 gap-2 p-4 w-full">
+            <div class="flex items-center justify-between gap-1 -mt-2">
+                <div class="flex items-center">
+                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                        <input id="new-pages-only" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
+                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 peer-disabled:bg-neutral-600"></span>
+                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
+                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 peer-disabled:bg-neutral-500 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
                     </div>
+                    <span id="newPagesOnlyTitle" class="font-semibold text-2xl mb-1"></span>
                 </div>
-                <span id="newPagesOnlyDescription" class="text-sm text-neutral-800 dark:text-neutral-200"></span>
             </div>
+            <span id="newPagesOnlyDescription" class="text-sm text-neutral-800 dark:text-neutral-200"></span>
         </div>
     </body>
 </html>
