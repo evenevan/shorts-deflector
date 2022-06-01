@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.0.23 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.24 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -807,10 +807,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 1000ms;
 }
 
-.duration-150 {
-  transition-duration: 150ms;
-}
-
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -847,25 +843,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: not-allowed;
 }
 
-.group:hover .group-hover\:-translate-y-5 {
-  --tw-translate-y: -1.25rem;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:opacity-100 {
-  opacity: 1;
-}
-
-.group:hover .group-hover\:delay-500 {
-  transition-delay: 500ms;
-}
-
-.group:hover:disabled .group-hover\:group-disabled\:scale-100 {
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .peer:checked ~ .peer-checked\:w-8 {
   width: 2rem;
 }
@@ -875,8 +852,27 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
+.peer:hover ~ .peer-hover\:-translate-y-5 {
+  --tw-translate-y: -1.25rem;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.peer:hover ~ .peer-hover\:opacity-100 {
+  opacity: 1;
+}
+
+.peer:hover ~ .peer-hover\:delay-500 {
+  transition-delay: 500ms;
+}
+
 .peer:hover ~ .peer-hover\:duration-150 {
   transition-duration: 150ms;
+}
+
+.group:disabled .peer:hover ~ .group-disabled\:peer-hover\:scale-100 {
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .peer:disabled ~ .peer-disabled\:bg-neutral-600 {
@@ -918,6 +914,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .dark\:bg-neutral-800 {
     --tw-bg-opacity: 1;
     background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+
+  .dark\:bg-neutral-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
   }
 
   .dark\:text-white {
