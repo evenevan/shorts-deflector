@@ -713,11 +713,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(245 245 245 / var(--tw-bg-opacity));
 }
 
-.bg-neutral-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-
 .bg-inherit {
   background-color: inherit;
 }
@@ -875,19 +870,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.peer:disabled ~ .peer-disabled\:bg-neutral-600 {
+.peer:disabled ~ .peer-disabled\:bg-neutral-500 {
   --tw-bg-opacity: 1;
-  background-color: rgb(82 82 82 / var(--tw-bg-opacity));
+  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
 }
 
 .peer:disabled ~ .peer-disabled\:bg-youtube-red-disabled {
   --tw-bg-opacity: 1;
-  background-color: rgb(90 1 2 / var(--tw-bg-opacity));
+  background-color: rgb(193 3 5 / var(--tw-bg-opacity));
 }
 
-.peer:disabled ~ .peer-disabled\:bg-neutral-500 {
+.peer:disabled ~ .peer-disabled\:bg-neutral-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(115 115 115 / var(--tw-bg-opacity));
+  background-color: rgb(163 163 163 / var(--tw-bg-opacity));
 }
 
 @media (prefers-color-scheme: dark) {
@@ -916,9 +911,14 @@ Ensure the default browser behavior of the `hidden` attribute.
     background-color: rgb(38 38 38 / var(--tw-bg-opacity));
   }
 
-  .dark\:bg-neutral-700 {
+  .dark\:bg-neutral-500 {
     --tw-bg-opacity: 1;
-    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+    background-color: rgb(115 115 115 / var(--tw-bg-opacity));
+  }
+
+  .dark\:bg-neutral-400 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(163 163 163 / var(--tw-bg-opacity));
   }
 
   .dark\:text-white {
@@ -944,5 +944,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   .dark\:disabled\:text-neutral-400:disabled {
     --tw-text-opacity: 1;
     color: rgb(163 163 163 / var(--tw-text-opacity));
+  }
+
+  .peer:disabled ~ .dark\:peer-disabled\:bg-neutral-700 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(64 64 64 / var(--tw-bg-opacity));
+  }
+
+  .peer:disabled ~ .dark\:peer-disabled\:bg-neutral-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(82 82 82 / var(--tw-bg-opacity));
   }
 }
