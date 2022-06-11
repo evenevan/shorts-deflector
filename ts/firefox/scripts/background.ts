@@ -62,7 +62,7 @@
     //Page Update Option Redirecting
     const requestStatus: {[key: string]: string | undefined} = {};
 
-    browser.tabs.onUpdated.addListener(async (id, info, tab) => {
+    browser.tabs.onUpdated.addListener(async (id, _info, tab) => {
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
 
@@ -84,7 +84,11 @@
             if (keys[automaticKey] && keys[newPagesOnlyKey] === false) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
-                await browser.tabs.goBack(tab.id);
+                try {
+                    await browser.tabs.goBack(tab.id);
+                // eslint-disable-next-line no-empty
+                } catch {}
+
                 await browser.tabs.update(tab.id, {
                     url: cleanURL,
                 });

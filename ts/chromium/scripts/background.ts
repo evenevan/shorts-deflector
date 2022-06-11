@@ -29,7 +29,7 @@
     //Page Update Option Redirecting
     const requestStatus: {[key: string]: string | undefined} = {};
 
-    chrome.tabs.onUpdated.addListener(async (id, info, tab) => {
+    chrome.tabs.onUpdated.addListener(async (id, _info, tab) => {
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = tab.url?.match(regex);
 
@@ -49,7 +49,11 @@
             if (auto) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
-                await chrome.tabs.goBack(tab.id);
+                try {
+                    await chrome.tabs.goBack(tab.id);
+                // eslint-disable-next-line no-empty
+                } catch {}
+
                 await chrome.tabs.update(tab.id, {
                     url: cleanURL,
                 });
