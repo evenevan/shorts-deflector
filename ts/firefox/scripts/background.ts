@@ -2,26 +2,26 @@
     const automaticKey = 'automatic';
     const newPagesOnlyKey = 'new-pages-only';
 
-    //Legacy Keys
+    // Legacy Keys
     const requestKey = 'request';
     const updateKey = 'update';
 
-    //Install/Update Handling
-    browser.runtime.onInstalled.addListener(async details => {
+    // Install/Update Handling
+    browser.runtime.onInstalled.addListener(async (details) => {
         if (
-            details.reason === browser.runtime.OnInstalledReason.INSTALL ||
-            details.reason === browser.runtime.OnInstalledReason.UPDATE
+            details.reason === browser.runtime.OnInstalledReason.INSTALL
+            || details.reason === browser.runtime.OnInstalledReason.UPDATE
         ) {
             const keys = await browser.storage.sync.get(null);
 
             const newKeys = {
                 [automaticKey]:
-                    keys[automaticKey] ??
-                    (keys[requestKey] || keys[updateKey]) ??
-                    true,
+                    keys[automaticKey]
+                    ?? (keys[requestKey] || keys[updateKey])
+                    ?? true,
                 [newPagesOnlyKey]:
-                    (keys[requestKey] === false) ||
-                    false,
+                    (keys[requestKey] === false)
+                    || false,
             };
 
             await browser.storage.sync.set(newKeys);
@@ -30,10 +30,10 @@
         }
     });
 
-    //Request Option Redirecting
-    //@ts-expect-error FireFox can handle async onBeforeRequest
-    //eslint-disable-next-line consistent-return
-    browser.webRequest.onBeforeRequest.addListener(async details => {
+    // Request Option Redirecting
+    // @ts-expect-error FireFox can handle async onBeforeRequest
+    // eslint-disable-next-line consistent-return
+    browser.webRequest.onBeforeRequest.addListener(async (details) => {
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
         const url = details.url?.match(regex);
 
@@ -58,9 +58,8 @@
         'blocking',
     ]);
 
-
-    //Page Update Option Redirecting
-    const requestStatus: {[key: string]: string | undefined} = {};
+    // Page Update Option Redirecting
+    const requestStatus: { [key: string]: string | undefined } = {};
 
     browser.tabs.onUpdated.addListener(async (id, _info, tab) => {
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
@@ -80,7 +79,6 @@
                 newPagesOnlyKey,
             ]);
 
-
             if (keys[automaticKey] && keys[newPagesOnlyKey] === false) {
                 const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
@@ -95,7 +93,7 @@
             }
         }
 
-        //@ts-expect-error Mozilla version has extra params
+        // @ts-expect-error Mozilla version has extra params
     }, {
         urls: [
             '*://www.youtube.com/shorts/*',

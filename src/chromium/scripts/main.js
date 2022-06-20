@@ -6,14 +6,14 @@
         'switchToDesktopInterfaceTooltip',
         'automaticRedirectingTitle',
         'automaticRedirectingDescription',
-    ].forEach(value => {
+    ].forEach((value) => {
         const element = document.getElementById(value);
         element.textContent = chrome.i18n.getMessage(value);
     });
     const automaticKey = 'automatic';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
-    //Desktop Interface Button
+    // Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
     const desktopButton = document.getElementById(desktopKey);
     const desktopButtonLoading = document.getElementById(desktopLoadingKey);
@@ -47,7 +47,7 @@
             url: cleanURL,
         });
     });
-    //Settings Handling
+    // Settings Handling
     const automaticSwitch = document.getElementById(automaticKey);
     const keys = await chrome.storage.sync.get([
         automaticKey,

@@ -1,24 +1,24 @@
 "use strict";
 (() => {
     const automaticKey = 'automatic';
-    //Legacy Keys
+    // Legacy Keys
     const requestKey = 'request';
     const updateKey = 'update';
-    //Install/Update Handling
+    // Install/Update Handling
     chrome.runtime.onInstalled.addListener(async (details) => {
-        if (details.reason === chrome.runtime.OnInstalledReason.INSTALL ||
-            details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
+        if (details.reason === chrome.runtime.OnInstalledReason.INSTALL
+            || details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
             const keys = await chrome.storage.sync.get(null);
             const newKeys = {
-                [automaticKey]: keys[automaticKey] ??
-                    (keys[requestKey] || keys[updateKey]) ??
-                    true,
+                [automaticKey]: keys[automaticKey]
+                    ?? (keys[requestKey] || keys[updateKey])
+                    ?? true,
             };
             await chrome.storage.sync.set(newKeys);
             console.log('Set settings', newKeys);
         }
     });
-    //Page Update Option Redirecting
+    // Page Update Option Redirecting
     const requestStatus = {};
     chrome.tabs.onUpdated.addListener(async (id, _info, tab) => {
         const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
