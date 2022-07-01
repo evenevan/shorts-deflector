@@ -1,5 +1,6 @@
 {
     "name": "website",
+    "description": "The code behind https://attituding.live.",
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {
