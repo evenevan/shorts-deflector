@@ -25,7 +25,7 @@
         "https://www.youtube.com/"
     ],
     "action": {
-        "default_popup": "./main.html",
+        "default_popup": "./index.html",
         "default_icon": {
             "16": "./assets/Shorts Deflector Icon 16.png",
             "48": "./assets/Shorts Deflector Icon 48.png",

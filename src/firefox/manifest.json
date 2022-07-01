@@ -5,7 +5,7 @@
         ]
     },
     "browser_action": {
-        "default_popup": "./main.html",
+        "default_popup": "./index.html",
         "default_icon": {
             "16": "./assets/Shorts Deflector Icon.svg",
             "48": "./assets/Shorts Deflector Icon.svg",
