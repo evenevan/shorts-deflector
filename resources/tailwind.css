@@ -744,9 +744,9 @@ video {
   background-color: rgb(228 228 231 / var(--tw-bg-opacity));
 }
 
-.bg-neutral-100 {
+.bg-neutral-200 {
   --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+  background-color: rgb(229 229 229 / var(--tw-bg-opacity));
 }
 
 .bg-neutral-300 {
@@ -754,8 +754,8 @@ video {
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
 
-.fill-black {
-  fill: #000;
+.fill-neutral-600 {
+  fill: #525252;
 }
 
 .p-8 {
@@ -834,9 +834,9 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-.text-neutral-400 {
+.text-neutral-600 {
   --tw-text-opacity: 1;
-  color: rgb(163 163 163 / var(--tw-text-opacity));
+  color: rgb(82 82 82 / var(--tw-text-opacity));
 }
 
 .transition-all {
@@ -891,13 +891,18 @@ video {
     background-color: rgb(38 38 38 / var(--tw-bg-opacity));
   }
 
-  .dark\:fill-white {
-    fill: #fff;
+  .dark\:fill-neutral-400 {
+    fill: #a3a3a3;
   }
 
   .dark\:text-white {
     --tw-text-opacity: 1;
     color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-neutral-400 {
+    --tw-text-opacity: 1;
+    color: rgb(163 163 163 / var(--tw-text-opacity));
   }
 
   .dark\:hover\:bg-neutral-600:hover {
