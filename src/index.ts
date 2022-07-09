@@ -1,15 +1,22 @@
 const navButton = document.getElementById('navButton') as HTMLButtonElement;
 const nav = document.getElementById('nav') as HTMLDivElement;
 
-const isNavShown = Boolean(nav.classList.contains('nav'));
+const navLocalStorage = localStorage.getItem('nav');
 
-const shouldBeShown = JSON.parse(localStorage.getItem('nav')!) === true;
+const isNavShown = nav.classList.contains('hidden') === false;
 
-if (isNavShown === shouldBeShown) {
+const shouldBeShown = navLocalStorage
+    ? JSON.parse(navLocalStorage)
+    : null;
+
+console.log(isNavShown, shouldBeShown, localStorage.getItem('nav'));
+
+if (isNavShown !== shouldBeShown) {
     nav.classList.toggle('hidden');
 }
 
 navButton.addEventListener('click', () => {
     nav.classList.toggle('hidden');
-    localStorage.setItem('nav', JSON.stringify(nav.classList.contains('hidden') === false));
+    const state = JSON.stringify(nav.classList.contains('hidden') === false);
+    localStorage.setItem('nav', state);
 });
