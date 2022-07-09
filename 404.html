@@ -1,41 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Shorts Deflector</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Shorts Deflector</title>
 
-    <meta name="title" content="404 - Shorts Deflector">
-    <meta name="description" content="Shorts Deflector is a Chromium and Firefox browser extension that redirects YouTube Shorts to the normal desktop interface.">
-    <meta name="theme-color" content="#f40407">
+        <meta name="title" content="Shorts Deflector" />
+        <meta
+            name="description"
+            content="Shorts Deflector is a Chromium and Firefox browser extension that redirects YouTube Shorts to the normal desktop interface."
+        />
+        <meta name="theme-color" content="#f40407" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shortsdeflector.attituding.live/">
-    <meta property="og:title" content="404 - Shorts Deflector">
-    <meta property="og:description" content="Shorts Deflector is a Chromium and Firefox browser extension that redirects YouTube Shorts to the normal desktop interface.">
-    <meta property="og:image" content="/assets/Shorts Deflector Icon.png">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://shortsdeflector.attituding.live/" />
+        <meta property="twitter:title" content="Shorts Deflector" />
+        <meta
+            property="og:description"
+            content="Shorts Deflector is a Chromium and Firefox browser extension that redirects YouTube Shorts to the normal desktop interface."
+        />
+        <meta property="og:image" content="/assets/Shorts Deflector Icon.png" />
 
-    <!-- Twitter -->
-    <meta property="twitter:url" content="https://shortsdeflector.attituding.live/">
-    <meta property="twitter:title" content="404 - Shorts Deflector">
-    <meta property="twitter:description" content="Shorts Deflector is a Chromium and Firefox browser extension that redirects YouTube Shorts to the normal desktop interface.">
-    <meta property="twitter:image" content="/assets/Shorts Deflector Icon.png">
+        <!-- Twitter -->
+        <meta property="twitter:url" content="https://shortsdeflector.attituding.live/" />
+        <meta property="twitter:title" content="Shorts Deflector" />
+        <meta
+            property="twitter:description"
+            content="Shorts Deflector is a Chromium and Firefox browser extension that redirects YouTube Shorts to the normal desktop interface."
+        />
+        <meta property="twitter:image" content="/assets/Shorts Deflector Icon.png" />
 
-    <link rel="shortcut icon" type="image/x-icon" href="/assets/Shorts Deflector Icon.png">
-    <link href="./resources/tailwind.css" rel="stylesheet">
-</head>
-<body class="flex items-center justify-center overflow-hidden bg-white dark:bg-neutral-900 w-screen h-screen font-sans text-black dark:text-white gap-8">
-    <div class="flex flex-col justify-start items-center desktop:rounded-lg w-full desktop:w-fit h-full desktop:h-fit desktop:bg-neutral-100 desktop:dark:bg-neutral-800 desktop:border-4 border-neutral-300 dark:border-neutral-700 gap-4 p-8">
-        <span class="font-semibold text-6xl pb-1">404</span>
-        <span class="font-semibold text-2xl pb-1 text-center">Looks like you took a wrong turn.</span>
-        <div class="flex justify-evenly w-fit px-8 gap-8">
-            <a href="/" target="_self" class="flex place-content-center items-center h-[4rem] w-[12rem] rounded-lg bg-zinc-200 hover:bg-zinc-100 dark:bg-neutral-700 dark:hover:bg-neutral-600 transition-all">
-                <svg class="mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><g fill="currentColor"><path fill-rule="evenodd" d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"></path></g></svg>
-                <span class="font-semibold text-xl">Home</span>
-            </a>
+        <script src="dist/index.js" type="module"></script>
+        <link href="/assets/Shorts Deflector Icon.png" rel="shortcut icon" type="image/x-icon" />
+        <link href="./resources/tailwind.css" rel="stylesheet" />
+    </head>
+    <body class="base flex flex-col bg-white dark:bg-neutral-900">
+        <!-- Header Bar -->
+        <div class="sticky top-0 flex h-fit w-full flex-col bg-neutral-200 dark:bg-neutral-800">
+            <!-- Always-Present Bar -->
+            <div class="flex h-fit w-full justify-between gap-2 p-4">
+                <!-- Branding -->
+                <a href="/" class="flex items-center gap-4">
+                    <img class="h-10 w-10" src="./assets/Shorts Deflector Icon.png" />
+                    <span class="mb-1 truncate text-3xl font-bold">Shorts Deflector</span>
+                </a>
+
+                <!-- Hamburger Menu -->
+                <!-- Octicons/three-bars -->
+                <button id="navButton">
+                    <svg
+                        class="h-10 w-10 fill-neutral-600 dark:fill-neutral-400"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 16 16"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Navigation -->
+            <div id="nav">
+                <div
+                    class="grid h-fit w-full grid-cols-[repeat(auto-fit,minmax(14rem,1fr))] items-stretch gap-4 bg-neutral-200 p-4 pt-0 dark:bg-neutral-800"
+                >
+                    <a
+                        href="https://github.com/Attituding/Shorts-Deflector"
+                        target="_blank"
+                        class="flex h-[3rem] place-content-center items-center gap-1 rounded bg-neutral-300 transition-all hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                    >
+                        <!-- Octicons/mark-github -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 16 16"
+                            width="24"
+                            height="24"
+                        >
+                            <path
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+                            />
+                        </svg>
+                        <span class="text-lg font-bold">GitHub</span>
+                    </a>
+                    <a
+                        href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
+                        target="_blank"
+                        class="flex h-[3rem] place-content-center items-center gap-1 rounded bg-neutral-300 transition-all hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                    >
+                        <!-- https://www.svgrepo.com/svg/171831/chrome -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 305 305"
+                            width="24"
+                            height="24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M95.506,152.511c0,31.426,25.567,56.991,56.994,56.991c31.425,0,56.99-25.566,56.99-56.991 c0-31.426-25.565-56.993-56.99-56.993C121.073,95.518,95.506,121.085,95.506,152.511z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M283.733,77.281c0.444-0.781,0.436-1.74-0.023-2.513c-13.275-22.358-32.167-41.086-54.633-54.159 C205.922,7.134,179.441,0.012,152.5,0.012c-46.625,0-90.077,20.924-119.215,57.407c-0.643,0.804-0.727,1.919-0.212,2.81 l42.93,74.355c0.45,0.78,1.28,1.25,2.164,1.25c0.112,0,0.226-0.008,0.339-0.023c1.006-0.137,1.829-0.869,2.083-1.852 c8.465-32.799,38.036-55.706,71.911-55.706c2.102,0,4.273,0.096,6.455,0.282c0.071,0.007,0.143,0.01,0.214,0.01H281.56 C282.459,78.545,283.289,78.063,283.733,77.281z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M175.035,224.936c-0.621-0.803-1.663-1.148-2.646-0.876c-6.457,1.798-13.148,2.709-19.889,2.709 c-28.641,0-55.038-16.798-67.251-42.794c-0.03-0.064-0.063-0.126-0.098-0.188L23.911,77.719c-0.446-0.775-1.272-1.25-2.165-1.25 c-0.004,0-0.009,0-0.013,0c-0.898,0.005-1.725,0.49-2.165,1.272C6.767,100.456,0,126.311,0,152.511 c0,36.755,13.26,72.258,37.337,99.969c23.838,27.435,56.656,45.49,92.411,50.84c0.124,0.019,0.248,0.027,0.371,0.027 c0.883,0,1.713-0.47,2.164-1.25l42.941-74.378C175.732,226.839,175.657,225.739,175.035,224.936z"
+                            />
+                            <path
+                                fill="currentColor"
+                                d="M292.175,95.226h-85.974c-1.016,0-1.931,0.615-2.314,1.555c-0.384,0.94-0.161,2.02,0.564,2.73 c14.385,14.102,22.307,32.924,22.307,53c0,15.198-4.586,29.824-13.263,42.298c-0.04,0.058-0.077,0.117-0.112,0.178l-61.346,106.252 c-0.449,0.778-0.446,1.737,0.007,2.513c0.449,0.767,1.271,1.237,2.158,1.237c0.009,0,0.019,0,0.028,0 c40.37-0.45,78.253-16.511,106.669-45.222C289.338,231.032,305,192.941,305,152.511c0-19.217-3.532-37.956-10.498-55.698 C294.126,95.855,293.203,95.226,292.175,95.226z"
+                            />
+                        </svg>
+                        <span class="text-lg font-bold">Chrome Web Store</span>
+                    </a>
+                    <a
+                        href="https://addons.mozilla.org/en-CA/firefox/addon/shorts-deflector"
+                        target="_blank"
+                        class="flex h-[3rem] place-content-center items-center gap-1 rounded bg-neutral-300 transition-all hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                    >
+                        <!-- https://materialdesignicons.com/icon/firefox -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="1.5 1.5 21 21"
+                            width="24"
+                            height="24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M9.27 7.94C9.27 7.94 9.27 7.94 9.27 7.94M6.85 6.74C6.86 6.74 6.86 6.74 6.85 6.74M21.28 8.6C20.85 7.55 19.96 6.42 19.27 6.06C19.83 7.17 20.16 8.28 20.29 9.1L20.29 9.12C19.16 6.3 17.24 5.16 15.67 2.68C15.59 2.56 15.5 2.43 15.43 2.3C15.39 2.23 15.36 2.16 15.32 2.09C15.26 1.96 15.2 1.83 15.17 1.69C15.17 1.68 15.16 1.67 15.15 1.67H15.13L15.12 1.67L15.12 1.67L15.12 1.67C12.9 2.97 11.97 5.26 11.74 6.71C11.05 6.75 10.37 6.92 9.75 7.22C9.63 7.27 9.58 7.41 9.62 7.53C9.67 7.67 9.83 7.74 9.96 7.68C10.5 7.42 11.1 7.27 11.7 7.23L11.75 7.23C11.83 7.22 11.92 7.22 12 7.22C12.5 7.21 12.97 7.28 13.44 7.42L13.5 7.44C13.6 7.46 13.67 7.5 13.75 7.5C13.8 7.54 13.86 7.56 13.91 7.58L14.05 7.64C14.12 7.67 14.19 7.7 14.25 7.73C14.28 7.75 14.31 7.76 14.34 7.78C14.41 7.82 14.5 7.85 14.54 7.89C14.58 7.91 14.62 7.94 14.66 7.96C15.39 8.41 16 9.03 16.41 9.77C15.88 9.4 14.92 9.03 14 9.19C17.6 11 16.63 17.19 11.64 16.95C11.2 16.94 10.76 16.85 10.34 16.7C10.24 16.67 10.14 16.63 10.05 16.58C10 16.56 9.93 16.53 9.88 16.5C8.65 15.87 7.64 14.68 7.5 13.23C7.5 13.23 8 11.5 10.83 11.5C11.14 11.5 12 10.64 12.03 10.4C12.03 10.31 10.29 9.62 9.61 8.95C9.24 8.59 9.07 8.42 8.92 8.29C8.84 8.22 8.75 8.16 8.66 8.1C8.43 7.3 8.42 6.45 8.63 5.65C7.6 6.12 6.8 6.86 6.22 7.5H6.22C5.82 7 5.85 5.35 5.87 5C5.86 5 5.57 5.16 5.54 5.18C5.19 5.43 4.86 5.71 4.56 6C4.21 6.37 3.9 6.74 3.62 7.14C3 8.05 2.5 9.09 2.28 10.18C2.28 10.19 2.18 10.59 2.11 11.1L2.08 11.33C2.06 11.5 2.04 11.65 2 11.91L2 11.94L2 12.27L2 12.32C2 17.85 6.5 22.33 12 22.33C16.97 22.33 21.08 18.74 21.88 14C21.9 13.89 21.91 13.76 21.93 13.63C22.13 11.91 21.91 10.11 21.28 8.6Z"
+                            />
+                        </svg>
+                        <span class="text-lg font-bold">Mozilla Add-ons</span>
+                    </a>
+                    <a
+                        href="https://attituding.live/projects"
+                        target="_blank"
+                        class="flex h-[3rem] place-content-center items-center gap-1 rounded bg-neutral-300 transition-all hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                    >
+                        <!-- Octicons/project -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                            width="24"
+                            height="24"
+                        >
+                            <path
+                                fill="currentColor"
+                                d="M7.25 6a.75.75 0 00-.75.75v7.5a.75.75 0 001.5 0v-7.5A.75.75 0 007.25 6zM12 6a.75.75 0 00-.75.75v4.5a.75.75 0 001.5 0v-4.5A.75.75 0 0012 6zm4 .75a.75.75 0 011.5 0v9.5a.75.75 0 01-1.5 0v-9.5z"
+                            />
+                            <path
+                                fill="currentColor"
+                                fill-rule="evenodd"
+                                d="M3.75 2A1.75 1.75 0 002 3.75v16.5c0 .966.784 1.75 1.75 1.75h16.5A1.75 1.75 0 0022 20.25V3.75A1.75 1.75 0 0020.25 2H3.75zM3.5 3.75a.25.25 0 01.25-.25h16.5a.25.25 0 01.25.25v16.5a.25.25 0 01-.25.25H3.75a.25.25 0 01-.25-.25V3.75z"
+                            />
+                        </svg>
+                        <span class="text-lg font-bold">Other Projects</span>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</body>
+
+        <!-- Body -->
+        <div class="flex flex-col items-center justify-center p-8 gap-4">
+            <span class="text-6xl font-semibold">404</span>
+            <span class="text-center text-2xl font-semibold">
+                Looks like you took a wrong turn.
+            </span>
+            <div class="flex w-fit justify-evenly gap-8 px-8">
+                <a
+                    href="/"
+                    target="_self"
+                    class="flex h-[4rem] w-[12rem] place-content-center items-center rounded-lg bg-zinc-200 transition-all hover:bg-zinc-100 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                >
+                    <svg
+                        class="mr-1"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="24"
+                        height="24"
+                    >
+                        <g fill="currentColor">
+                            <path
+                                fill-rule="evenodd"
+                                d="M11.03 2.59a1.5 1.5 0 011.94 0l7.5 6.363a1.5 1.5 0 01.53 1.144V19.5a1.5 1.5 0 01-1.5 1.5h-5.75a.75.75 0 01-.75-.75V14h-2v6.25a.75.75 0 01-.75.75H4.5A1.5 1.5 0 013 19.5v-9.403c0-.44.194-.859.53-1.144l7.5-6.363zM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 01.75-.75h3.5a.75.75 0 01.75.75v6.25h5v-9.403L12 3.734z"
+                            ></path>
+                        </g>
+                    </svg>
+                    <span class="text-xl font-semibold">Home</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div
+            class="flex h-fit w-full items-center justify-start gap-2 bg-neutral-200 p-4 dark:bg-neutral-800"
+        >
+            <img class="h-8 w-8" src="./assets/Shorts Deflector Icon.png" />
+            <span class="mb-1 truncate font-semibold text-neutral-600 dark:text-neutral-400">
+                Copyright &#169; 2022
+                <a class="text-black dark:text-white" href="https://attituding.live">Attituding</a>
+            </span>
+        </div>
+    </body>
 </html>
