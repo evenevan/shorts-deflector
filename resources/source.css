@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.base {
+    @apply h-screen w-full text-black dark:text-white font-sans
+}
