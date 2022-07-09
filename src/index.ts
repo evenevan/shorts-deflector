@@ -7,9 +7,7 @@ const isNavShown = nav.classList.contains('hidden') === false;
 
 const shouldBeShown = navLocalStorage
     ? JSON.parse(navLocalStorage)
-    : null;
-
-console.log(isNavShown, shouldBeShown, localStorage.getItem('nav'));
+    : isNavShown;
 
 if (isNavShown !== shouldBeShown) {
     nav.classList.toggle('hidden');
