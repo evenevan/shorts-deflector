@@ -4,7 +4,7 @@
     "bracketSpacing": true,
     "embeddedLanguageFormatting": "auto",
     "endOfLine": "lf",
-    "htmlWhitespaceSensitivity": "ignore",
+    "htmlWhitespaceSensitivity": "strict",
     "insertPragma": false,
     "printWidth": 100,
     "proseWrap": "always",
