@@ -1,6 +1,6 @@
 ---
 name: Question
-about: Leave any questions you have
+about: Ask any questions you have
 title: ''
 labels: question
 assignees: ''
@@ -10,4 +10,4 @@ assignees: ''
 **Question**
 
 **Additional context**
-Add any other context or screenshots about the question(s) here.
+Add any other context or screenshots about your question(s) here.
