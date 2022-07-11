@@ -629,8 +629,8 @@ video {
   max-width: 72rem;
 }
 
-.grid-cols-\[repeat\(auto-fit\2c minmax\(14rem\2c 1fr\)\)\] {
-  grid-template-columns: repeat(auto-fit,minmax(14rem,1fr));
+.grid-cols-\[repeat\(auto-fit\2c minmax\(11rem\2c 1fr\)\)\] {
+  grid-template-columns: repeat(auto-fit,minmax(11rem,1fr));
 }
 
 .flex-col {
@@ -844,7 +844,17 @@ video {
 }
 
 @media (min-width: 360px) {
-  .desktop\:block {
+  .show-name\:block {
     display: block;
+  }
+}
+
+@media (min-width: 270px) {
+  .show-link-icons\:block {
+    display: block;
+  }
+
+  .show-link-icons\:grid-cols-\[repeat\(auto-fit\2c minmax\(14rem\2c 1fr\)\)\] {
+    grid-template-columns: repeat(auto-fit,minmax(14rem,1fr));
   }
 }
