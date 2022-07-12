@@ -1,0 +1,26 @@
+{
+    "extensionName": {
+        "message": "Shorts Deflector"
+    },
+    "extensionDescription": {
+        "message": "Rediriger les YouTube Shorts a l'interface normale du bureau."
+    },
+    "switchToDesktopInterfaceTitle": {
+        "message": "Passer à l'Interface du Bureau"
+    },
+    "switchToDesktopInterfaceTooltip": {
+        "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts"
+    },
+    "automaticRedirectingTitle": {
+        "message": "Redirection Automatique"
+    },
+    "automaticRedirectingDescription": {
+        "message": "Rediriger automatiquement les YouTube Shorts vers l'interface de bureau"
+    },
+    "newPagesOnlyTitle": {
+        "message": "Nouvelles Pages Uniquement"
+    },
+    "newPagesOnlyDescription": {
+        "message": "Redirection automatique uniquement lorsqu'un YouTube Short est ouvert dans un nouvel onglet ou une nouvelle fenêtre"
+    }
+}

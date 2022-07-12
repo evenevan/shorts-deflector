@@ -10,26 +10,24 @@
             <span id="extensionName" class="font-semibold text-4xl mb-1"></span>
         </div>
         <button id="desktop" class="flex items-center justify-center rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700   disabled:bg-neutral-100 disabled:dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 disabled:text-neutral-600 dark:disabled:text-neutral-400 cursor-pointer disabled:cursor-not-allowed w-full relative group" disabled>
-            <div class="flex items-center justify-center gap-4 p-4 peer">
+            <div class="flex items-center justify-center gap-4 p-4 peer w-full">
                 <div id="desktopLoading" class="hidden w-6 h-6 rounded-full border-[3px] animate-spin border-neutral-200 dark:border-neutral-800 border-t-black dark:border-t-white"></div>
-                <span id="switchToDesktopInterfaceTitle" class="font-semibold text-2xl mb-1"></span>
+                <span id="switchToDesktopInterfaceTitle" class="font-semibold text-2xl mb-1 truncate"></span>
             </div>
             <div id="switchToDesktopInterfaceTooltip" class="absolute w-fit max-h-fit px-2 py-1 -top-1/4 rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-black dark:text-white scale-0 group-disabled:peer-hover:scale-100 transition-all peer-hover:delay-500 translate-y-5 peer-hover:-translate-y-5 opacity-0 peer-hover:opacity-100 ease-in-out text-xs">
                 <div class="absolute w-2 h-2 -bottom-1 left-1/2 rotate-45 bg-inherit"></div>
             </div>
         </button>
         <div class="flex flex-col rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 gap-2 p-4 w-full">
-            <div class="flex items-center justify-between gap-1 w-full">
-                <div class="flex items-center justify-between gap-1 w-full">
-                    <div class="relative flex items-center justify-center w-full">
-                        <div class="absolute flex items-center justify-start left-0 w-10 h-5 mr-2 rounded-full overflow-clip">
-                            <input id="automatic" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
-                            <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 dark:bg-neutral-500 peer-disabled:bg-neutral-500 dark:peer-disabled:bg-neutral-700"></span>
-                            <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
-                            <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 dark:bg-neutral-400 peer-disabled:bg-neutral-400 dark:peer-disabled:bg-neutral-600 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
-                        </div>
-                        <span id="automaticRedirectingTitle" class="font-semibold text-2xl mb-1"></span>
+            <div class="flex items-center justify-between gap-1 -mt-1 w-full">
+                <div class="flex items-center w-full">
+                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
+                        <input id="automatic" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
+                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 dark:bg-neutral-500 peer-disabled:bg-neutral-500 dark:peer-disabled:bg-neutral-700"></span>
+                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
+                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 dark:bg-neutral-400 peer-disabled:bg-neutral-400 dark:peer-disabled:bg-neutral-600 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
                     </div>
+                    <span id="automaticRedirectingTitle" class="font-semibold text-2xl leading-6 mb-1 h-6 truncate"></span>
                 </div>
             </div>
             <span id="automaticRedirectingDescription" class="text-sm text-neutral-800 dark:text-neutral-200"></span>
