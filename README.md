@@ -1,10 +1,10 @@
 # Introduction
 
-Why does clicking on a YouTube Short on a desktop bring up the mobile-optimized interface with no video scrubbing, harder to access comments, less accessible view count, and an overall worse experience than the normal viewer?
+Why does clicking on a YouTube Short on a desktop bring up the mobile-optimized interface? With no video scrubbing, harder to access comments, less accessible view count, and more, it makes no sense to use on a desktop.
 
 Shorts Deflector is an extension that allows you to automatically OR manually change YouTube Shorts to the normal desktop interface. This is accomplished by redirecting you from www.youtube.com/shorts/xyz to www.youtube.com/watch?v=xyz.
 
-By using the convenient "Switch to Desktop" button, you can continue to watch YouTube Shorts normally while having an easy way to switch to the desktop format.
+By using the convenient "Switch to Desktop Interface" button, you can continue to watch YouTube Shorts normally while having an easy way to switch to the desktop format.
 
 # Screenshots
 <details>
