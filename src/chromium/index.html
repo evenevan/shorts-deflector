@@ -1,36 +1,77 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html>
     <head>
-        <link href="./resources/tailwind.css" rel="stylesheet">
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+        <link href="./resources/tailwind.css" rel="stylesheet" />
         <script src="./scripts/index.js" type="module"></script>
     </head>
-    <body class="flex flex-col items-center justify-start bg-white dark:bg-neutral-900 w-[26rem] h-fit font-sans text-black dark:text-white p-4 gap-4">
-        <div class="flex items-center justify-center w-full h-10 -mb-1">
-            <img class="w-10 h-full mr-2 transition-all ease-in-out duration-1000 hover:rotate-[720deg]" src="./assets/Shorts Deflector Icon.svg">
-            <span id="extensionName" class="font-semibold text-4xl mb-1"></span>
+    <body
+        class="flex h-fit w-[26rem] flex-col items-center justify-start gap-4 bg-white p-4 font-sans text-black dark:bg-neutral-900 dark:text-white"
+    >
+        <div class="-mb-1 flex h-10 w-full items-center justify-center">
+            <img
+                class="mr-2 h-full w-10 transition-all duration-1000 ease-in-out hover:rotate-[720deg]"
+                src="./assets/Shorts Deflector Icon.svg"
+            />
+            <span id="extensionName" class="mb-1 text-4xl font-semibold"></span>
         </div>
-        <button id="desktop" class="flex items-center justify-center rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700   disabled:bg-neutral-100 disabled:dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 disabled:text-neutral-600 dark:disabled:text-neutral-400 cursor-pointer disabled:cursor-not-allowed w-full relative group" disabled>
-            <div class="flex items-center justify-center gap-4 p-4 peer w-full">
-                <div id="desktopLoading" class="hidden w-6 h-6 rounded-full border-[3px] animate-spin border-neutral-200 dark:border-neutral-800 border-t-black dark:border-t-white"></div>
-                <span id="switchToDesktopInterfaceTitle" class="font-semibold text-2xl mb-1 truncate"></span>
+        <button
+            id="desktop"
+            class="group relative flex w-full cursor-pointer items-center justify-center rounded-md border-2 border-neutral-200 bg-neutral-100 hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-600 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:bg-neutral-700 disabled:dark:bg-neutral-800 dark:disabled:text-neutral-400"
+            disabled
+        >
+            <div class="peer flex w-full items-center justify-center gap-4 p-4">
+                <div
+                    id="desktopLoading"
+                    class="hidden h-6 w-6 animate-spin rounded-full border-[3px] border-neutral-200 border-t-black dark:border-neutral-800 dark:border-t-white"
+                ></div>
+                <span
+                    id="switchToDesktopInterfaceTitle"
+                    class="mb-1 truncate text-2xl font-semibold"
+                ></span>
             </div>
-            <div id="switchToDesktopInterfaceTooltip" class="absolute w-fit max-h-fit px-2 py-1 -top-1/4 rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-black dark:text-white scale-0 group-disabled:peer-hover:scale-100 transition-all peer-hover:delay-500 translate-y-5 peer-hover:-translate-y-5 opacity-0 peer-hover:opacity-100 ease-in-out text-xs">
-                <div class="absolute w-2 h-2 -bottom-1 left-1/2 rotate-45 bg-inherit"></div>
+            <div
+                id="switchToDesktopInterfaceTooltip"
+                class="absolute -top-1/4 max-h-fit w-fit translate-y-5 scale-0 rounded-md border-2 border-neutral-200 bg-neutral-100 px-2 py-1 text-xs text-black opacity-0 transition-all ease-in-out peer-hover:-translate-y-5 peer-hover:opacity-100 peer-hover:delay-500 group-disabled:peer-hover:scale-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+            >
+                <div class="absolute -bottom-1 left-1/2 h-2 w-2 rotate-45 bg-inherit"></div>
             </div>
         </button>
-        <div class="flex flex-col rounded-md border-2 bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 gap-2 p-4 w-full">
-            <div class="flex items-center justify-between gap-1 -mt-1 w-full">
-                <div class="flex items-center w-full">
-                    <div class="flex items-center justify-start w-10 h-5 mr-2 rounded-full overflow-clip">
-                        <input id="automatic" type="checkbox" class="absolute w-10 h-5 z-40 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed peer"/>
-                        <span class="w-10 h-3 z-10 rounded-full bg-neutral-400 dark:bg-neutral-500 peer-disabled:bg-neutral-500 dark:peer-disabled:bg-neutral-700"></span>
-                        <span class="absolute w-5 h-3 z-20 rounded-full bg-youtube-red peer-disabled:bg-youtube-red-disabled ease-in-out peer-hover:duration-150 peer-checked:w-8"></span>
-                        <span class="absolute w-5 h-5 z-30 rounded-full bg-neutral-300 dark:bg-neutral-400 peer-disabled:bg-neutral-400 dark:peer-disabled:bg-neutral-600 ease-in-out peer-hover:duration-150 peer-checked:translate-x-5"></span>
+        <div
+            class="flex w-full flex-col gap-2 rounded-md border-2 border-neutral-200 bg-neutral-100 p-4 dark:border-neutral-700 dark:bg-neutral-800"
+        >
+            <div class="-mt-1 flex w-full items-center justify-between gap-1">
+                <div class="flex w-full items-center">
+                    <div
+                        class="mr-2 flex h-5 w-10 items-center justify-start overflow-clip rounded-full"
+                    >
+                        <input
+                            id="automatic"
+                            type="checkbox"
+                            class="peer absolute z-40 h-5 w-10 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed"
+                        />
+                        <span
+                            class="z-10 h-3 w-10 rounded-full bg-neutral-400 peer-disabled:bg-neutral-500 dark:bg-neutral-500 dark:peer-disabled:bg-neutral-700"
+                        ></span>
+                        <span
+                            class="absolute z-20 h-3 w-5 rounded-full bg-youtube-red ease-in-out peer-checked:w-8 peer-hover:duration-150 peer-disabled:bg-youtube-red-disabled"
+                        ></span>
+                        <span
+                            class="absolute z-30 h-5 w-5 rounded-full bg-neutral-300 ease-in-out peer-checked:translate-x-5 peer-hover:duration-150 peer-disabled:bg-neutral-400 dark:bg-neutral-400 dark:peer-disabled:bg-neutral-600"
+                        ></span>
                     </div>
-                    <span id="automaticRedirectingTitle" class="font-semibold text-xl leading-6 mb-1 h-6 truncate"></span>
+                    <span
+                        id="automaticRedirectingTitle"
+                        class="mb-1 h-6 truncate text-xl font-semibold leading-6"
+                    ></span>
                 </div>
             </div>
-            <span id="automaticRedirectingDescription" class="text-sm text-neutral-800 dark:text-neutral-200"></span>
+            <span
+                id="automaticRedirectingDescription"
+                class="text-sm text-neutral-800 dark:text-neutral-200"
+            ></span>
         </div>
     </body>
 </html>
