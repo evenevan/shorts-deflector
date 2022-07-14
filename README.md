@@ -5,25 +5,25 @@ Shorts Deflector is an extension that allows you to automatically OR manually ch
 
 By using the convenient "Switch to Desktop Interface" button, you can continue to watch YouTube Shorts normally while having an easy way to switch to the desktop format.
 
-# Screenshots
+# Screenshots (English)
 <details>
   <summary><b>Chromium User Interface w/ Light Mode</b></summary>
-  <img src="./assets/promo/Shorts%20Deflector%20Chromium%20Light.png">
+  <img src="./assets/promo/Shorts%20Deflector%20Light%20Chromium%20en.png">
 </details>
 
 <details>
   <summary><b>Chromium User Interface w/ Dark Mode</b></summary>
-  <img src="./assets/promo/Shorts%20Deflector%20Chromium%20Dark.png">
+  <img src="./assets/promo/Shorts%20Deflector%20Dark%20Chromium%20en.png">
 </details>
 
 <details>
   <summary><b>Firefox User Interface w/ Light Mode</b></summary>
-  <img src="./assets/promo/Shorts%20Deflector%20Firefox%20Light.png">
+  <img src="./assets/promo/Shorts%20Deflector%20Light%20Firefox%20en.png">
 </details>
 
 <details>
   <summary><b>Firefox User Interface w/ Dark Mode</b></summary>
-  <img src="./assets/promo/Shorts%20Deflector%20Firefox%20Dark.png">
+  <img src="./assets/promo/Shorts%20Deflector%20Dark%20Firefox%20en.png">
 </details>
 
 # Home Page
