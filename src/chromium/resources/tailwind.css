@@ -594,42 +594,12 @@ video {
   z-index: 30;
 }
 
-.-mb-1 {
-  margin-bottom: -0.25rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-.mb-1 {
-  margin-bottom: 0.25rem;
-}
-
-.-mt-1 {
-  margin-top: -0.25rem;
-}
-
-.-mt-2 {
-  margin-top: -0.5rem;
-}
-
 .flex {
   display: flex;
 }
 
 .hidden {
   display: none;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-fit {
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
 }
 
 .h-10 {
@@ -642,6 +612,10 @@ video {
 
 .h-2 {
   height: 0.5rem;
+}
+
+.h-7 {
+  height: 1.75rem;
 }
 
 .h-5 {
@@ -658,16 +632,16 @@ video {
   max-height: fit-content;
 }
 
-.w-\[26rem\] {
+.w-body {
   width: 26rem;
-}
-
-.w-full {
-  width: 100%;
 }
 
 .w-10 {
   width: 2.5rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .w-6 {
@@ -759,34 +733,26 @@ video {
   gap: 0.5rem;
 }
 
-.gap-1 {
-  gap: 0.25rem;
-}
-
-.overflow-clip {
-  overflow: clip;
-}
-
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.rounded-md {
-  border-radius: 0.375rem;
-}
-
 .rounded-full {
   border-radius: 9999px;
 }
 
-.border-2 {
-  border-width: 2px;
+.rounded-md {
+  border-radius: 0.375rem;
 }
 
 .border-\[3px\] {
   border-width: 3px;
+}
+
+.border-2 {
+  border-width: 2px;
 }
 
 .border-neutral-200 {
@@ -846,24 +812,19 @@ video {
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
-.text-2xl {
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-sm {
@@ -873,10 +834,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.leading-6 {
-  line-height: 1.5rem;
 }
 
 .text-black {
@@ -905,6 +862,36 @@ video {
 
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-box {
+  border-radius: 0.375rem;
+  border-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 229 229 / var(--tw-border-opacity));
+  --tw-bg-opacity: 1;
+  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .item-box {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity));
+    --tw-bg-opacity: 1;
+    background-color: rgb(38 38 38 / var(--tw-bg-opacity));
+  }
+}
+
+.item-sizing {
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.item-spacing {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .hover\:rotate-\[720deg\]:hover {
@@ -987,14 +974,14 @@ video {
 }
 
 @media (prefers-color-scheme: dark) {
-  .dark\:border-neutral-700 {
-    --tw-border-opacity: 1;
-    border-color: rgb(64 64 64 / var(--tw-border-opacity));
-  }
-
   .dark\:border-neutral-800 {
     --tw-border-opacity: 1;
     border-color: rgb(38 38 38 / var(--tw-border-opacity));
+  }
+
+  .dark\:border-neutral-700 {
+    --tw-border-opacity: 1;
+    border-color: rgb(64 64 64 / var(--tw-border-opacity));
   }
 
   .dark\:border-t-white {

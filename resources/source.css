@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.item-box {
+    @apply  rounded-md border-2 border-neutral-200 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800
+}
+
+.item-sizing {
+    @apply w-full gap-2
+}
+
+.item-spacing {
+    @apply px-4 py-2
+}
