@@ -1,6 +1,5 @@
 {
     "name": "shorts-deflector",
-    "description": "An extension that redirects YouTube Shorts to the normal desktop interface.",
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {
