@@ -7,9 +7,9 @@ By using the convenient "Switch to Desktop Interface" button, you can continue t
 
 Required Permissions:
 - Read your browsing history
-    - While this permission seems alarming, the underlying API is only used to detect when your current page updates. Your history is not used in any other way.
-- Read and change your data on youtube.com
-    - This permission is used to redirect you off of YouTube Shorts pages, and also to dynamically change all YouTube Shorts links to the /watch?v= version.
+    - While this permission may seem alarming to you, the underlying API is only used to detect when the page you are viewing updates. Your history is not used in any other way
+- Read and change your data on www.youtube.com
+    - This permission is used to redirect you off of YouTube Shorts pages, and also to dynamically change all YouTube Shorts links to the /watch?v= viewer
 
 # Screenshots (English)
 <details>
