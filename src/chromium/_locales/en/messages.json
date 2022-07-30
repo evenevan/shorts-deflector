@@ -11,10 +11,10 @@
     "switchToDesktopInterfaceTooltip": {
         "message": "Available when this popup is opened on a YouTube Shorts page"
     },
-    "automaticRedirectingTitle": {
-        "message": "Automatic Redirecting"
+    "automaticTitle": {
+        "message": "Automatic Switching"
     },
-    "automaticRedirectingDescription": {
-        "message": "Automatically redirect YouTube Shorts to the desktop UI"
+    "automaticDescription": {
+        "message": "Automatically switch YouTube Shorts to the desktop UI"
     }
 }

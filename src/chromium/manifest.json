@@ -18,8 +18,9 @@
     },
     "permissions": [
         "declarativeNetRequestWithHostAccess",
+        "scripting",
         "storage",
-        "tabs"
+        "webNavigation"
     ],
     "host_permissions": [
         "https://www.youtube.com/"

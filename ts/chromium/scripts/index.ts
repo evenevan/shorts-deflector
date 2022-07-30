@@ -3,8 +3,8 @@
         'extensionName',
         'switchToDesktopInterfaceTitle',
         'switchToDesktopInterfaceTooltip',
-        'automaticRedirectingTitle',
-        'automaticRedirectingDescription',
+        'automaticTitle',
+        'automaticDescription',
     ].forEach((value) => {
         const element = document.getElementById(value);
         element!.textContent = chrome.i18n.getMessage(value);

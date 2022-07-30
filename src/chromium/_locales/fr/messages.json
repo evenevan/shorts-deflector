@@ -11,10 +11,10 @@
     "switchToDesktopInterfaceTooltip": {
         "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts"
     },
-    "automaticRedirectingTitle": {
-        "message": "Redirection Automatique"
+    "automaticTitle": {
+        "message": "Changement Automatique"
     },
-    "automaticRedirectingDescription": {
-        "message": "Rediriger automatiquement les YouTube Shorts à l'interface de bureau"
+    "automaticDescription": {
+        "message": "Changement automatiquement les YouTube Shorts à l'interface de bureau"
     }
 }
