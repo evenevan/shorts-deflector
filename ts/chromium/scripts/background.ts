@@ -1,8 +1,13 @@
+// chrome.storage Keys
 const automaticKey = 'automatic';
 
-// Legacy Keys
+// chrome.storage Legacy Keys
 const requestKey = 'request';
 const updateKey = 'update';
+
+// Regex
+const youTubeRegex = /^http(s)?:\/\/www\.youtube\.com/;
+const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
 // Install/Update Handling
 chrome.runtime.onInstalled.addListener(async (details) => {
@@ -30,7 +35,7 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
 
     if (
         details.frameId === 0
-        && /^http(s)?:\/\/www\.youtube\.com/.test(details.url)
+        && youTubeRegex.test(details.url)
         && (
             details.transitionType === 'auto_bookmark'
             || details.transitionType === 'link'
@@ -48,7 +53,7 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
 
     if (
         details.frameId === 0
-        && /^http(s)?:\/\/www\.youtube\.com/.test(details.url)
+        && youTubeRegex.test(details.url)
     ) {
         const tab = await chrome.tabs.get(details.tabId);
         await handlePageUpdate(details.tabId, tab, 1);
@@ -63,8 +68,7 @@ async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab, source: num
         return;
     }
 
-    const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
-    const url = tab.url?.match(regex);
+    const url = tab.url?.match(youTubeShortsRegex);
 
     const { [automaticKey]: automatic } = await chrome.storage.sync.get([
         automaticKey,
