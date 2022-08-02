@@ -5,6 +5,8 @@
         'switchToDesktopInterfaceTooltip',
         'automaticTitle',
         'automaticDescription',
+        'improvePerformanceTitle',
+        'improvePerformanceDescription',
     ].forEach((value) => {
         const element = document.getElementById(value);
         element!.textContent = chrome.i18n.getMessage(value);
@@ -13,6 +15,7 @@
     const automaticKey = 'automatic';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
+    const improvePerformanceKey = 'improvePerformance';
 
     // Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
@@ -63,11 +66,30 @@
         automaticKey,
     ) as HTMLInputElement;
 
+    const improvePerformanceSwitch = document.getElementById(
+        improvePerformanceKey,
+    ) as HTMLInputElement;
+
     const keys = await chrome.storage.sync.get([
         automaticKey,
+        improvePerformanceKey,
     ]);
 
-    automaticSwitch.checked = keys[automaticKey];
+    automaticSwitch.checked = (
+        keys[automaticKey]
+        // @ts-ignore bad typings
+        && await chrome.permissions.contains({
+            origins: ['https://www.youtube.com/'],
+        })
+    );
+
+    improvePerformanceSwitch.checked = (
+        keys[improvePerformanceKey]
+        // @ts-ignore bad typings
+        && await chrome.permissions.contains({
+            origins: ['*://*/*'],
+        })
+    );
 
     automaticSwitch.addEventListener('click', async () => {
         await chrome.storage.sync.set({
@@ -80,6 +102,24 @@
 
         await chrome.declarativeNetRequest.updateEnabledRulesets({
             [declarativeNetRequestKey]: ['shorts'],
+        });
+    });
+
+    improvePerformanceSwitch.addEventListener('click', async () => {
+        if (improvePerformanceSwitch.checked) {
+            const granted = await chrome.permissions.request({
+                origins: ['*://*/*'],
+            }) as unknown as boolean;
+
+            if (granted === false) {
+                improvePerformanceSwitch.checked = false;
+
+                return;
+            }
+        }
+
+        await chrome.storage.sync.set({
+            [improvePerformanceKey]: improvePerformanceSwitch.checked,
         });
     });
 })();

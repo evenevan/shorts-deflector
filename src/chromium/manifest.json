@@ -7,6 +7,7 @@
             "128": "./assets/Shorts Deflector Icon 128.png"
         }
     },
+    "author": "Attituding",
     "background": {
         "service_worker": "./scripts/background.js"
     },
@@ -30,7 +31,11 @@
         "128": "./assets/Shorts Deflector Icon 128.png"
     },
     "manifest_version": 3,
+    "minimum_chrome_version": "102",
     "name": "__MSG_extensionName__",
+    "optional_host_permissions": [
+        "*://*/*"
+    ],
     "permissions": [
         "declarativeNetRequestWithHostAccess",
         "scripting",

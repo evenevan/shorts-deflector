@@ -1,11 +1,13 @@
 // chrome.storage Keys
 const automaticKey = 'automatic';
+const improvePerformanceKey = 'improvePerformance';
 
 // chrome.storage Legacy Keys
 const requestKey = 'request';
 const updateKey = 'update';
 
 // Regex
+const chromeRegex = /^chrome:\/\//;
 const youTubeRegex = /^http(s)?:\/\/www\.youtube\.com/;
 const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
@@ -22,6 +24,9 @@ chrome.runtime.onInstalled.addListener(async (details) => {
                 keys[automaticKey]
                 ?? (keys[requestKey] || keys[updateKey])
                 ?? true,
+            [improvePerformanceKey]:
+                keys[improvePerformanceKey]
+                ?? false,
         };
 
         await chrome.storage.sync.set(newKeys);
@@ -30,13 +35,25 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     }
 });
 
+// Listener for new pages with the same URL
 chrome.webNavigation.onCommitted.addListener(async (details) => {
-    // Listener for new pages with the same URL
-
     if (
         details.frameId === 0
-        && youTubeRegex.test(details.url)
         && (
+            (
+                youTubeRegex.test(details.url)
+                // @ts-ignore callback not implemented
+                && await chrome.permissions.contains({
+                    origins: ['https://www.youtube.com/'],
+                })
+            ) || (
+                chromeRegex.test(details.url) === false
+                // @ts-ignore callback not implemented
+                && await chrome.permissions.contains({
+                    origins: ['*://*/*'],
+                })
+            )
+        ) && (
             details.transitionType === 'auto_bookmark'
             || details.transitionType === 'link'
             || details.transitionType === 'reload'
@@ -48,12 +65,25 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
     }
 });
 
+// Listener for new pages with new URLs
 chrome.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
-    // Listener for new pages with new URLs
-
     if (
         details.frameId === 0
-        && youTubeRegex.test(details.url)
+        && (
+            (
+                youTubeRegex.test(details.url)
+                // @ts-ignore callback not implemented
+                && await chrome.permissions.contains({
+                    origins: ['https://www.youtube.com/'],
+                })
+            ) || (
+                chromeRegex.test(details.url) === false
+                // @ts-ignore callback not implemented
+                && await chrome.permissions.contains({
+                    origins: ['*://*/*'],
+                })
+            )
+        )
     ) {
         const tab = await chrome.tabs.get(details.tabId);
         await handlePageUpdate(details.tabId, tab, 1);
@@ -70,11 +100,22 @@ async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab, source: num
 
     const url = tab.url?.match(youTubeShortsRegex);
 
-    const { [automaticKey]: automatic } = await chrome.storage.sync.get([
+    const {
+        [automaticKey]: automatic,
+        [improvePerformanceKey]: improvePerformance,
+    } = await chrome.storage.sync.get([
         automaticKey,
+        improvePerformanceKey,
     ]);
 
     if (automatic === false) {
+        return;
+    }
+
+    if (
+        youTubeRegex.test(String(tab.url)) === false
+        && improvePerformance === false
+    ) {
         return;
     }
 
@@ -107,19 +148,11 @@ function replaceURLsExecute() {
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
-    // eslint-disable-next-line no-restricted-syntax
-    for (const anchor of document.getElementsByTagName('a')) {
-        if (anchor.href.match(regex)) {
-            anchor.href = anchor.href.replace('shorts/', 'watch?v=');
-
-            anchor.addEventListener('click', (event) => {
-                event.stopImmediatePropagation();
-            }, true);
-        }
-    }
+    console.log(document.URL);
 
     const observer = new MutationObserver((mutationRecords) => {
-        // Only works on YouTube, fast & reliable
+        // Only works on YouTube, faster
+        /*
         mutationRecords.forEach((mutationRecord) => {
             if (
                 mutationRecord.type === 'attributes'
@@ -136,36 +169,34 @@ function replaceURLsExecute() {
                 }
             }
         });
+        */
 
-        /*
-        // Works on all tested sites, slightly buggy at times
-        const uniqueClass = 'shorts-deflector';
-
+        // Works on all sites, slower
         const addedNodes = mutationRecords.map(
-            (record) => Object.values(record.addedNodes),
+            (record) => [
+                ...Object.values(record.addedNodes),
+                record.target,
+            ],
         ).flat(1);
 
         const addedElements = addedNodes.filter(
-            (addedNode) => addedNode.nodeType === 1
-            && addedNode.childNodes.length !== 0,
+            (addedNode) => addedNode instanceof HTMLElement
+            && addedNode.children.length !== 0,
         ) as HTMLElement[];
+
+        const targetAnchors = addedElements.filter(
+            (addedElement) => addedElement instanceof HTMLAnchorElement,
+        ) as HTMLAnchorElement[];
 
         const anchors = addedElements.map(
             (addedElement) => Object.values(
                 addedElement.getElementsByTagName('a'),
             ),
-        ).flat(1);
+        ).flat(1).concat(targetAnchors);
 
         anchors.forEach((anchor) => {
-            const isNotNew = anchor.classList.contains(uniqueClass);
-
-            if (isNotNew) {
-                return;
-            }
-
-            anchor.classList.add(uniqueClass);
-
             if (anchor.href.match(regex)) {
+                // eslint-disable-next-line no-param-reassign
                 anchor.href = anchor.href.replace('shorts/', 'watch?v=');
 
                 anchor.addEventListener('click', (event) => {
@@ -173,7 +204,6 @@ function replaceURLsExecute() {
                 }, true);
             }
         });
-        */
     });
 
     observer.observe(document.body, {
@@ -182,4 +212,15 @@ function replaceURLsExecute() {
         childList: true,
         subtree: true,
     });
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const anchor of document.getElementsByTagName('a')) {
+        if (anchor.href.match(regex)) {
+            anchor.href = anchor.href.replace('shorts/', 'watch?v=');
+
+            anchor.addEventListener('click', (event) => {
+                event.stopImmediatePropagation();
+            }, true);
+        }
+    }
 }

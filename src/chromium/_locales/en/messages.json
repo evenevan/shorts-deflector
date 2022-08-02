@@ -15,6 +15,12 @@
         "message": "Automatic Switching"
     },
     "automaticDescription": {
-        "message": "Automatically switch YouTube Shorts to the desktop UI"
+        "message": "Automatically switch YouTube Shorts to the desktop UI."
+    },
+    "improvePerformanceTitle": {
+        "message": "Improve Performance"
+    },
+    "improvePerformanceDescription": {
+        "message": "Improve performance when switching to the desktop UI from other websites. Extra permissions are required."
     }
 }

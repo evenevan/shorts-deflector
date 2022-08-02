@@ -6,15 +6,21 @@
         "message": "Regardez les YouTube Shorts avec l'interface de bureau normale."
     },
     "switchToDesktopInterfaceTitle": {
-        "message": "Passer à l'Interface du Bureau"
+        "message": "Passer à l'Interface du bureau"
     },
     "switchToDesktopInterfaceTooltip": {
         "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts"
     },
     "automaticTitle": {
-        "message": "Changement Automatique"
+        "message": "Changement automatique"
     },
     "automaticDescription": {
-        "message": "Changement automatiquement les YouTube Shorts à l'interface de bureau"
+        "message": "Changement automatiquement les YouTube Shorts à l'interface de bureau."
+    },
+    "improvePerformanceTitle": {
+        "message": "Amélioration des performances"
+    },
+    "improvePerformanceDescription": {
+        "message": "Améliorez les performances lorsque vous passez à l'interface de bureau à partir d'autres sites Web. Des autorisations supplémentaires sont requises."
     }
 }
