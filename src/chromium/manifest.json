@@ -23,7 +23,7 @@
     "default_locale": "en",
     "description": "__MSG_extensionDescription__",
     "host_permissions": [
-        "https://www.youtube.com/"
+        "https://www.youtube.com/*"
     ],
     "icons": {
         "16": "./assets/Shorts Deflector Icon 16.png",

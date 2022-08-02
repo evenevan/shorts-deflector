@@ -12,12 +12,16 @@
         const element = document.getElementById(value);
         element.textContent = chrome.i18n.getMessage(value);
     });
+    // chrome.storage Keys
     const automaticKey = 'automatic';
     const desktopKey = 'desktop';
     const desktopLoadingKey = 'desktopLoading';
     const improvePerformanceKey = 'improvePerformance';
+    // Hostnames
+    const youTubeHostname = 'https://www.youtube.com/*';
+    const allHostname = '*://*/*';
     // Desktop Interface Button
-    const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
+    const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
     const desktopButton = document.getElementById(desktopKey);
     const desktopButtonLoading = document.getElementById(desktopLoadingKey);
     let [tab] = await chrome.tabs.query({
@@ -29,13 +33,13 @@
         desktopButtonLoading.classList.remove('hidden');
     }
     else {
-        desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
+        desktopButton.disabled = Boolean(tab?.url?.match(youTubeShortsRegex)) === false;
     }
     chrome.tabs.onUpdated.addListener((_id, _changes, newTab) => {
         tab = newTab;
         if (newTab.status === 'complete') {
             desktopButtonLoading.classList.add('hidden');
-            desktopButton.disabled = Boolean(tab?.url?.match(regex)) === false;
+            desktopButton.disabled = Boolean(tab?.url?.match(youTubeShortsRegex)) === false;
         }
         else {
             desktopButton.disabled = true;
@@ -57,17 +61,20 @@
         automaticKey,
         improvePerformanceKey,
     ]);
-    automaticSwitch.checked = (keys[automaticKey]
-        // @ts-ignore bad typings
-        && await chrome.permissions.contains({
-            origins: ['https://www.youtube.com/'],
-        }));
-    improvePerformanceSwitch.checked = (keys[improvePerformanceKey]
-        // @ts-ignore bad typings
-        && await chrome.permissions.contains({
-            origins: ['*://*/*'],
-        }));
+    automaticSwitch.checked = keys[automaticKey];
+    improvePerformanceSwitch.checked = keys[improvePerformanceKey];
+    improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
     automaticSwitch.addEventListener('click', async () => {
+        if (automaticSwitch.checked) {
+            const granted = await chrome.permissions.request({
+                origins: [youTubeHostname],
+            });
+            if (granted === false) {
+                automaticSwitch.checked = false;
+                return;
+            }
+        }
+        improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
         await chrome.storage.sync.set({
             [automaticKey]: automaticSwitch.checked,
         });
@@ -81,7 +88,7 @@
     improvePerformanceSwitch.addEventListener('click', async () => {
         if (improvePerformanceSwitch.checked) {
             const granted = await chrome.permissions.request({
-                origins: ['*://*/*'],
+                origins: [allHostname],
             });
             if (granted === false) {
                 improvePerformanceSwitch.checked = false;

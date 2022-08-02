@@ -2,9 +2,9 @@
 // chrome.storage Keys
 const automaticKey = 'automatic';
 const improvePerformanceKey = 'improvePerformance';
-// chrome.storage Legacy Keys
-const requestKey = 'request';
-const updateKey = 'update';
+// Hostnames
+const youTubeHostname = 'https://www.youtube.com/*';
+const allHostname = '*://*/*';
 // Regex
 const chromeRegex = /^chrome:\/\//;
 const youTubeRegex = /^http(s)?:\/\/www\.youtube\.com/;
@@ -14,32 +14,55 @@ chrome.runtime.onInstalled.addListener(async (details) => {
     if (details.reason === chrome.runtime.OnInstalledReason.INSTALL
         || details.reason === chrome.runtime.OnInstalledReason.UPDATE) {
         const keys = await chrome.storage.sync.get(null);
+        // @ts-ignore
+        const automatic = await chrome.permissions.contains({
+            origins: [youTubeHostname],
+        });
+        // @ts-ignore
+        const improvePerformance = await chrome.permissions.contains({
+            origins: [allHostname],
+        });
+        console.log(automatic, improvePerformance);
         const newKeys = {
             [automaticKey]: keys[automaticKey]
-                ?? (keys[requestKey] || keys[updateKey])
-                ?? true,
+                ? keys[automaticKey] && automatic
+                : automatic,
             [improvePerformanceKey]: keys[improvePerformanceKey]
-                ?? false,
+                ? keys[improvePerformanceKey] && improvePerformance
+                : improvePerformance,
         };
         await chrome.storage.sync.set(newKeys);
         console.log('Set settings', newKeys);
     }
 });
+// Handle Permission Removal
+chrome.permissions.onRemoved.addListener(async () => {
+    // @ts-ignore
+    const automatic = await chrome.permissions.contains({
+        origins: [youTubeHostname],
+    });
+    // @ts-ignore
+    const improvePerformance = await chrome.permissions.contains({
+        origins: [allHostname],
+    });
+    if (automatic === false) {
+        await chrome.declarativeNetRequest.updateEnabledRulesets({
+            disableRulesetIds: ['shorts'],
+        });
+    }
+    await chrome.storage.sync.set({
+        [automaticKey]: automatic,
+        [improvePerformanceKey]: improvePerformance,
+    });
+});
 // Listener for new pages with the same URL
 chrome.webNavigation.onCommitted.addListener(async (details) => {
     if (details.frameId === 0
-        && ((youTubeRegex.test(details.url)
-            // @ts-ignore callback not implemented
-            && await chrome.permissions.contains({
-                origins: ['https://www.youtube.com/'],
-            })) || (chromeRegex.test(details.url) === false
-            // @ts-ignore callback not implemented
-            && await chrome.permissions.contains({
-                origins: ['*://*/*'],
-            }))) && (details.transitionType === 'auto_bookmark'
-        || details.transitionType === 'link'
-        || details.transitionType === 'reload'
-        || details.transitionType === 'typed')) {
+        && (details.transitionType === 'auto_bookmark'
+            || details.transitionType === 'link'
+            || details.transitionType === 'reload'
+            || details.transitionType === 'typed')
+        && chromeRegex.test(details.url) === false) {
         const tab = await chrome.tabs.get(details.tabId);
         await handlePageUpdate(details.tabId, tab, 0);
     }
@@ -47,15 +70,7 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
 // Listener for new pages with new URLs
 chrome.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
     if (details.frameId === 0
-        && ((youTubeRegex.test(details.url)
-            // @ts-ignore callback not implemented
-            && await chrome.permissions.contains({
-                origins: ['https://www.youtube.com/'],
-            })) || (chromeRegex.test(details.url) === false
-            // @ts-ignore callback not implemented
-            && await chrome.permissions.contains({
-                origins: ['*://*/*'],
-            })))) {
+        && chromeRegex.test(details.url) === false) {
         const tab = await chrome.tabs.get(details.tabId);
         await handlePageUpdate(details.tabId, tab, 1);
     }
@@ -66,18 +81,16 @@ async function handlePageUpdate(tabId, tab, source) {
     if (latestRequest === `${tab.id}${tab.url}` && source !== 0) {
         return;
     }
-    const url = tab.url?.match(youTubeShortsRegex);
     const { [automaticKey]: automatic, [improvePerformanceKey]: improvePerformance, } = await chrome.storage.sync.get([
         automaticKey,
         improvePerformanceKey,
     ]);
-    if (automatic === false) {
+    if (automatic === false
+        || (improvePerformance === false
+            && youTubeRegex.test(String(tab.url)) === false)) {
         return;
     }
-    if (youTubeRegex.test(String(tab.url)) === false
-        && improvePerformance === false) {
-        return;
-    }
+    const url = tab.url?.match(youTubeShortsRegex);
     if (url) {
         // Redirecting
         latestRequest = `${tab.id}${tab.url}`;

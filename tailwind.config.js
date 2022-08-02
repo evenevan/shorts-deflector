@@ -4,7 +4,7 @@ module.exports = {
         extend: {
             colors: {
                 'youtube-red': '#f40407',
-                'youtube-red-disabled': '#c10305',
+                'youtube-red-disabled': '#8e0203',
             },
             width: {
                 body: '26rem',

@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.1.7 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -965,7 +965,7 @@ video {
 
 .peer:disabled ~ .peer-disabled\:bg-youtube-red-disabled {
   --tw-bg-opacity: 1;
-  background-color: rgb(193 3 5 / var(--tw-bg-opacity));
+  background-color: rgb(142 2 3 / var(--tw-bg-opacity));
 }
 
 .peer:disabled ~ .peer-disabled\:bg-neutral-400 {
