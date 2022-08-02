@@ -29,8 +29,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
             origins: [allHostname],
         });
 
-        console.log(automatic, improvePerformance);
-
         const newKeys = {
             [automaticKey]:
                 keys[automaticKey]
@@ -156,8 +154,6 @@ function replaceURLsExecute() {
     // @ts-ignore different scope at runtime
     // eslint-disable-next-line @typescript-eslint/no-shadow
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
-
-    console.log(document.URL);
 
     const observer = new MutationObserver((mutationRecords) => {
         // Only works on YouTube, faster
