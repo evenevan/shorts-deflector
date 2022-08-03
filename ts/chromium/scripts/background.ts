@@ -20,24 +20,24 @@ chrome.runtime.onInstalled.addListener(async (details) => {
         const keys = await chrome.storage.sync.get(null);
 
         // @ts-ignore
-        const automatic = await chrome.permissions.contains({
+        const automaticPermission = await chrome.permissions.contains({
             origins: [youTubeHostname],
         });
 
         // @ts-ignore
-        const improvePerformance = await chrome.permissions.contains({
+        const improvePerformancePermission = await chrome.permissions.contains({
             origins: [allHostname],
         });
 
         const newKeys = {
             [automaticKey]:
                 keys[automaticKey]
-                    ? keys[automaticKey] && automatic
-                    : automatic,
+                    ? keys[automaticKey] && automaticPermission
+                    : automaticPermission,
             [improvePerformanceKey]:
                 keys[improvePerformanceKey]
-                    ? keys[improvePerformanceKey] && improvePerformance
-                    : improvePerformance,
+                    ? keys[improvePerformanceKey] && improvePerformancePermission
+                    : improvePerformancePermission,
         };
 
         await chrome.storage.sync.set(newKeys);
@@ -49,24 +49,24 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 // Handle Permission Removal
 chrome.permissions.onRemoved.addListener(async () => {
     // @ts-ignore
-    const automatic = await chrome.permissions.contains({
+    const automaticPermission = await chrome.permissions.contains({
         origins: [youTubeHostname],
     }) as unknown as boolean;
 
     // @ts-ignore
-    const improvePerformance = await chrome.permissions.contains({
+    const improvePerformancePermission = await chrome.permissions.contains({
         origins: [allHostname],
     }) as unknown as boolean;
 
-    if (automatic === false) {
+    if (automaticPermission === false) {
         await chrome.declarativeNetRequest.updateEnabledRulesets({
             disableRulesetIds: ['shorts'],
         });
     }
 
     await chrome.storage.sync.set({
-        [automaticKey]: automatic,
-        [improvePerformanceKey]: improvePerformance,
+        [automaticKey]: automaticPermission,
+        [improvePerformanceKey]: improvePerformancePermission,
     });
 });
 
@@ -74,16 +74,13 @@ chrome.permissions.onRemoved.addListener(async () => {
 chrome.webNavigation.onCommitted.addListener(async (details) => {
     if (
         details.frameId === 0
-        && (
-            details.transitionType === 'auto_bookmark'
-            || details.transitionType === 'link'
-            || details.transitionType === 'reload'
-            || details.transitionType === 'typed'
-        )
         && chromeRegex.test(details.url!) === false
     ) {
         const tab = await chrome.tabs.get(details.tabId);
-        await handlePageUpdate(details.tabId, tab, 0);
+
+        if (details.url === tab.url) {
+            await handlePageUpdate(details.tabId, tab);
+        }
     }
 });
 
@@ -94,18 +91,14 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
         && chromeRegex.test(details.url!) === false
     ) {
         const tab = await chrome.tabs.get(details.tabId);
-        await handlePageUpdate(details.tabId, tab, 1);
+
+        if (details.url === tab.url) {
+            await handlePageUpdate(details.tabId, tab);
+        }
     }
 });
 
-let latestRequest: string | null = null;
-
-async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab, source: number) {
-    // Request Dedupe
-    if (latestRequest === `${tab.id}${tab.url}` && source !== 0) {
-        return;
-    }
-
+async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     const {
         [automaticKey]: automatic,
         [improvePerformanceKey]: improvePerformance,
@@ -129,8 +122,6 @@ async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab, source: num
     if (url) {
         // Redirecting
 
-        latestRequest = `${tab.id}${tab.url}`;
-
         const cleanURL = url[0].replace('shorts/', 'watch?v=');
 
         await chrome.tabs.update(tabId, {
@@ -138,8 +129,6 @@ async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab, source: num
         });
     } else {
         // URL Updating
-
-        latestRequest = `${tab.id}${tab.url}`;
 
         await chrome.scripting.executeScript({
             target: {
