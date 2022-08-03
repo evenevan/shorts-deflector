@@ -1,3 +1,13 @@
+import {
+    desktopKey,
+    desktopLoadingKey,
+    youTubeShortsRegex,
+    automaticKey,
+    improvePerformanceKey,
+    youTubeHostname,
+    allHostname,
+} from '../util/constants.js';
+
 (async () => {
     [
         'extensionName',
@@ -11,19 +21,6 @@
         const element = document.getElementById(value);
         element!.textContent = chrome.i18n.getMessage(value);
     });
-
-    // chrome.storage Keys
-    const automaticKey = 'automatic';
-    const desktopKey = 'desktop';
-    const desktopLoadingKey = 'desktopLoading';
-    const improvePerformanceKey = 'improvePerformance';
-
-    // Hostnames
-    const youTubeHostname = 'https://www.youtube.com/*';
-    const allHostname = '*://*/*';
-
-    // Desktop Interface Button
-    const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
     const desktopButton = document.getElementById(
         desktopKey,

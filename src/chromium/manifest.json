@@ -9,7 +9,8 @@
     },
     "author": "Attituding",
     "background": {
-        "service_worker": "./scripts/background.js"
+        "service_worker": "./scripts/background/index.js",
+        "type": "module"
     },
     "declarative_net_request": {
         "rule_resources": [
