@@ -5,7 +5,7 @@ export const desktopLoadingKey = 'desktopLoading';
 export const improvePerformanceKey = 'improvePerformance';
 
 // Regex
-export const chromeRegex = /^chrome:\/\//;
+export const protectedURLsRegex = /^(about|blisk|brave|chrome|edge|torch|vivaldi):/;
 export const youTubeRegex = /^http(s)?:\/\/www\.youtube\.com/;
 export const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 

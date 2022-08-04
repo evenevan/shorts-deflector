@@ -1,11 +1,11 @@
+import { handlePageUpdate } from './handlePageUpdate.js';
 import {
     youTubeHostname,
     allHostname,
     automaticKey,
     improvePerformanceKey,
-    chromeRegex,
+    protectedURLsRegex,
 } from '../util/constants.js';
-import { handlePageUpdate } from './handlePageUpdate.js';
 
 // Install/Update Handling
 chrome.runtime.onInstalled.addListener(async (details) => {
@@ -70,7 +70,7 @@ chrome.permissions.onRemoved.addListener(async () => {
 chrome.webNavigation.onCommitted.addListener(async (details) => {
     if (
         details.frameId === 0
-        && chromeRegex.test(details.url!) === false
+        && protectedURLsRegex.test(details.url!) === false
     ) {
         const tab = await chrome.tabs.get(details.tabId);
 
@@ -84,7 +84,7 @@ chrome.webNavigation.onCommitted.addListener(async (details) => {
 chrome.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
     if (
         details.frameId === 0
-        && chromeRegex.test(details.url!) === false
+        && protectedURLsRegex.test(details.url!) === false
     ) {
         const tab = await chrome.tabs.get(details.tabId);
 
