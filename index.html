@@ -38,7 +38,10 @@
     </head>
     <body class="base flex flex-col bg-white dark:bg-neutral-900">
         <!-- Header Bar -->
-        <div id="header" class="sticky top-0 flex h-fit w-full flex-col bg-neutral-100 dark:bg-neutral-800">
+        <div
+            id="header"
+            class="sticky top-0 flex h-fit w-full flex-col bg-neutral-100 dark:bg-neutral-800"
+        >
             <!-- Always-Present Bar -->
             <div class="flex h-fit w-full justify-between gap-2 p-4">
                 <!-- Branding -->
@@ -51,7 +54,7 @@
 
                 <!-- Hamburger Menu -->
                 <!-- Octicons/three-bars -->
-                <button id="navButton">
+                <button id="nav-button">
                     <svg
                         class="h-10 w-10 fill-neutral-600 dark:fill-neutral-400"
                         xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +76,7 @@
                     <a
                         href="https://github.com/Attituding/shorts-deflector"
                         target="_blank"
-                        class="flex h-12 place-content-center items-center gap-1 rounded bg-neutral-200 transition-all hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                        class="navigation-button"
                     >
                         <!-- Octicons/mark-github -->
                         <svg
@@ -94,7 +97,7 @@
                     <a
                         href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
                         target="_blank"
-                        class="flex h-12 place-content-center items-center gap-1 rounded bg-neutral-200 transition-all hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                        class="navigation-button"
                     >
                         <!-- https://www.svgrepo.com/svg/171831/chrome -->
                         <svg
@@ -126,7 +129,7 @@
                     <a
                         href="https://addons.mozilla.org/firefox/addon/shorts-deflector"
                         target="_blank"
-                        class="flex h-12 place-content-center items-center gap-1 rounded bg-neutral-200 transition-all hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                        class="navigation-button"
                     >
                         <!-- https://materialdesignicons.com/icon/firefox -->
                         <svg
@@ -146,7 +149,7 @@
                     <a
                         href="https://attituding.live/projects"
                         target="_blank"
-                        class="flex h-12 place-content-center items-center gap-1 rounded bg-neutral-200 transition-all hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                        class="navigation-button"
                     >
                         <!-- Octicons/project -->
                         <svg
@@ -174,18 +177,18 @@
 
         <!-- Body -->
         <div class="flex h-fit max-w-6xl flex-col items-start justify-start gap-8 self-center p-4">
-            <div class="flex flex-col gap-3">
+            <div class="group">
                 <a href="#what-is-shorts-deflector">
-                    <span class="text-3xl font-bold">What is Shorts Deflector?</span>
+                    <span class="header-1">What is Shorts Deflector?</span>
                 </a>
                 <span>
-                    Shorts Deflector is a browser extension that lets you watch
-                    YouTube Shorts with the normal desktop interface.
+                    Shorts Deflector is a browser extension that lets you watch YouTube Shorts with
+                    the normal desktop interface.
                 </span>
             </div>
-            <div class="flex flex-col gap-3">
+            <div class="group">
                 <a href="#why-does-shorts-deflector-exist">
-                    <span class="text-3xl font-bold">Why does this extension exist?</span>
+                    <span class="header-1">Why does this extension exist?</span>
                 </a>
                 <span>
                     YouTube has tried to make Shorts relevant on the desktop, not just on mobile. As
@@ -193,17 +196,17 @@
                 </span>
                 <span>
                     For instance, clicking on a Short from a channel's video's page brings up the
-                    stupid interface. Another example is that anyone linking you a Short (such as
-                    from Discord) will also bring up the Shorts interface, even on a desktop.
+                    stupid interface. YouTube has also tried to shove this format into our faces
+                    with the YouTube Shorts shelf on the recommended page.
                 </span>
                 <span>
                     With Shorts Deflector, you don't have to use the stupid Shorts interface, and
                     get to view them as a normal YouTube video.
                 </span>
             </div>
-            <div class="flex flex-col gap-3">
+            <div class="group">
                 <a href="#how-do-i-used-this-extension">
-                    <span class="text-3xl font-bold">How do I use this extension?</span>
+                    <span class="header-1">How do I use this extension?</span>
                 </a>
                 <span>
                     For Chromium based browsers, such as Chrome, Edge, Opera, Vivaldi, Brave, and
@@ -233,47 +236,62 @@
                     on the extensions hot bar (usually in the top right).
                 </span>
             </div>
-            <div class="flex flex-col gap-3">
+            <div class="group">
                 <a href="#how-can-i-contact-you-for-suggestions-bug-or-questions">
-                    <span class="text-3xl font-bold">How can I contact you for suggestions, bugs, or questions?</span>
+                    <span class="header-1"
+                        >How can I contact you for suggestions, bugs, or questions?</span
+                    >
                 </a>
+                <span class="header-2">Option 1 - Chrome Web Store</span>
                 <span>
-                    Please leave suggestions by
+                    Leave all types of inquires by
                     <a
                         class="font-bold"
-                        href="https://github.com/Attituding/shorts-deflector/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
+                        href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
                         target="_blank"
                     >
-                        clicking here</a
-                    >
-                    and filling out the form.
+                        clicking here
+                    </a>
+                    and filling out the support form in the support tab.
                 </span>
-                <span>
-                    Please report bugs by
-                    <a
-                        class="font-bold"
-                        href="https://github.com/Attituding/shorts-deflector/issues/new?assignees=&labels=bug&template=bug_report.md&title="
-                        target="_blank"
-                    >
-                        clicking here</a
-                    >
-                    and filling out the form.
-                </span>
-                <span>
-                    Please ask any questions you have by
-                    <a
-                        class="font-bold"
-                        href="https://github.com/Attituding/shorts-deflector/issues/new?assignees=&labels=question&template=question.md&title="
-                        target="_blank"
-                    >
-                        clicking here</a
-                    >
-                    and filling out the form.
-                </span>
+                <span class="header-2">Option 2 - GitHub Issues</span>
+                <span>You can use this project's GitHub issues page for support.</span>
+                <div class="list">
+                    <span>
+                        - Please leave suggestions by
+                        <a
+                            class="font-bold"
+                            href="https://github.com/Attituding/shorts-deflector/issues/new?assignees=&labels=enhancement&template=feature_request.md&title="
+                            target="_blank"
+                        >
+                            clicking here
+                        </a>
+                    </span>
+                    <span>
+                        - Please report bugs by
+                        <a
+                            class="font-bold"
+                            href="https://github.com/Attituding/shorts-deflector/issues/new?assignees=&labels=bug&template=bug_report.md&title="
+                            target="_blank"
+                        >
+                            clicking here
+                        </a>
+                    </span>
+                    <span>
+                        - Please ask any questions you have by
+                        <a
+                            class="font-bold"
+                            href="https://github.com/Attituding/shorts-deflector/issues/new?assignees=&labels=question&template=question.md&title="
+                            target="_blank"
+                        >
+                            clicking here
+                        </a>
+                    </span>
+                </div>
             </div>
-            <div class="flex flex-col gap-3">
+            <div class="group">
                 <a href="#like-this-project-hate-it">
-                    <span class="text-3xl font-bold">Like this project? Hate it?</span>
+                    <span class="header-1">Like this project? Hate it?</span>
                 </a>
                 <span>
                     Please leave a review on the respective web store if you have anything to say :)

@@ -1,4 +1,4 @@
-const navButton = document.getElementById('navButton') as HTMLButtonElement;
+const navButton = document.getElementById('nav-button') as HTMLButtonElement;
 const nav = document.getElementById('nav') as HTMLDivElement;
 
 const navLocalStorage = localStorage.getItem('nav');
