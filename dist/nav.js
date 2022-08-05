@@ -1,4 +1,4 @@
-const navButton = document.getElementById('navButton');
+const navButton = document.getElementById('nav-button');
 const nav = document.getElementById('nav');
 const navLocalStorage = localStorage.getItem('nav');
 const isNavShown = nav.classList.contains('hidden') === false;
