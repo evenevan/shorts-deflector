@@ -1,12 +1,10 @@
 {
     "compilerOptions": {
         "target": "es2022",
-        "module": "es6",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
+        "module": "es2022",
         "strict": true,
         "alwaysStrict": true,
-        "esModuleInterop": true,
+        "moduleDetection": "force",
         "downlevelIteration": true,
         "outDir": "dist",
     }
