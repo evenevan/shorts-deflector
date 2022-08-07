@@ -26,5 +26,10 @@ Note: The "Read your browsing history" permission may seem alarming, but this pe
   <img src="./assets/promo/Shorts%20Deflector%20Dark%20Firefox%20en.png">
 </details>
 
+# Store Pages
+[Chrome Web Store](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg "Chrome Web Store")
+
+[Firefox Addons](https://addons.mozilla.org/firefox/addon/shorts-deflector/ "Firefox Addons")
+
 # Home Page
-[https://shortsdeflector.attituding.live/](https://attituding.github.io/Shorts-Deflector/)
+[https://shortsdeflector.attituding.live/](https://attituding.github.io/shorts-deflector/)
