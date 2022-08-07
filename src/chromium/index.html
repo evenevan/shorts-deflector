@@ -15,67 +15,49 @@
                 class="h-10 w-10 transition-all duration-1000 ease-in-out hover:rotate-[720deg]"
                 src="./assets/Shorts Deflector Icon.svg"
             />
-            <span id="extensionName" class="text-3xl font-semibold"></span>
+            <span id="extensionName" class="text-2xl font-semibold"></span>
         </div>
         <button
             id="desktop"
-            class="item-box item-sizing group relative flex w-full cursor-pointer items-center justify-center hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-600 dark:hover:bg-neutral-700 disabled:dark:bg-neutral-800 dark:disabled:text-neutral-400"
+            class="item-box item-sizing group relative flex h-10 w-full cursor-pointer items-center justify-center hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-600 dark:hover:bg-neutral-700 disabled:dark:bg-neutral-800 dark:disabled:text-neutral-400"
             disabled
         >
-            <div class="peer flex items-center justify-center gap-4 p-4">
+            <div class="peer flex items-center justify-center gap-4">
                 <div
                     id="desktopLoading"
-                    class="hidden h-6 w-6 animate-spin rounded-full border-[3px] border-neutral-200 border-t-black dark:border-neutral-800 dark:border-t-white"
+                    class="hidden h-4 w-4 animate-spin rounded-full border-[3px] border-neutral-200 border-t-black dark:border-neutral-700 dark:border-t-white"
                 ></div>
-                <span
-                    id="switchToDesktopInterfaceTitle"
-                    class="truncate text-xl font-semibold"
-                ></span>
+                <span id="switchToDesktopInterfaceTitle" class="item-title"></span>
             </div>
             <div
-                id="switchToDesktopInterfaceTooltip"
-                class="absolute -top-1/4 max-h-fit w-fit translate-y-5 scale-0 rounded-md border-2 border-neutral-200 bg-neutral-100 px-2 py-1 text-xs text-black opacity-0 transition-all ease-in-out peer-hover:-translate-y-5 peer-hover:opacity-100 peer-hover:delay-500 group-disabled:peer-hover:scale-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white"
+                class="absolute -top-1/4 max-w-[100%] translate-y-5 scale-0 rounded bg-neutral-100 px-2 py-1 text-xs opacity-0 transition-all ease-in-out peer-hover:-translate-y-12 peer-hover:opacity-100 peer-hover:delay-500 group-disabled:peer-hover:scale-100 dark:bg-neutral-800"
             >
-                <div class="absolute -bottom-1 left-1/2 h-2 w-2 rotate-45 bg-inherit"></div>
+                <span id="switchToDesktopInterfaceTooltip" class="tooltip-text"></span>
             </div>
         </button>
-        <div class="item-box item-sizing item-spacing flex flex-col">
-            <div class="flex items-center justify-between gap-2">
-                <span id="automaticTitle" class="option-title"></span>
+        <div class="item-sizing flex flex-col">
+            <div class="flex items-center justify-between">
+                <span id="automaticTitle" class="item-title"></span>
                 <div class="toggle-container">
-                    <input
-                        id="automatic"
-                        type="checkbox"
-                        class="toggle-checkbox peer"
-                    />
+                    <input id="automatic" type="checkbox" class="toggle-checkbox peer" />
                     <div class="toggle-background"></div>
                     <div class="toggle-foreground"></div>
                     <div class="toggle-handle"></div>
                 </div>
             </div>
-            <span
-                id="automaticDescription"
-                class="option-description"
-            ></span>
+            <span id="automaticDescription" class="item-description"></span>
         </div>
-        <div class="item-box item-sizing item-spacing flex flex-col">
-            <div class="flex items-center justify-between gap-2">
-                <span id="improvePerformanceTitle" class="option-title"></span>
+        <div class="item-sizing flex flex-col">
+            <div class="flex items-center justify-between">
+                <span id="improvePerformanceTitle" class="item-title"></span>
                 <div class="toggle-container">
-                    <input
-                        id="improvePerformance"
-                        type="checkbox"
-                        class="toggle-checkbox peer"
-                    />
+                    <input id="improvePerformance" type="checkbox" class="toggle-checkbox peer" />
                     <div class="toggle-background"></div>
                     <div class="toggle-foreground"></div>
                     <div class="toggle-handle"></div>
                 </div>
             </div>
-            <span
-                id="improvePerformanceDescription"
-                class="option-description"
-            ></span>
+            <span id="improvePerformanceDescription" class="item-description"></span>
         </div>
     </body>
 </html>

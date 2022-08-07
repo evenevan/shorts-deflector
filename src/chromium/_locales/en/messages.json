@@ -9,7 +9,7 @@
         "message": "Switch to Desktop Interface"
     },
     "switchToDesktopInterfaceTooltip": {
-        "message": "Available when this popup is opened on a YouTube Shorts page"
+        "message": "Available when this popup is opened on a YouTube Shorts page."
     },
     "automaticTitle": {
         "message": "Automatic Switching"

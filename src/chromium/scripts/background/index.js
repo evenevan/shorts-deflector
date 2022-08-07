@@ -13,7 +13,6 @@ chrome.runtime.onInstalled.addListener(async (details) => {
         const improvePerformancePermission = await chrome.permissions.contains({
             origins: [allHostname],
         });
-        console.log(keys[improvePerformanceKey], improvePerformancePermission);
         const newKeys = {
             [automaticKey]: typeof keys[automaticKey] !== 'undefined'
                 ? keys[automaticKey] && automaticPermission

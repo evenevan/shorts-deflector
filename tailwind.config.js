@@ -7,7 +7,7 @@ module.exports = {
                 'youtube-red-disabled': '#8e0203',
             },
             width: {
-                body: '26rem',
+                body: '22rem',
             },
         },
     },
