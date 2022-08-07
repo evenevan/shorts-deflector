@@ -24,13 +24,15 @@ chrome.runtime.onInstalled.addListener(async (details) => {
             origins: [allHostname],
         });
 
+        console.log(keys[improvePerformanceKey], improvePerformancePermission);
+
         const newKeys = {
             [automaticKey]:
-                keys[automaticKey]
+                typeof keys[automaticKey] !== 'undefined'
                     ? keys[automaticKey] && automaticPermission
                     : automaticPermission,
             [improvePerformanceKey]:
-                keys[improvePerformanceKey]
+                typeof keys[improvePerformanceKey] !== 'undefined'
                     ? keys[improvePerformanceKey] && improvePerformancePermission
                     : improvePerformancePermission,
         };
