@@ -39,7 +39,7 @@
 }
 
 .toggle-foreground {
-    @apply absolute z-20 h-2 w-4 rounded-full bg-youtube-red ease-in-out peer-checked:w-8 peer-hover:duration-150 peer-disabled:bg-youtube-red-disabled
+    @apply absolute z-20 h-2 w-2 rounded-full bg-youtube-red ease-in-out peer-checked:w-6 peer-hover:duration-150 peer-disabled:bg-youtube-red-disabled
 }
 
 .toggle-handle {

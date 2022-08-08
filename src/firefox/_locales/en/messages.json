@@ -9,18 +9,18 @@
         "message": "Switch to Desktop Interface"
     },
     "switchToDesktopInterfaceTooltip": {
-        "message": "Available when this popup is opened on a YouTube Shorts page"
+        "message": "Available when this popup is opened on a YouTube Shorts page."
     },
-    "automaticRedirectingTitle": {
+    "automaticTitle": {
         "message": "Automatic Redirecting"
     },
-    "automaticRedirectingDescription": {
-        "message": "Automatically redirect YouTube Shorts to the desktop UI"
+    "automaticDescription": {
+        "message": "Automatically redirect YouTube Shorts to the desktop UI."
     },
     "newPagesOnlyTitle": {
         "message": "New Pages Only"
     },
     "newPagesOnlyDescription": {
-        "message": "Only automatically redirect when a YouTube Short is opened in a new tab or window"
+        "message": "Only automatically redirect when a YouTube Short is opened in a new tab or window."
     }
 }

@@ -6,21 +6,21 @@
         "message": "Regardez les YouTube Shorts avec l'interface de bureau normale."
     },
     "switchToDesktopInterfaceTitle": {
-        "message": "Passer à l'Interface du Bureau"
+        "message": "Passer à l'interface du bureau"
     },
     "switchToDesktopInterfaceTooltip": {
-        "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts"
+        "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts."
     },
-    "automaticRedirectingTitle": {
-        "message": "Redirection Automatique"
+    "automaticTitle": {
+        "message": "Redirection automatique"
     },
-    "automaticRedirectingDescription": {
-        "message": "Rediriger automatiquement les YouTube Shorts à l'interface de bureau"
+    "automaticDescription": {
+        "message": "Rediriger automatiquement les YouTube Shorts à l'interface de bureau."
     },
     "newPagesOnlyTitle": {
-        "message": "Nouvelles Pages Uniquement"
+        "message": "Nouvelles pages uniquement"
     },
     "newPagesOnlyDescription": {
-        "message": "Redirection automatique uniquement lorsqu'un YouTube Short est ouvert dans un nouvel onglet ou une nouvelle fenêtre"
+        "message": "Redirection automatique uniquement lorsqu'un YouTube Short est ouvert dans un nouvel onglet ou une nouvelle fenêtre."
     }
 }

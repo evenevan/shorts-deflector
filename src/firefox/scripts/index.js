@@ -4,8 +4,8 @@
         'extensionName',
         'switchToDesktopInterfaceTitle',
         'switchToDesktopInterfaceTooltip',
-        'automaticRedirectingTitle',
-        'automaticRedirectingDescription',
+        'automaticTitle',
+        'automaticDescription',
         'newPagesOnlyTitle',
         'newPagesOnlyDescription',
     ].forEach((value) => {
