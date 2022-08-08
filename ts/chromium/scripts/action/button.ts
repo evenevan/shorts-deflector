@@ -1,16 +1,16 @@
 import {
-    desktopKey,
-    desktopLoadingKey,
+    desktopHTMLKey,
+    desktopLoadingHTMLKey,
     youTubeShortsRegex,
 } from '../util/constants.js';
 
 (async () => {
     const desktopButton = document.getElementById(
-        desktopKey,
+        desktopHTMLKey,
     ) as HTMLButtonElement;
 
     const desktopButtonLoading = document.getElementById(
-        desktopLoadingKey,
+        desktopLoadingHTMLKey,
     ) as HTMLElement;
 
     let [tab] = await chrome.tabs.query({

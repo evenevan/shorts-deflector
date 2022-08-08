@@ -2,8 +2,8 @@ import { handlePageUpdate } from './handlePageUpdate.js';
 import {
     youTubeHostname,
     allHostname,
-    automaticKey,
-    improvePerformanceKey,
+    automaticStorageKey,
+    improvePerformanceStorageKey,
 } from '../util/constants.js';
 
 // Install/Update Handling
@@ -25,13 +25,13 @@ chrome.runtime.onInstalled.addListener(async (details) => {
         });
 
         const newKeys = {
-            [automaticKey]:
-                typeof keys[automaticKey] !== 'undefined'
-                    ? keys[automaticKey] && automaticPermission
+            [automaticStorageKey]:
+                typeof keys[automaticStorageKey] !== 'undefined'
+                    ? keys[automaticStorageKey] && automaticPermission
                     : automaticPermission,
-            [improvePerformanceKey]:
-                typeof keys[improvePerformanceKey] !== 'undefined'
-                    ? keys[improvePerformanceKey] && improvePerformancePermission
+            [improvePerformanceStorageKey]:
+                typeof keys[improvePerformanceStorageKey] !== 'undefined'
+                    ? keys[improvePerformanceStorageKey] && improvePerformancePermission
                     : improvePerformancePermission,
         };
 
@@ -60,8 +60,8 @@ chrome.permissions.onRemoved.addListener(async () => {
     }
 
     await chrome.storage.sync.set({
-        [automaticKey]: automaticPermission,
-        [improvePerformanceKey]: improvePerformancePermission,
+        [automaticStorageKey]: automaticPermission,
+        [improvePerformanceStorageKey]: improvePerformancePermission,
     });
 });
 

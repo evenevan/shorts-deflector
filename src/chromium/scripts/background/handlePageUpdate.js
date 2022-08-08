@@ -1,9 +1,9 @@
-import { automaticKey, improvePerformanceKey, youTubeRegex, youTubeShortsRegex, } from '../util/constants.js';
+import { automaticStorageKey, improvePerformanceStorageKey, youTubeRegex, youTubeShortsRegex, } from '../util/constants.js';
 import { replaceURLs } from './replaceURLs.js';
 export async function handlePageUpdate(tabId, tab) {
-    const { [automaticKey]: automatic, [improvePerformanceKey]: improvePerformance, } = await chrome.storage.sync.get([
-        automaticKey,
-        improvePerformanceKey,
+    const { [automaticStorageKey]: automatic, [improvePerformanceStorageKey]: improvePerformance, } = await chrome.storage.sync.get([
+        automaticStorageKey,
+        improvePerformanceStorageKey,
     ]);
     if (automatic === false
         || (improvePerformance === false

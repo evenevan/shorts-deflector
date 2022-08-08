@@ -5,10 +5,10 @@
     "extensionDescription": {
         "message": "Watch YouTube Shorts with the normal desktop interface."
     },
-    "switchToDesktopInterfaceTitle": {
+    "desktopButtonTitle": {
         "message": "Switch to Desktop Interface"
     },
-    "switchToDesktopInterfaceTooltip": {
+    "desktopButtonTooltip": {
         "message": "Available when this popup is opened on a YouTube Shorts page."
     },
     "automaticTitle": {

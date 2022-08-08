@@ -2,28 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-.item-box {
-    @apply  rounded bg-neutral-100 dark:bg-neutral-800
-}
-
-.item-sizing {
+.item {
     @apply w-full gap-1
 }
 
-.item-spacing {
-    @apply px-3 py-2
-}
-
-.item-title {
+.title {
     @apply truncate text-base font-semibold
 }
 
-.item-description {
+.description {
     @apply text-xs text-neutral-800 dark:text-neutral-200
-}
-
-.tooltip-text {
-    @apply text-[12px] text-neutral-800 dark:text-neutral-200
 }
 
 .toggle-container {

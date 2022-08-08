@@ -1,14 +1,7 @@
 import './button.js';
 import './settings.js';
-[
-    'extensionName',
-    'switchToDesktopInterfaceTitle',
-    'switchToDesktopInterfaceTooltip',
-    'automaticTitle',
-    'automaticDescription',
-    'improvePerformanceTitle',
-    'improvePerformanceDescription',
-].forEach((value) => {
-    const element = document.getElementById(value);
-    element.textContent = chrome.i18n.getMessage(value);
+import { i18nKeys } from '../util/constants.js';
+i18nKeys.forEach(([htmlKey, localeKey]) => {
+    const element = document.getElementById(htmlKey);
+    element.textContent = chrome.i18n.getMessage(localeKey);
 });

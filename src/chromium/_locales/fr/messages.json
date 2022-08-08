@@ -5,10 +5,10 @@
     "extensionDescription": {
         "message": "Regardez les YouTube Shorts avec l'interface de bureau normale."
     },
-    "switchToDesktopInterfaceTitle": {
+    "desktopButtonTitle": {
         "message": "Passer à l'Interface du bureau"
     },
-    "switchToDesktopInterfaceTooltip": {
+    "desktopButtonTooltip": {
         "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts."
     },
     "automaticTitle": {

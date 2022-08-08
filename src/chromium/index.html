@@ -15,29 +15,29 @@
                 class="h-10 w-10 transition-all duration-1000 ease-in-out hover:rotate-[720deg]"
                 src="./assets/Shorts Deflector Icon.svg"
             />
-            <span id="extensionName" class="text-2xl font-semibold"></span>
+            <span id="extension-name" class="text-2xl font-semibold"></span>
         </div>
         <button
-            id="desktop"
-            class="item-box item-sizing group relative flex h-10 w-full cursor-pointer items-center justify-center hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-600 dark:hover:bg-neutral-700 disabled:dark:bg-neutral-800 dark:disabled:text-neutral-400"
+            id="desktop-button"
+            class="item-box item group relative flex h-10 cursor-pointer items-center justify-center rounded bg-neutral-100 transition-all hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 disabled:dark:bg-neutral-800 dark:disabled:text-neutral-400"
             disabled
         >
             <div class="peer flex items-center justify-center gap-4">
                 <div
-                    id="desktopLoading"
+                    id="desktop-button-loading"
                     class="hidden h-4 w-4 animate-spin rounded-full border-[3px] border-neutral-200 border-t-black dark:border-neutral-700 dark:border-t-white"
                 ></div>
-                <span id="switchToDesktopInterfaceTitle" class="item-title"></span>
+                <span id="desktop-button-title" class="title"></span>
             </div>
             <div
                 class="absolute -top-1/4 max-w-[100%] translate-y-5 scale-0 rounded bg-neutral-100 px-2 py-1 text-xs opacity-0 transition-all ease-in-out peer-hover:-translate-y-12 peer-hover:opacity-100 peer-hover:delay-500 group-disabled:peer-hover:scale-100 dark:bg-neutral-800"
             >
-                <span id="switchToDesktopInterfaceTooltip" class="tooltip-text"></span>
+                <span id="desktop-button-tooltip" class="description text-[12px]"></span>
             </div>
         </button>
-        <div class="item-sizing flex flex-col">
+        <div class="item flex flex-col">
             <div class="flex items-center justify-between">
-                <span id="automaticTitle" class="item-title"></span>
+                <span id="automatic-title" class="title"></span>
                 <div class="toggle-container">
                     <input id="automatic" type="checkbox" class="toggle-checkbox peer" />
                     <div class="toggle-background"></div>
@@ -45,19 +45,19 @@
                     <div class="toggle-handle"></div>
                 </div>
             </div>
-            <span id="automaticDescription" class="item-description"></span>
+            <span id="automatic-description" class="description"></span>
         </div>
-        <div class="item-sizing flex flex-col">
+        <div class="item flex flex-col">
             <div class="flex items-center justify-between">
-                <span id="improvePerformanceTitle" class="item-title"></span>
+                <span id="improve-performance-title" class="title"></span>
                 <div class="toggle-container">
-                    <input id="improvePerformance" type="checkbox" class="toggle-checkbox peer" />
+                    <input id="improve-performance" type="checkbox" class="toggle-checkbox peer" />
                     <div class="toggle-background"></div>
                     <div class="toggle-foreground"></div>
                     <div class="toggle-handle"></div>
                 </div>
             </div>
-            <span id="improvePerformanceDescription" class="item-description"></span>
+            <span id="improve-performance-description" class="description"></span>
         </div>
     </body>
 </html>

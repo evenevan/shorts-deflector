@@ -1,13 +1,13 @@
-import { automaticKey, improvePerformanceKey, youTubeHostname, allHostname, } from '../util/constants.js';
+import { automaticStorageKey, improvePerformanceStorageKey, youTubeHostname, allHostname, automaticHTMLKey, improvePerformanceHTMLKey, } from '../util/constants.js';
 (async () => {
-    const automaticSwitch = document.getElementById(automaticKey);
-    const improvePerformanceSwitch = document.getElementById(improvePerformanceKey);
-    const keys = await chrome.storage.sync.get([
-        automaticKey,
-        improvePerformanceKey,
+    const automaticSwitch = document.getElementById(automaticHTMLKey);
+    const improvePerformanceSwitch = document.getElementById(improvePerformanceHTMLKey);
+    const storageKeys = await chrome.storage.sync.get([
+        automaticStorageKey,
+        improvePerformanceStorageKey,
     ]);
-    automaticSwitch.checked = keys[automaticKey];
-    improvePerformanceSwitch.checked = keys[improvePerformanceKey];
+    automaticSwitch.checked = storageKeys[automaticStorageKey];
+    improvePerformanceSwitch.checked = storageKeys[improvePerformanceStorageKey];
     improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
     automaticSwitch.addEventListener('click', async () => {
         if (automaticSwitch.checked) {
@@ -21,7 +21,7 @@ import { automaticKey, improvePerformanceKey, youTubeHostname, allHostname, } fr
         }
         improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
         await chrome.storage.sync.set({
-            [automaticKey]: automaticSwitch.checked,
+            [automaticStorageKey]: automaticSwitch.checked,
         });
         const declarativeNetRequestKey = automaticSwitch.checked
             ? 'enableRulesetIds'
@@ -41,7 +41,7 @@ import { automaticKey, improvePerformanceKey, youTubeHostname, allHostname, } fr
             }
         }
         await chrome.storage.sync.set({
-            [improvePerformanceKey]: improvePerformanceSwitch.checked,
+            [improvePerformanceStorageKey]: improvePerformanceSwitch.checked,
         });
     });
 })();

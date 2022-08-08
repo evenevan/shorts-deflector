@@ -1,26 +1,28 @@
 import {
-    automaticKey,
-    improvePerformanceKey,
+    automaticStorageKey,
+    improvePerformanceStorageKey,
     youTubeHostname,
     allHostname,
+    automaticHTMLKey,
+    improvePerformanceHTMLKey,
 } from '../util/constants.js';
 
 (async () => {
     const automaticSwitch = document.getElementById(
-        automaticKey,
+        automaticHTMLKey,
     ) as HTMLInputElement;
 
     const improvePerformanceSwitch = document.getElementById(
-        improvePerformanceKey,
+        improvePerformanceHTMLKey,
     ) as HTMLInputElement;
 
-    const keys = await chrome.storage.sync.get([
-        automaticKey,
-        improvePerformanceKey,
+    const storageKeys = await chrome.storage.sync.get([
+        automaticStorageKey,
+        improvePerformanceStorageKey,
     ]);
 
-    automaticSwitch.checked = keys[automaticKey];
-    improvePerformanceSwitch.checked = keys[improvePerformanceKey];
+    automaticSwitch.checked = storageKeys[automaticStorageKey];
+    improvePerformanceSwitch.checked = storageKeys[improvePerformanceStorageKey];
     improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
 
     automaticSwitch.addEventListener('click', async () => {
@@ -39,7 +41,7 @@ import {
         improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
 
         await chrome.storage.sync.set({
-            [automaticKey]: automaticSwitch.checked,
+            [automaticStorageKey]: automaticSwitch.checked,
         });
 
         const declarativeNetRequestKey = automaticSwitch.checked
@@ -65,7 +67,7 @@ import {
         }
 
         await chrome.storage.sync.set({
-            [improvePerformanceKey]: improvePerformanceSwitch.checked,
+            [improvePerformanceStorageKey]: improvePerformanceSwitch.checked,
         });
     });
 })();
