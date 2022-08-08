@@ -33,5 +33,5 @@
         "webRequestBlocking",
         "https://www.youtube.com/*"
     ],
-    "version": "1.7.0.firefox"
+    "version": "1.7.0_firefox"
 }
