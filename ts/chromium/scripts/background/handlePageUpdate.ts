@@ -1,10 +1,11 @@
+import { modifyGeneralPage } from './modifyGeneralPage.js';
+import { modifyYouTubePage } from './modifyYouTubePage.js';
 import {
     automaticStorageKey,
     improvePerformanceStorageKey,
     youTubeRegex,
     youTubeShortsRegex,
 } from '../util/constants.js';
-import { replaceURLs } from './replaceURLs.js';
 
 export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     const {
@@ -19,18 +20,18 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
         automatic === false
         || (
             improvePerformance === false
-            && youTubeRegex.test(String(tab.url)) === false
+            && youTubeRegex.test(tab.url!) === false
         )
     ) {
         return;
     }
 
-    const url = tab.url?.match(youTubeShortsRegex);
+    const url = youTubeShortsRegex.test(tab.url!);
 
     if (url) {
         // Redirecting
 
-        const cleanURL = url[0].replace('shorts/', 'watch?v=');
+        const cleanURL = tab.url!.replace('shorts/', 'watch?v=');
 
         await chrome.tabs.update(tabId, {
             url: cleanURL,
@@ -38,11 +39,15 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     } else {
         // URL Updating
 
+        const script = youTubeRegex.test(tab.url!)
+            ? modifyYouTubePage
+            : modifyGeneralPage;
+
         await chrome.scripting.executeScript({
             target: {
                 tabId: tabId,
             },
-            func: replaceURLs,
+            func: script,
         });
     }
 }

@@ -1,28 +1,7 @@
-export function replaceURLs() {
-    const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
+export function modifyGeneralPage() {
+    const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
     const observer = new MutationObserver((mutationRecords) => {
-        // Only works on YouTube, faster
-        /*
-        mutationRecords.forEach((mutationRecord) => {
-            if (
-                mutationRecord.type === 'attributes'
-                && mutationRecord.target.nodeType === 1
-                && mutationRecord.target.nodeName === 'A'
-            ) {
-                const anchor = mutationRecord.target as HTMLAnchorElement;
-                if (anchor.href.match(regex)) {
-                    anchor.href = anchor.href.replace('shorts/', 'watch?v=');
-
-                    anchor.addEventListener('click', (event) => {
-                        event.stopImmediatePropagation();
-                    }, true);
-                }
-            }
-        });
-        */
-
-        // Works on all sites, slower
         const addedNodes = mutationRecords.map(
             (record) => [
                 ...Object.values(record.addedNodes),
@@ -32,7 +11,7 @@ export function replaceURLs() {
 
         const addedElements = addedNodes.filter(
             (addedNode) => addedNode instanceof HTMLElement
-            && addedNode.children.length !== 0,
+                && addedNode.children.length !== 0,
         ) as HTMLElement[];
 
         const targetAnchors = addedElements.filter(
@@ -46,7 +25,7 @@ export function replaceURLs() {
         ).flat(1).concat(targetAnchors);
 
         anchors.forEach((anchor) => {
-            if (anchor.href.match(regex)) {
+            if (anchor.href.match(youTubeShortsRegex)) {
                 // eslint-disable-next-line no-param-reassign
                 anchor.href = anchor.href.replace('shorts/', 'watch?v=');
 
@@ -58,15 +37,13 @@ export function replaceURLs() {
     });
 
     observer.observe(document.body, {
-        attributes: true,
-        attributeFilter: ['href'],
         childList: true,
         subtree: true,
     });
 
     // eslint-disable-next-line no-restricted-syntax
     for (const anchor of document.getElementsByTagName('a')) {
-        if (anchor.href.match(regex)) {
+        if (anchor.href.match(youTubeShortsRegex)) {
             anchor.href = anchor.href.replace('shorts/', 'watch?v=');
 
             anchor.addEventListener('click', (event) => {
