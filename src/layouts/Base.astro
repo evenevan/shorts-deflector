@@ -5,10 +5,12 @@ import Footer from './Footer.astro';
 import Header from './Header.astro';
 
 export interface Props {
-    title: string;
+    title?: string;
 }
 
 const { title } = Astro.props as Props;
+
+const site = 'Shorts Deflector';
 ---
 
 <!DOCTYPE html>
@@ -18,12 +20,16 @@ const { title } = Astro.props as Props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+        <title>{
+            title
+                ? `${site} - ${title}`
+                : site
+        }</title>
     </head>
     <body
         class="flex flex-col dark:bg-neutral-900 bg-white font-sans text-black dark:text-white"
     >
-        <Header title={title}>
+        <Header title={site}>
             <Link
                 href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
                 label="Chromium"
@@ -38,5 +44,7 @@ const { title } = Astro.props as Props;
             <slot />
         </Content>
         <Footer author="Attituding" authorHref="https://attituding.live" />
+        <slot name="script"/>
+        <slot name="style"/>
     </body>
 </html>
