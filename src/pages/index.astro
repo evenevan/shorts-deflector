@@ -13,7 +13,7 @@ import Base from '../layouts/Base.astro';
         <Paragraph>
             <Text>They're wrong.</Text>
             <Text>
-                As Shorts are a mobile-optimized format, its player lacks many features of the
+                As Shorts is a mobile-optimized format, its player lacks many features of the
                 desktop one.
             </Text>
             <Text>
@@ -23,30 +23,53 @@ import Base from '../layouts/Base.astro';
             <Text>Enough is enough.</Text>
         </Paragraph>
     </Block>
+    <div
+        class="flex items-center justify-center bg-gradient-to-t from-transparent to-[#f40407] w-full h-48 rounded-t-3xl"
+    ></div>
     <Block position="center">
-        <Title>Never see the YouTube Shorts player ever again</Title>
+        <Title>Watch YouTube Shorts with the normal desktop interface</Title>
         <Text>Install Shorts Deflector once and never deal with the Shorts player ever again</Text>
-        <div class="relative rounded-3xl max-w-[640px] aspect-[4/5] overflow-hidden">
-            <img class="absolute w-full h-full object-cover object-left" src="/compare-after.png" id="after" />
-            <img class="object-fill" src="/compare-before.png" />
+        <div
+            class="relative rounded-3xl max-w-[640px] aspect-[4/5] overflow-hidden dark:border-0 border-4 border-neutral-200"
+        >
+            <img
+                class="absolute w-full h-full object-cover object-left select-none"
+                id="after"
+                src="/compare-after.png"
+            />
+            <img class="object-fill select-none" src="/compare-before.png" />
             <input
                 class="absolute w-full top-1/2 h-0"
-                type="range"
-                min="0"
-                max="100"
-                value="50"
                 id="slider"
+                type="range"
+                max="100"
+                min="0"
+                value="50"
             />
         </div>
     </Block>
-    <Block>
-        <Title>Open source under the MIT license</Title>
+    <Block position="center">
+        <Title>Minimal and effective user interface</Title>
+        <Text>A simple user interface that doesn't have twenty submenus</Text>
+        <div class="relative w-full aspect-[5/3]">
+            <img
+                class="absolute rounded-3xl top-0 left-0 border-2 dark:border-0 border-neutral-200 w-2/3 shadow aspect-[1280/800]"
+                src="/ui-light.png"
+            />
+            <img
+                class="absolute rounded-3xl bottom-0 right-0 w-2/3 shadow aspect-[1280/800]"
+                src="/ui-dark.png"
+            />
+        </div>
+    </Block>
+    <Block position="center">
+        <Title>An open source project</Title>
         <Text>
-            As an open source project, you can trust that this extension isn't doing anything fishy
+            Available under the MIT license, you can verify that this extension does nothing fishy
         </Text>
         <Button href="https://github.com/Attituding/shorts-deflector" title="GitHub" />
     </Block>
-    <Block>
+    <Block position="center">
         <Title>Ready to get started?</Title>
         <Text>Add Shorts Deflector from the respective web store</Text>
         <div class="flex sm:flex-row flex-col gap-4 items-stretch w-full h-fit">
@@ -56,15 +79,15 @@ import Base from '../layouts/Base.astro';
                 title="Chrome Web Store"
             />
             <Button
-                description="Firefox Add-ons is the best place to get extensions for Firefox."
+                description="Firefox Add-ons is the best place to get extensions for Firefox. This version will be missing certain features for now due to missing APIs (early 2023 ish)."
                 href="https://addons.mozilla.org/firefox/addon/shorts-deflector/"
                 title="Firefox Add-ons"
             />
         </div>
     </Block>
-    <Block>
+    <Block position="center">
         <Title>Bugs? Questions? Suggestions?</Title>
-        <Text>Easily reach out through your preferred method</Text>
+        <Text>Easily get support through your preferred method</Text>
         <div
             class="flex sm:flex-row flex-col gap-4 items-stretch justify-items-stretch w-full h-fit"
         >
@@ -80,41 +103,45 @@ import Base from '../layouts/Base.astro';
             />
         </div>
     </Block>
-
-    <script>
-        const slider = document.getElementById('slider') as HTMLInputElement;
-        const afterImage = document.getElementById('after') as HTMLImageElement;
-        afterImage.style.width = `${slider.value}%`;
-        slider.addEventListener('input', () => {
-            afterImage.style.width = `${slider.value}%`;
-        });
-    </script>
-
-    <style>
-        input[type='range'] {
-            -webkit-appearance: none;
-        }
-        input[type='range']::-webkit-slider-thumb {
-            background: #f40407;
-            border-radius: 0px;
-            cursor: ew-resize;
-            height: 800px;
-            width: 10px;
-            -webkit-appearance: none;
-        }
-        input[type='range']::-moz-range-thumb {
-            background: #f40407;
-            border-radius: 0px;
-            cursor: ew-resize;
-            height: 800px;
-            width: 10px;
-        }
-        input[type='range']::-ms-thumb {
-            background: #f40407;
-            border-radius: 0px;
-            cursor: ew-resize;
-            height: 800px;
-            width: 10px;
-        }
-    </style>
+    <div class="bg-gradient-to-b from-transparent to-[#f40407] w-full h-48 rounded-b-3xl"></div>
 </Base>
+
+<script>
+    const slider = document.getElementById('slider') as HTMLInputElement;
+    const afterImage = document.getElementById('after') as HTMLImageElement;
+    afterImage.style.width = `${slider.value}%`;
+    slider.addEventListener('input', () => {
+        afterImage.style.width = `${slider.value}%`;
+    });
+</script>
+
+<style>
+    input[type='range'] {
+        -webkit-appearance: none;
+    }
+    input[type='range']::-webkit-slider-thumb {
+        background: #f40407;
+        border: 0;
+        border-radius: 0px;
+        cursor: ew-resize;
+        height: 800px;
+        width: 10px;
+        -webkit-appearance: none;
+    }
+    input[type='range']::-moz-range-thumb {
+        background: #f40407;
+        border: 0;
+        border-radius: 0px;
+        cursor: ew-resize;
+        height: 800px;
+        width: 10px;
+    }
+    input[type='range']::-ms-thumb {
+        background: #f40407;
+        border: 0;
+        border-radius: 0px;
+        cursor: ew-resize;
+        height: 800px;
+        width: 10px;
+    }
+</style>
