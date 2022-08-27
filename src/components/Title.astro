@@ -1,3 +1,21 @@
-<span class="sm:text-3xl text-2xl font-bold">
-    <slot />
-</span>
+---
+export interface Props {
+    anchor?: string;
+}
+
+const { anchor } = Astro.props as Props;
+---
+
+{
+    anchor ? (
+        <a class="flex flex-row" href={`#${anchor}`}>
+            <span class="text-2xl font-bold sm:text-3xl">
+                <slot />
+            </span>
+        </a>
+    ) : (
+        <span class="text-2xl font-bold sm:text-3xl">
+            <slot />
+        </span>
+    )
+}

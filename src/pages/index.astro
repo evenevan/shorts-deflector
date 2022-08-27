@@ -9,7 +9,9 @@ import Base from '../layouts/Base.astro';
 
 <Base>
     <Block>
-        <Title>YouTube thinks Shorts belong on the desktop</Title>
+        <Title anchor="youtube-thinks-shorts-belong-on-the-desktop">
+            YouTube thinks Shorts belong on the desktop
+        </Title>
         <Paragraph>
             <Text>They're wrong.</Text>
             <Text>
@@ -26,7 +28,9 @@ import Base from '../layouts/Base.astro';
         class="items-center justify-center bg-gradient-to-t from-transparent to-[#f40407] w-full aspect-[8/1] rounded-t-3xl sm:block hidden"
     ></div>
     <Block position="center">
-        <Title>Watch YouTube Shorts with the normal desktop interface</Title>
+        <Title anchor="watch-youtube-shorts-with-the-normal-desktop-interface">
+            Watch YouTube Shorts with the normal desktop interface
+        </Title>
         <Text>Install Shorts Deflector once and never deal with the Shorts player ever again</Text>
         <div
             class="relative rounded-3xl max-w-[640px] aspect-[4/5] overflow-hidden dark:sm:border-0 dark:border-0 sm:border-4 border-2 border-neutral-200"
@@ -48,7 +52,9 @@ import Base from '../layouts/Base.astro';
         </div>
     </Block>
     <Block position="center">
-        <Title>Minimal and effective user interface</Title>
+        <Title anchor="minimal-and-effective-user-interface">
+            Minimal and effective user interface
+        </Title>
         <Text>A simple user interface that doesn't have twenty submenus</Text>
         <div class="relative w-full aspect-[5/3]">
             <img
@@ -62,14 +68,18 @@ import Base from '../layouts/Base.astro';
         </div>
     </Block>
     <Block position="center">
-        <Title>An open source project</Title>
+        <Title anchor="an-open-source-project">
+            An open source project
+        </Title>
         <Text>
             Available under the MIT license, you can verify that this extension does nothing fishy
         </Text>
         <Button href="https://github.com/Attituding/shorts-deflector" title="GitHub" />
     </Block>
     <Block position="center">
-        <Title>Ready to get started?</Title>
+        <Title anchor="ready-to-get-started">
+            Ready to get started?
+        </Title>
         <Text>Add Shorts Deflector from the respective web store</Text>
         <div class="flex sm:flex-row flex-col gap-4 items-stretch w-full h-fit">
             <Button
@@ -85,7 +95,9 @@ import Base from '../layouts/Base.astro';
         </div>
     </Block>
     <Block position="center">
-        <Title>Bugs? Questions? Suggestions?</Title>
+        <Title anchor="bugs-questions-suggestions">
+            Bugs? Questions? Suggestions?
+        </Title>
         <Text>Easily get support through your preferred method</Text>
         <div
             class="flex sm:flex-row flex-col gap-4 items-stretch justify-items-stretch w-full h-fit"
@@ -106,6 +118,7 @@ import Base from '../layouts/Base.astro';
 </Base>
 
 <script>
+    // Image comparison handling
     const slider = document.getElementById('slider') as HTMLInputElement;
     const afterImage = document.getElementById('after') as HTMLImageElement;
     afterImage.style.width = `${slider.value}%`;

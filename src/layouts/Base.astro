@@ -20,15 +20,9 @@ const site = 'Shorts Deflector';
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>{
-            title
-                ? `${site} - ${title}`
-                : site
-        }</title>
+        <title>{title ? `${title} - ${site}` : site}</title>
     </head>
-    <body
-        class="flex flex-col dark:bg-neutral-900 bg-white font-sans text-black dark:text-white"
-    >
+    <body class="flex flex-col dark:bg-neutral-900 bg-white font-sans text-black dark:text-white">
         <Header title={site}>
             <Link
                 href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
@@ -44,7 +38,38 @@ const site = 'Shorts Deflector';
             <slot />
         </Content>
         <Footer author="Attituding" authorHref="https://attituding.live" />
-        <slot name="script"/>
-        <slot name="style"/>
+        <slot name="script" />
+        <slot name="style" />
+        <script>
+            // Anchor stuff
+            const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+            const header = document.getElementById('header') as HTMLDivElement;
+
+            const scrollToAnchor = (anchor: HTMLAnchorElement) => {
+                const top =
+                    anchor.getBoundingClientRect().top + window.pageYOffset - header.offsetHeight;
+
+                window.scrollTo({
+                    top: top,
+                    behavior: 'smooth',
+                });
+            };
+
+            anchors.forEach((anchor) => {
+                anchor.addEventListener('click', () => {
+                    scrollToAnchor(anchor);
+                });
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const selectedAnchor = Object.values(anchors).find(
+                    (anchor) => anchor.href === document.URL,
+                );
+
+                if (selectedAnchor) {
+                    scrollToAnchor(selectedAnchor);
+                }
+            });
+        </script>
     </body>
 </html>
