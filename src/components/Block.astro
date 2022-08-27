@@ -8,13 +8,17 @@ const { position } = Astro.props as Props;
 let positionClass;
 
 switch (position) {
-    case 'center': positionClass = 'items-center';
+    case 'center':
+        positionClass = 'items-center';
         break;
-    case 'left': positionClass = 'items-start';
+    case 'left':
+        positionClass = 'items-start';
         break;
-    case 'right': positionClass = 'items-end';
+    case 'right':
+        positionClass = 'items-end';
         break;
-    default: positionClass = 'items-start';
+    default:
+        positionClass = 'items-start';
 }
 ---
 
