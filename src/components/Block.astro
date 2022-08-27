@@ -1,0 +1,23 @@
+---
+export interface Props {
+    position?: 'center' | 'left' | 'right';
+}
+
+const { position } = Astro.props as Props;
+
+let positionClass;
+
+switch (position) {
+    case 'center': positionClass = 'items-center';
+        break;
+    case 'left': positionClass = 'items-start';
+        break;
+    case 'right': positionClass = 'items-end';
+        break;
+    default: positionClass = 'items-start';
+}
+---
+
+<div class={`flex flex-col gap-2 ${positionClass}`}>
+    <slot />
+</div>

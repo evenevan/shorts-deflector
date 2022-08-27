@@ -1,0 +1,120 @@
+---
+import Block from '../components/Block.astro';
+import Button from '../components/Button.astro';
+import Paragraph from '../components/Paragraph.astro';
+import Text from '../components/Text.astro';
+import Title from '../components/Title.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Shorts Deflector">
+    <Block>
+        <Title>YouTube thinks Shorts belong on the desktop</Title>
+        <Paragraph>
+            <Text>They're wrong.</Text>
+            <Text>
+                As Shorts are a mobile-optimized format, its player lacks many features of the
+                desktop one.
+            </Text>
+            <Text>
+                YouTube tries to push Shorts through the recommended page, subscription page,
+                channel video pages, and many more.
+            </Text>
+            <Text>Enough is enough.</Text>
+        </Paragraph>
+    </Block>
+    <Block position="center">
+        <Title>Never see the YouTube Shorts player ever again</Title>
+        <Text>Install Shorts Deflector once and never deal with the Shorts player ever again</Text>
+        <div class="relative rounded-3xl max-w-[640px] aspect-[4/5] overflow-hidden">
+            <img class="absolute w-full h-full object-cover object-left" src="/compare-after.png" id="after" />
+            <img class="object-fill" src="/compare-before.png" />
+            <input
+                class="absolute w-full top-1/2 h-0"
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                id="slider"
+            />
+        </div>
+    </Block>
+    <Block>
+        <Title>Open source under the MIT license</Title>
+        <Text>
+            As an open source project, you can trust that this extension isn't doing anything fishy
+        </Text>
+        <Button href="https://github.com/Attituding/shorts-deflector" title="GitHub" />
+    </Block>
+    <Block>
+        <Title>Ready to get started?</Title>
+        <Text>Add Shorts Deflector from the respective web store</Text>
+        <div class="flex sm:flex-row flex-col gap-4 items-stretch w-full h-fit">
+            <Button
+                description="The Chrome Web Store is compatible with Chromium based browsers. This includes Chrome, Microsoft Edge, Brave, Opera, Vivaldi, and many more."
+                href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
+                title="Chrome Web Store"
+            />
+            <Button
+                description="Firefox Add-ons is the best place to get extensions for Firefox."
+                href="https://addons.mozilla.org/firefox/addon/shorts-deflector/"
+                title="Firefox Add-ons"
+            />
+        </div>
+    </Block>
+    <Block>
+        <Title>Bugs? Questions? Suggestions?</Title>
+        <Text>Easily reach out through your preferred method</Text>
+        <div
+            class="flex sm:flex-row flex-col gap-4 items-stretch justify-items-stretch w-full h-fit"
+        >
+            <Button
+                description="Easily ask, suggest, or report anything through the support tab on the Chrome Web Store."
+                href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
+                title="Chrome Web Store"
+            />
+            <Button
+                description="Ask, suggest or report anything by creating a GitHub issue. You can choose from a variety of templates to get you started."
+                href="https://github.com/Attituding/shorts-deflector/issues/new/choose"
+                title="GitHub Issues"
+            />
+        </div>
+    </Block>
+
+    <script>
+        const slider = document.getElementById('slider') as HTMLInputElement;
+        const afterImage = document.getElementById('after') as HTMLImageElement;
+        afterImage.style.width = `${slider.value}%`;
+        slider.addEventListener('input', () => {
+            afterImage.style.width = `${slider.value}%`;
+        });
+    </script>
+
+    <style>
+        input[type='range'] {
+            -webkit-appearance: none;
+        }
+        input[type='range']::-webkit-slider-thumb {
+            background: #f40407;
+            border-radius: 0px;
+            cursor: ew-resize;
+            height: 800px;
+            width: 10px;
+            -webkit-appearance: none;
+        }
+        input[type='range']::-moz-range-thumb {
+            background: #f40407;
+            border-radius: 0px;
+            cursor: ew-resize;
+            height: 800px;
+            width: 10px;
+        }
+        input[type='range']::-ms-thumb {
+            background: #f40407;
+            border-radius: 0px;
+            cursor: ew-resize;
+            height: 800px;
+            width: 10px;
+        }
+    </style>
+</Base>

@@ -1,0 +1,27 @@
+---
+import Block from '../components/Block.astro';
+import Button from '../components/Button.astro';
+import Text from '../components/Text.astro';
+import Title from '../components/Title.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Shorts Deflector">
+    <div class="flex justify-center py-8">
+        <div class="max-w-sm">
+            <Block position="center">
+                <Title>
+                    404
+                </Title>
+                <Text>
+                    Looks like you took a wrong turn
+                </Text>
+                <Button
+                    href="/"
+                    target="_self"
+                    title="Return to Home"
+                />
+            </Block>
+        </div>
+    </div>
+</Base>

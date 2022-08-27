@@ -1,0 +1,21 @@
+---
+export interface Props {
+    title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<div
+    class="flex sm:flex-row flex-col w-full h-fit dark:bg-neutral-800 bg-white p-4 justify-between items-center gap-2"
+>
+    <a class="w-fit flex place-items-center gap-2" href="/">
+        <img class="sm:h-10 sm:w-10 h-8 w-8" src="/favicon.svg" />
+        <span class="sm:text-2xl text-xl font-bold mb-1 truncate">{title}</span>
+    </a>
+    <nav
+        class="flex flex-row justify-around w-full sm:w-fit sm:gap-8 sm:px-4 group"
+    >
+        <slot />
+    </nav>
+</div>
