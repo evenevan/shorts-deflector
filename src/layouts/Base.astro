@@ -17,9 +17,9 @@ const site = 'Shorts Deflector';
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="generator" content={Astro.generator} />
+        <meta content="width=device-width" name="viewport" />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <meta content={Astro.generator} name="generator" />
         <title>{title ? `${title} - ${site}` : site}</title>
     </head>
     <body class="flex flex-col dark:bg-neutral-900 bg-white font-sans text-black dark:text-white">
@@ -38,8 +38,6 @@ const site = 'Shorts Deflector';
             <slot />
         </Content>
         <Footer author="Attituding" authorHref="https://attituding.live" />
-        <slot name="script" />
-        <slot name="style" />
         <script>
             // Anchor stuff
             const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
