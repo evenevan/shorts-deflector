@@ -33,7 +33,7 @@
     },
     "manifest_version": 3,
     "minimum_chrome_version": "102",
-    "name": "__MSG_extensionName__",
+    "name": "Shorts Deflector",
     "optional_host_permissions": [
         "*://*/*"
     ],

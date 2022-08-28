@@ -4,19 +4,20 @@
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {
-        "@types/chrome": "^0.0.193",
-        "@typescript-eslint/eslint-plugin": "^5.32.0",
-        "@typescript-eslint/parser": "^5.32.0",
-        "eslint": "^8.21.0",
+        "@types/chrome": "^0.0.195",
+        "@typescript-eslint/eslint-plugin": "^5.35.1",
+        "@typescript-eslint/parser": "^5.35.1",
+        "eslint": "^8.23.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-airbnb-typescript": "^17.0.0",
         "eslint-plugin-import": "^2.26.0",
         "prettier-plugin-tailwindcss": "^0.1.13",
-        "tailwindcss": "^3.1.7",
-        "typescript": "^4.7.4"
+        "tailwindcss": "^3.1.8",
+        "typescript": "^4.8.2"
     },
     "scripts": {
-        "build": "tsc -p . && npx tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css",
-        "tailwind": "npx tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css"
+        "build": "npm run typescript && npm run tailwind",
+        "tailwind": "tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css",
+        "typescript": "tsc -p ."
     }
 }

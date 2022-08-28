@@ -5,7 +5,6 @@ export const desktopLoadingHTMLKey = 'desktop-button-loading';
 export const improvePerformanceHTMLKey = 'improve-performance';
 
 export const i18nKeys = [
-    ['extension-name', 'extensionName'],
     ['desktop-button-title', 'desktopButtonTitle'],
     ['desktop-button-tooltip', 'desktopButtonTooltip'],
     ['automatic-title', 'automaticTitle'],
