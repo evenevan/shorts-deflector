@@ -1,0 +1,76 @@
+---
+export interface Props {
+    imageAfterAlt: string;
+    imageAfterURL: string;
+    imageBeforeAlt: string;
+    imageBeforeURL: string;
+    maxWidth: string;
+}
+
+const { imageAfterAlt, imageAfterURL, imageBeforeAlt, imageBeforeURL, maxWidth } =
+    Astro.props as Props;
+---
+
+<div
+    class={`relative rounded-3xl ${maxWidth} overflow-hidden dark:sm:border-0 dark:border-0 sm:border-4 border-2 border-neutral-200`}
+>
+    <img
+        alt={imageAfterAlt}
+        class="absolute w-full h-full object-cover object-left select-none"
+        id="after"
+        src={imageAfterURL}
+    />
+    <img alt={imageBeforeAlt} class="object-fill select-none" src={imageBeforeURL} />
+    <input
+        alt="Range slider that controls a comparison of two images"
+        class="absolute w-full top-1/2 h-0"
+        id="slider"
+        type="range"
+        max="500"
+        min="0"
+        value="250"
+    />
+</div>
+<label class="text-neutral-600 dark:text-neutral-400 font-semibold" for="slider">
+    Use the slider to compare the differences between the desktop and shorts video player
+</label>
+
+<script>
+    const slider = document.getElementById('slider') as HTMLInputElement;
+    const afterImage = document.getElementById('after') as HTMLImageElement;
+    afterImage.style.width = `${Number(slider.value) / 5}%`;
+    slider.addEventListener('input', () => {
+        afterImage.style.width = `${Number(slider.value) / 5}%`;
+    });
+</script>
+
+<style>
+    input[type='range'] {
+        -webkit-appearance: none;
+    }
+    input[type='range']::-webkit-slider-thumb {
+        background: #f40407;
+        border: 0;
+        border-radius: 0px;
+        cursor: ew-resize;
+        height: 1000px;
+        width: 10px;
+        -webkit-appearance: none;
+    }
+    input[type='range']::-moz-range-thumb {
+        background: #f40407;
+        border: 0;
+        border-radius: 0px;
+        cursor: ew-resize;
+        height: 1000px;
+        width: 10px;
+    }
+    input[type='range']::-ms-thumb {
+        background: #f40407;
+        border: 0;
+        border-radius: 0px;
+        cursor: ew-resize;
+        height: 1000px;
+        width: 10px;
+    }
+</style>

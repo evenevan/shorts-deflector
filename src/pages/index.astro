@@ -1,6 +1,8 @@
 ---
 import Block from '../components/Block.astro';
 import Button from '../components/Button.astro';
+import ImageComparison from '../components/ImageComparison.astro';
+import ImageStack from '../components/ImageStack.astro';
 import Paragraph from '../components/Paragraph.astro';
 import Text from '../components/Text.astro';
 import Title from '../components/Title.astro';
@@ -33,58 +35,34 @@ import Base from '../layouts/Base.astro';
             Watch YouTube Shorts with the normal desktop interface
         </Title>
         <Text>Install Shorts Deflector once and never deal with the Shorts player ever again</Text>
-        <div
-            class="relative rounded-3xl max-w-[640px] aspect-[4/5] overflow-hidden dark:sm:border-0 dark:border-0 sm:border-4 border-2 border-neutral-200"
-        >
-            <img
-                alt="YouTube video with the desktop video player"
-                class="absolute w-full h-full object-cover object-left select-none"
-                id="after"
-                src="/compare-after.jpg"
-            />
-            <img
-                alt="YouTube video with the shorts video player"
-                class="object-fill select-none"
-                src="/compare-before.jpg"
-            />
-            <input
-                alt="Range slider that controls the overlay of the desktop video player versus the shorts video player"
-                class="absolute w-full top-1/2 h-0"
-                id="slider"
-                type="range"
-                max="100"
-                min="0"
-                value="50"
-            />
-        </div>
-        <label class="text-neutral-600 dark:text-neutral-400 font-semibold" for="slider">
-            Use the slider to compare the differences between the desktop and shorts video player
-        </label>
+        <ImageComparison
+            imageAfterAlt="YouTube video with the desktop video player"
+            imageAfterURL="/compare-after.jpg"
+            imageBeforeAlt="YouTube video with the shorts video player"
+            imageBeforeURL="/compare-before.jpg"
+            maxWidth="max-w-xl"
+        />
     </Block>
     <Block position="center">
         <Title anchor="minimal-and-effective-user-interface">
             Minimal and effective user interface
         </Title>
         <Text>A simple user interface that doesn't have twenty submenus</Text>
-        <div class="relative w-full aspect-[5/3]">
-            <img
-                alt="User interface of Shorts Deflector in light mode"
-                class="absolute rounded-3xl top-0 left-0 sm:border-4 border-2 dark:border-0 dark:sm:border-0 border-neutral-200 w-2/3 shadow aspect-[1280/800] select-none"
-                src="/ui-light.png"
-            />
-            <img
-                alt="User interface of Shorts Deflector in dark mode"
-                class="absolute rounded-3xl bottom-0 right-0 w-2/3 dark:sm:border-4 dark:border-2 border-neutral-700 shadow aspect-[1280/800] select-none"
-                src="/ui-dark.png"
-            />
-        </div>
+        <ImageStack
+            aspectRatio="aspect-[5/3]"
+            imageBottomAlt="User interface of Shorts Deflector in light mode"
+            imageBottomURL="/ui-light.png"
+            imageTopAlt="User interface of Shorts Deflector in dark mode"
+            imageTopURL="/ui-dark.png"
+            maxWidth="max-w-3xl"
+        />
     </Block>
     <Block position="center">
         <Title anchor="an-open-source-project">An open source project</Title>
         <Text>
             Available under the MIT license, you can verify that this extension does nothing fishy
         </Text>
-        <Button href="https://github.com/Attituding/shorts-deflector" title="GitHub" />
+        <Button href="https://github.com/Attituding/shorts-deflector" maxWidth="max-w-xl" title="GitHub" />
     </Block>
     <Block position="center">
         <Title anchor="ready-to-get-started">Ready to get started?</Title>
@@ -124,45 +102,3 @@ import Base from '../layouts/Base.astro';
         class="bg-gradient-to-b from-transparent to-[#f40407] w-full aspect-[8/1] rounded-b-3xl sm:block hidden"
     ></div>
 </Base>
-
-<script>
-    // Image comparison handling
-    const slider = document.getElementById('slider') as HTMLInputElement;
-    const afterImage = document.getElementById('after') as HTMLImageElement;
-    afterImage.style.width = `${slider.value}%`;
-    slider.addEventListener('keyup', () => {});
-    slider.addEventListener('input', () => {
-        afterImage.style.width = `${slider.value}%`;
-    });
-</script>
-
-<style>
-    input[type='range'] {
-        -webkit-appearance: none;
-    }
-    input[type='range']::-webkit-slider-thumb {
-        background: #f40407;
-        border: 0;
-        border-radius: 0px;
-        cursor: ew-resize;
-        height: 800px;
-        width: 10px;
-        -webkit-appearance: none;
-    }
-    input[type='range']::-moz-range-thumb {
-        background: #f40407;
-        border: 0;
-        border-radius: 0px;
-        cursor: ew-resize;
-        height: 800px;
-        width: 10px;
-    }
-    input[type='range']::-ms-thumb {
-        background: #f40407;
-        border: 0;
-        border-radius: 0px;
-        cursor: ew-resize;
-        height: 800px;
-        width: 10px;
-    }
-</style>
