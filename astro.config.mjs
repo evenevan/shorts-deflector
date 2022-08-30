@@ -4,8 +4,10 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [mdx(), tailwind({ config: {
-        applyBaseStyles: false,
-    }})],
+    integrations: [tailwind({
+        config: {
+            applyBaseStyles: false,
+        },
+    })],
     site: 'https://shortsdeflector.attituding.live',
 });
