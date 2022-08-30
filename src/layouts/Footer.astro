@@ -9,11 +9,11 @@ const { author, authorHref } = Astro.props as Props;
 const year = new Date().getFullYear();
 ---
 
-<footer class="flex dark:bg-neutral-800 bg-neutral-100 p-2 px-4 items-center gap-1">
+<footer class="flex dark:bg-dark-2 bg-light-1 p-2 px-4 items-center gap-1">
     <img alt="Shorts Deflector logo" class="sm:h-6 sm:w-6 w-5 h-5" src="/favicon.svg" />
-    <span class="font-semibold text-neutral-700 dark:text-neutral-300 sm:text-base text-sm">
+    <span class="text-light-2 dark:text-dark-2 h6">
         &#169; {year}
-        <a class="text-black dark:text-white font-bold" href={authorHref} target="_blank">{author}</a>. 
+        <a class="text-light-1 dark:text-dark-1 font-bold" href={authorHref} target="_blank">{author}</a>. 
         All rights reserved.
     </span>
 </footer>
