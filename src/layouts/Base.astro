@@ -19,7 +19,7 @@ const titleMeta = title ? `${title} - ${site}` : site;
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        <link href="/icon.svg" rel="icon" type="image/svg+xml" />
         <meta charset="UTF-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content={Astro.generator} name="generator" />
@@ -37,7 +37,7 @@ const titleMeta = title ? `${title} - ${site}` : site;
             property="og:description"
             content="Watch YouTube Shorts with the normal desktop interface"
         />
-        <meta property="og:image" content="/favicon.svg" />
+        <meta property="og:image" content="/icon.webp" />
 
         <!-- Twitter -->
         <meta property="twitter:title" content={titleMeta} />
@@ -45,7 +45,7 @@ const titleMeta = title ? `${title} - ${site}` : site;
             content="Watch YouTube Shorts with the normal desktop interface"
             property="twitter:description"
         />
-        <meta property="twitter:image" content="/favicon.svg" />
+        <meta property="twitter:image" content="/icon.webp" />
     </head>
     <body class="flex flex-col dark:bg-dark-1 bg-light-1 font-sans text-light-1 dark:text-dark-1">
         <Header title={site}>
