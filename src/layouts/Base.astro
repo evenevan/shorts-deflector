@@ -12,6 +12,8 @@ export interface Props {
 const { title } = Astro.props as Props;
 
 const site = 'Shorts Deflector';
+
+const titleMeta = title ? `${title} - ${site}` : site;
 ---
 
 <!DOCTYPE html>
@@ -21,8 +23,29 @@ const site = 'Shorts Deflector';
         <meta charset="UTF-8" />
         <meta content="width=device-width" name="viewport" />
         <meta content={Astro.generator} name="generator" />
+        
+        <!-- General Meta Tags -->
+        <title>{titleMeta}</title>
         <meta content="Watch YouTube Shorts with the normal desktop interface" name="description" />
-        <title>{title ? `${title} - ${site}` : site}</title>
+        <meta content="#f40407" name="theme-color" />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://attituding.live/" />
+        <meta property="og:title" content={titleMeta} />
+        <meta
+            property="og:description"
+            content="Watch YouTube Shorts with the normal desktop interface"
+        />
+        <meta property="og:image" content="/favicon.svg" />
+
+        <!-- Twitter -->
+        <meta property="twitter:title" content={titleMeta} />
+        <meta
+            content="Watch YouTube Shorts with the normal desktop interface"
+            property="twitter:description"
+        />
+        <meta property="twitter:image" content="/favicon.svg" />
     </head>
     <body class="flex flex-col dark:bg-dark-1 bg-light-1 font-sans text-light-1 dark:text-dark-1">
         <Header title={site}>
