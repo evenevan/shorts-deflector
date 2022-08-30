@@ -16,10 +16,11 @@ const site = 'Shorts Deflector';
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <meta charset="UTF-8" />
         <meta content="width=device-width" name="viewport" />
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <meta content={Astro.generator} name="generator" />
+        <meta content="Watch YouTube Shorts with the normal desktop interface" name="description" />
         <title>{title ? `${title} - ${site}` : site}</title>
     </head>
     <body class="flex flex-col dark:bg-neutral-900 bg-white font-sans text-black dark:text-white">
@@ -59,15 +60,13 @@ const site = 'Shorts Deflector';
                 });
             });
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const selectedAnchor = Object.values(anchors).find(
-                    (anchor) => anchor.href === document.URL,
-                );
+            const selectedAnchor = Object.values(anchors).find(
+                (anchor) => anchor.href === document.URL,
+            );
 
-                if (selectedAnchor) {
-                    scrollToAnchor(selectedAnchor);
-                }
-            });
+            if (selectedAnchor) {
+                scrollToAnchor(selectedAnchor);
+            }
         </script>
     </body>
 </html>

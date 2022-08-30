@@ -1,14 +1,25 @@
 ---
 export interface Props {
+    aspectRatio: string;
+    height: string;
     imageAfterAlt: string;
     imageAfterURL: string;
     imageBeforeAlt: string;
     imageBeforeURL: string;
     maxWidth: string;
+    width: string;
 }
 
-const { imageAfterAlt, imageAfterURL, imageBeforeAlt, imageBeforeURL, maxWidth } =
-    Astro.props as Props;
+const {
+    aspectRatio,
+    height,
+    imageAfterAlt,
+    imageAfterURL,
+    imageBeforeAlt,
+    imageBeforeURL,
+    maxWidth,
+    width,
+} = Astro.props as Props;
 ---
 
 <div
@@ -16,19 +27,29 @@ const { imageAfterAlt, imageAfterURL, imageBeforeAlt, imageBeforeURL, maxWidth }
 >
     <img
         alt={imageAfterAlt}
-        class="absolute w-full h-full object-cover object-left select-none"
+        class={`absolute w-full h-full object-cover object-left select-none ${aspectRatio}`}
         id="after"
+        height={height}
         src={imageAfterURL}
+        width={width}
     />
-    <img alt={imageBeforeAlt} class="object-fill select-none" src={imageBeforeURL} />
+    <img
+        alt={imageBeforeAlt}
+        class={`object-fill select-none ${aspectRatio}`}
+        height={height}
+        src={imageBeforeURL}
+        width={width}
+    />
     <input
         alt="Range slider that controls a comparison of two images"
         class="absolute w-full top-1/2 h-0"
+        height={height}
         id="slider"
         type="range"
         max="500"
         min="0"
         value="250"
+        width={width}
     />
 </div>
 <label class="text-neutral-600 dark:text-neutral-400 font-semibold" for="slider">
