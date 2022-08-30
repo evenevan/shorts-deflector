@@ -1,20 +1,22 @@
 ---
 export interface Props {
     anchor?: string;
+    desktopTextSize?: string,
+    mobileTextSize?: string,
 }
 
-const { anchor } = Astro.props as Props;
+const { anchor, desktopTextSize = 'sm:text-3xl', mobileTextSize = 'text-2xl' } = Astro.props as Props;
 ---
 
 {
     anchor ? (
         <a class="flex flex-row" href={`#${anchor}`}>
-            <span class="text-2xl font-bold sm:text-3xl">
+            <span class={`${mobileTextSize} font-bold ${desktopTextSize}`}>
                 <slot />
             </span>
         </a>
     ) : (
-        <span class="text-2xl font-bold sm:text-3xl">
+        <span class={`${mobileTextSize} font-bold ${desktopTextSize}`}>
             <slot />
         </span>
     )
