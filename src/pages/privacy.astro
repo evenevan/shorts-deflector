@@ -10,27 +10,19 @@ import Base from '../layouts/Base.astro';
 
 <Base>
     <Block>
-        <Title anchor="privacy-policy" heading="1">
-            Privacy Policy
-        </Title>
+        <Title anchor="privacy-policy" heading="1">Privacy Policy</Title>
         <Paragraph>
             <Text>
                 This Privacy Policy explains how we use and collect data when you use our extension.
             </Text>
-            <Text>
-                Last Updated: Aug 30th, 2022.
-            </Text>
+            <Text>Last Updated: Aug 30th, 2022.</Text>
         </Paragraph>
     </Block>
     <Block>
-        <Title anchor="what-data-do-we-collect">
-            What Data Do We Collect?
-        </Title>
+        <Title anchor="what-data-do-we-collect">What Data Do We Collect?</Title>
         <Paragraph>
             <List>
-                <Text>
-                    This extension collects the following data by default:
-                </Text>
+                <Text>This extension collects the following data by default:</Text>
                 <ListItem>Tab information (tab Id, URL)</ListItem>
                 <ListItem>YouTube site content</ListItem>
                 <ListItem>User input to the extension's user interface</ListItem>
@@ -39,74 +31,86 @@ import Base from '../layouts/Base.astro';
         <Paragraph>
             <List>
                 <Text>
-                    If you opt into the enhanced performance option, then the following data is also collected:
+                    If you opt into the enhanced performance option, then the following data is also
+                    collected:
                 </Text>
                 <ListItem>All site content (excluding local files and protected webpages)</ListItem>
             </List>
         </Paragraph>
     </Block>
     <Block>
-        <Title anchor="how-do-we-collect-your-data">
-            How Do We Collect Your Data?
-        </Title>
+        <Title anchor="how-do-we-collect-your-data">How Do We Collect Your Data?</Title>
         <Paragraph>
             <Text>
-                This extension collects some data through APIs provided by your browser. For example, when you load a webpage, your browser tells this extension that a webpage has loaded and provides information such as a tab Id and URL. This content is collected even if automatic redirecting is disabled due to technical limitations, although this data is then thrown out almost immediately.
+                This extension collects some data through APIs provided by your browser. For
+                example, when you load a webpage, your browser tells this extension that a webpage
+                has loaded and provides information such as a tab Id and URL. This content is
+                collected even if automatic redirecting is disabled due to technical limitations,
+                although this data is then thrown out almost immediately.
             </Text>
             <Text>
-                On YouTube webpages, if automatic redirecting is enabled, a script will find and get all links present on that page. If you opt into the enhanced performance option, the scope increases from just YouTube webpages to all webpages (excluding local files and protected webpages).
+                On YouTube webpages, if automatic redirecting is enabled, a script will find and get
+                all links present on that page. If you opt into the enhanced performance option, the
+                scope increases from just YouTube webpages to all webpages (excluding local files
+                and protected webpages).
+            </Text>
+            <Text>User inputs are collected when you change a setting.</Text>
+        </Paragraph>
+    </Block>
+    <Block>
+        <Title anchor="how-do-we-use-your-data">How Do We Use Your Data?</Title>
+        <Paragraph>
+            <Text>
+                All data collected by this extension is for the express purpose of redirecting or
+                changing YouTube Shorts pages.
             </Text>
             <Text>
-                User inputs are collected when you change a setting.
+                Tab information is used to detect when you load a new webpage, to test if it is a
+                YouTube Shorts page, and to test if you want this extension to be active on that
+                page. Site content is used to replace YouTube Shorts URLs to normal YouTube links
+                and to replace the Shorts icon on thumbnails. Settings are used to modify the
+                extension's behavior and keep track of your preferences.
+            </Text>
+            <Text>
+                No data collected listed above is used for analytics, monitoring, logging, or
+                similar. This extension does not share anything with the developer/publisher, nor
+                any third parties.
             </Text>
         </Paragraph>
     </Block>
     <Block>
-        <Title anchor="how-do-we-use-your-data">
-            How Do We Use Your Data?
-        </Title>
+        <Title anchor="how-do-we-store-your-data">How Do We Store Your Data?</Title>
         <Paragraph>
             <Text>
-                All data collected by this extension is for the express purpose of redirecting or changing YouTube Shorts pages.
+                If you are signed into your browser, then extension settings may be synced to your
+                account. Contact your browser's support to learn how you can remove this data.
             </Text>
             <Text>
-                Tab information is used to detect when you load a new webpage, to test if it is a YouTube Shorts page, and to test if you want this extension to be active on that page. Site content is used to replace YouTube Shorts URLs to normal YouTube links and to replace the Shorts icon on thumbnails. Settings are used to modify the extension's behavior and keep track of your preferences.
-            </Text>
-            <Text>
-                No data collected listed above is used for analytics, monitoring, logging, or similar. This extension does not share anything with the developer/publisher, nor any third parties.
+                All other data is ephemeral; nothing other than extension settings is stored on a
+                disk at rest.
             </Text>
         </Paragraph>
     </Block>
     <Block>
-        <Title anchor="how-do-we-store-your-data">
-            How Do We Store Your Data?
-        </Title>
+        <Title anchor="changes-to-our-privacy-policy">Changes to Our Privacy Policy</Title>
         <Paragraph>
             <Text>
-                If you are signed into your browser, then extension settings may be synced to your account. Contact your browser's support to learn how you can remove this data.
-            </Text>
-            <Text>
-                All other data is ephemeral; nothing other than extension settings is stored on a disk at rest.
+                We may update our Privacy Policy from time to time. Thus, we advise you to review
+                this page periodically for any changes. We will notify you of any changes by posting
+                the new Privacy Policy on this page. These changes are effective immediately, after
+                they are posted on this page.
             </Text>
         </Paragraph>
     </Block>
     <Block>
-        <Title anchor="changes-to-our-privacy-policy">
-            Changes to Our Privacy Policy
-        </Title>
+        <Title anchor="contact-us">Contact Us</Title>
         <Paragraph>
             <Text>
-                We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.
-            </Text>
-        </Paragraph>
-    </Block>
-    <Block>
-        <Title anchor="contact-us">
-            Contact Us
-        </Title>
-        <Paragraph>
-            <Text>
-                If you have any questions about this extension's Privacy Policy or the data we hold on you, please do not hesitate to contact us at <a class="bold text-black dark:text-white" href="mailto:attituding@outlook.com">attituding@outlook.com</a>
+                If you have any questions about this extension's Privacy Policy or the data we hold
+                on you, please do not hesitate to contact us at <a
+                    class="bold text-light-1 dark:text-dark-1"
+                    href="mailto:attituding@outlook.com">attituding@outlook.com</a
+                >
             </Text>
         </Paragraph>
     </Block>
