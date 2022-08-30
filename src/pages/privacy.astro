@@ -1,8 +1,5 @@
 ---
 import Block from '../components/Block.astro';
-import Button from '../components/Button.astro';
-import ImageComparison from '../components/ImageComparison.astro';
-import ImageStack from '../components/ImageStack.astro';
 import List from '../components/List.astro';
 import ListItem from '../components/ListItem.astro';
 import Paragraph from '../components/Paragraph.astro';
@@ -13,7 +10,7 @@ import Base from '../layouts/Base.astro';
 
 <Base>
     <Block>
-        <Title anchor="privacy-policy" desktopTextSize="sm:text-4xl" mobileTextSize="text-3xl">
+        <Title anchor="privacy-policy" heading="1">
             Privacy Policy
         </Title>
         <Paragraph>
@@ -21,7 +18,7 @@ import Base from '../layouts/Base.astro';
                 This Privacy Policy explains how we use and collect data when you use our extension.
             </Text>
             <Text>
-                Last Updated: Aug 30th, 2022
+                Last Updated: Aug 30th, 2022.
             </Text>
         </Paragraph>
     </Block>
@@ -30,20 +27,20 @@ import Base from '../layouts/Base.astro';
             What Data Do We Collect?
         </Title>
         <Paragraph>
-            <Text>
-                This extension collects the following data by default:
-            </Text>
             <List>
+                <Text>
+                    This extension collects the following data by default:
+                </Text>
                 <ListItem>Tab information (tab Id, URL)</ListItem>
                 <ListItem>YouTube site content</ListItem>
                 <ListItem>User input to the extension's user interface</ListItem>
             </List>
         </Paragraph>
         <Paragraph>
-            <Text>
-                If you opt into the enhanced performance option, then the following data is also collected:
-            </Text>
             <List>
+                <Text>
+                    If you opt into the enhanced performance option, then the following data is also collected:
+                </Text>
                 <ListItem>All site content (excluding local files and protected webpages)</ListItem>
             </List>
         </Paragraph>
@@ -54,10 +51,10 @@ import Base from '../layouts/Base.astro';
         </Title>
         <Paragraph>
             <Text>
-                This extension collects some data through APIs provided by your browser. For example, when you load a webpage, your browser tells this extension that a webpage has loaded and provides information such as a tab Id and URL.
+                This extension collects some data through APIs provided by your browser. For example, when you load a webpage, your browser tells this extension that a webpage has loaded and provides information such as a tab Id and URL. This content is collected even if automatic redirecting is disabled due to technical limitations, although this data is then thrown out almost immediately.
             </Text>
             <Text>
-                For collecting site content, a script is injected into YouTube webpages that collects all the links present on that page. If you opt into the enhanced performance option, the scope increases from just YouTube webpages to all webpages (excluding local files and protected webpages).
+                On YouTube webpages, if automatic redirecting is enabled, a script will all the links present on that page. If you opt into the enhanced performance option, the scope increases from just YouTube webpages to all webpages (excluding local files and protected webpages).
             </Text>
             <Text>
                 User inputs are collected when you change a setting.
@@ -86,7 +83,10 @@ import Base from '../layouts/Base.astro';
         </Title>
         <Paragraph>
             <Text>
-                Nothing is stored, expect for extension settings. If you are signed into your browser, then extension settings may be synced to that account. Contact your browser's support to learn how you can remove that data.
+                If you are signed into your browser, then extension settings may be synced to your account. Contact your browser's support to learn how you can remove that data.
+            </Text>
+            <Text>
+                All other data is ephemeral; no other data is stored on a disk at rest.
             </Text>
         </Paragraph>
     </Block>
@@ -94,16 +94,20 @@ import Base from '../layouts/Base.astro';
         <Title anchor="changes-to-our-privacy-policy">
             Changes to Our Privacy Policy
         </Title>
-        <Text>
-            We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.
-        </Text>
+        <Paragraph>
+            <Text>
+                We may update our Privacy Policy from time to time. Thus, we advise you to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page. These changes are effective immediately, after they are posted on this page.
+            </Text>
+        </Paragraph>
     </Block>
     <Block>
         <Title anchor="contact-us">
             Contact Us
         </Title>
-        <Text>
-            If you have any questions about this extension's Privacy Policy or the data we hold on you, please do not hesitate to contact us at <a class="bold text-black dark:text-white" href="mailto:attituding@outlook.com">attituding@outlook.com</a>
-        </Text>
+        <Paragraph>
+            <Text>
+                If you have any questions about this extension's Privacy Policy or the data we hold on you, please do not hesitate to contact us at <a class="bold text-black dark:text-white" href="mailto:attituding@outlook.com">attituding@outlook.com</a>
+            </Text>
+        </Paragraph>
     </Block>
 </Base>

@@ -1,3 +1,11 @@
-<span class="sm:text-xl text-lg font-semibold text-neutral-600 dark:text-neutral-400">
+---
+export interface Props {
+    heading?: string,
+}
+
+const { heading } = Astro.props as Props;
+---
+
+<span class={`text-neutral-600 dark:text-neutral-400 h${heading}`}>
     <slot />
 </span>
