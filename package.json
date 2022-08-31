@@ -2,6 +2,7 @@
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {
+        "@astrojs/sitemap": "^1.0.0",
         "@astrojs/tailwind": "^1.0.0",
         "astro": "^1.1.2",
         "prettier": "^2.7.1",
