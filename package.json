@@ -1,6 +1,6 @@
 {
     "name": "shorts-deflector",
-    "description": "Watch YouTube Shorts with the normal desktop interface.",
+    "description": "Seamlessly play YouTube Shorts with the normal desktop interface.",
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {
