@@ -49,6 +49,8 @@ const titleMeta = title ? `${title} - ${site}` : site;
     </head>
     <body class="flex flex-col dark:bg-dark-1 bg-light-1 font-sans text-light-1 dark:text-dark-1">
         <Header title={site}>
+            <Link href="/privacy" label="Privacy" target="_self" />
+            <Link href="https://github.com/Attituding/shorts-deflector" label="GitHub" />
             <Link
                 href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
                 label="Chromium"
@@ -57,8 +59,6 @@ const titleMeta = title ? `${title} - ${site}` : site;
                 href="https://addons.mozilla.org/firefox/addon/shorts-deflector/"
                 label="Firefox"
             />
-            <Link href="https://github.com/Attituding/shorts-deflector" label="GitHub" />
-            <Link href="/privacy" label="Privacy" />
         </Header>
         <Content>
             <slot />
