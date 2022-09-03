@@ -1,0 +1,28 @@
+input[type='range'] {
+    -webkit-appearance: none;
+}
+input[type='range']::-webkit-slider-thumb {
+    background: #f40407;
+    border: 0;
+    border-radius: 0px;
+    cursor: ew-resize;
+    height: 1000px;
+    width: 10px;
+    -webkit-appearance: none;
+}
+input[type='range']::-moz-range-thumb {
+    background: #f40407;
+    border: 0;
+    border-radius: 0px;
+    cursor: ew-resize;
+    height: 1000px;
+    width: 10px;
+}
+input[type='range']::-ms-thumb {
+    background: #f40407;
+    border: 0;
+    border-radius: 0px;
+    cursor: ew-resize;
+    height: 1000px;
+    width: 10px;
+}

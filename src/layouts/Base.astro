@@ -20,6 +20,7 @@ const titleMeta = title ? `${title} - ${site}` : site;
 <html lang="en">
     <head>
         <link href="/icon.webp" rel="shortcut icon" type="image/x-icon" />
+        <script>import '../scripts/anchor.js';import '../scripts/imageComparisons.js';</script>
         
         <!-- General Meta Tags -->
         <meta charset="UTF-8" />
@@ -64,34 +65,5 @@ const titleMeta = title ? `${title} - ${site}` : site;
             <slot />
         </Content>
         <Footer author="Attituding" authorHref="https://attituding.live" />
-        <script>
-            // Anchor stuff
-            const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
-            const header = document.getElementById('header') as HTMLDivElement;
-
-            const scrollToAnchor = (anchor: HTMLAnchorElement) => {
-                const top =
-                    anchor.getBoundingClientRect().top + window.pageYOffset - header.offsetHeight;
-
-                window.scrollTo({
-                    top: top,
-                    behavior: 'smooth',
-                });
-            };
-
-            anchors.forEach((anchor) => {
-                anchor.addEventListener('click', () => {
-                    scrollToAnchor(anchor);
-                });
-            });
-
-            const selectedAnchor = Object.values(anchors).find(
-                (anchor) => anchor.href === document.URL,
-            );
-
-            if (selectedAnchor) {
-                scrollToAnchor(selectedAnchor);
-            }
-        </script>
     </body>
 </html>

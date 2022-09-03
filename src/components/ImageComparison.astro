@@ -1,4 +1,6 @@
 ---
+import '../styles/image-comparisons.css';
+
 export interface Props {
     aspectRatio: string;
     height: string;
@@ -20,6 +22,9 @@ const {
     maxWidth,
     width,
 } = Astro.props as Props;
+
+
+const imageComparisonId = String(Math.random());
 ---
 
 <div
@@ -28,7 +33,7 @@ const {
     <img
         alt={imageAfterAlt}
         class={`absolute w-full h-full object-cover object-left select-none ${aspectRatio}`}
-        id="after"
+        id={imageComparisonId}
         height={height}
         src={imageAfterURL}
         width={width}
@@ -43,53 +48,15 @@ const {
     <input
         alt="Range slider that controls a comparison of two images"
         class="absolute w-full top-1/2 h-0"
+        data-image-comparison-id={imageComparisonId}
         id="slider"
-        type="range"
         max="250"
+        name="slider"
         min="0"
+        type="range"
         value="125"
     />
 </div>
 <label class="text-neutral-600 dark:text-neutral-400 font-semibold" for="slider">
     Use the slider to compare the differences between the desktop and shorts video player
 </label>
-
-<script>
-    const slider = document.getElementById('slider') as HTMLInputElement;
-    const afterImage = document.getElementById('after') as HTMLImageElement;
-    afterImage.style.width = `${Number(slider.value) / 2.5}%`;
-    slider.addEventListener('input', () => {
-        afterImage.style.width = `${Number(slider.value) / 2.5}%`;
-    });
-</script>
-
-<style>
-    input[type='range'] {
-        -webkit-appearance: none;
-    }
-    input[type='range']::-webkit-slider-thumb {
-        background: #f40407;
-        border: 0;
-        border-radius: 0px;
-        cursor: ew-resize;
-        height: 1000px;
-        width: 10px;
-        -webkit-appearance: none;
-    }
-    input[type='range']::-moz-range-thumb {
-        background: #f40407;
-        border: 0;
-        border-radius: 0px;
-        cursor: ew-resize;
-        height: 1000px;
-        width: 10px;
-    }
-    input[type='range']::-ms-thumb {
-        background: #f40407;
-        border: 0;
-        border-radius: 0px;
-        cursor: ew-resize;
-        height: 1000px;
-        width: 10px;
-    }
-</style>
