@@ -2,8 +2,6 @@ export {};
 
 const sliders = document.getElementsByName('slider');
 
-console.log(1, sliders);
-
 sliders.forEach((element) => {
     const slider = element as HTMLInputElement;
     const imageComparisonId = slider.getAttribute('data-image-comparison-id')!;
@@ -14,4 +12,3 @@ sliders.forEach((element) => {
         afterImage.style.width = `${Number(slider.value) / 2.5}%`;
     });
 });
-
