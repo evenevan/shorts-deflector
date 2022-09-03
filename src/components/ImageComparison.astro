@@ -45,9 +45,9 @@ const {
         class="absolute w-full top-1/2 h-0"
         id="slider"
         type="range"
-        max="500"
+        max="250"
         min="0"
-        value="250"
+        value="125"
     />
 </div>
 <label class="text-neutral-600 dark:text-neutral-400 font-semibold" for="slider">
@@ -57,9 +57,9 @@ const {
 <script>
     const slider = document.getElementById('slider') as HTMLInputElement;
     const afterImage = document.getElementById('after') as HTMLImageElement;
-    afterImage.style.width = `${Number(slider.value) / 5}%`;
+    afterImage.style.width = `${Number(slider.value) / 2.5}%`;
     slider.addEventListener('input', () => {
-        afterImage.style.width = `${Number(slider.value) / 5}%`;
+        afterImage.style.width = `${Number(slider.value) / 2.5}%`;
     });
 </script>
 
