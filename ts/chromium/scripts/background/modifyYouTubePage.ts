@@ -1,3 +1,5 @@
+// Special optimized algorithm for YouTube
+
 export function modifyYouTubePage() {
     const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
@@ -14,16 +16,13 @@ export function modifyYouTubePage() {
                 case 'A': {
                     const anchor = element as HTMLAnchorElement;
                     if (anchor.href.match(youTubeShortsRegex)) {
-                        anchor.href = anchor.href.replace('shorts/', 'watch?v=');
-
-                        anchor.addEventListener('click', (event) => {
-                            event.stopImmediatePropagation();
-                        }, true);
+                        patchAnchor(anchor);
                     }
                 }
                     break;
                 case 'YTD-THUMBNAIL-OVERLAY-TIME-STATUS-RENDERER': {
                     const attribute = element.attributes.getNamedItem('overlay-style');
+
                     if (attribute) {
                         attribute.value = 'DEFAULT';
                     }
@@ -45,11 +44,25 @@ export function modifyYouTubePage() {
     // eslint-disable-next-line no-restricted-syntax
     for (const anchor of document.getElementsByTagName('a')) {
         if (anchor.href.match(youTubeShortsRegex)) {
-            anchor.href = anchor.href.replace('shorts/', 'watch?v=');
-
-            anchor.addEventListener('click', (event) => {
-                event.stopImmediatePropagation();
-            }, true);
+            patchAnchor(anchor);
         }
+    }
+
+    function patchAnchor(anchor: HTMLAnchorElement) {
+        // eslint-disable-next-line no-param-reassign
+        anchor.href = anchor.href.replace('shorts/', 'watch?v=');
+
+        /*
+        Removed to fix the "Watch Later" and "Add to Queue" buttons
+        Performance impact is minimal
+
+        anchor.addEventListener(
+            'click',
+            (event) => {
+                event.stopImmediatePropagation();
+            },
+            true,
+        );
+        */
     }
 }

@@ -1,5 +1,6 @@
 import { modifyGeneralPage } from './modifyGeneralPage.js';
 import { modifyYouTubePage } from './modifyYouTubePage.js';
+import { redirectShortsPage } from './redirectShortsPage.js';
 import {
     automaticStorageKey,
     improvePerformanceStorageKey,
@@ -31,10 +32,13 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     if (url) {
         // Redirecting
 
-        const cleanURL = tab.url!.replace('shorts/', 'watch?v=');
-
-        await chrome.tabs.update(tabId, {
-            url: cleanURL,
+        await chrome.scripting.executeScript({
+            // @ts-ignore
+            injectImmediately: true,
+            target: {
+                tabId: tabId,
+            },
+            func: redirectShortsPage,
         });
     } else {
         // URL Updating

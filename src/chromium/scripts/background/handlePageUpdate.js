@@ -1,5 +1,6 @@
 import { modifyGeneralPage } from './modifyGeneralPage.js';
 import { modifyYouTubePage } from './modifyYouTubePage.js';
+import { redirectShortsPage } from './redirectShortsPage.js';
 import { automaticStorageKey, improvePerformanceStorageKey, youTubeRegex, youTubeShortsRegex, } from '../util/constants.js';
 export async function handlePageUpdate(tabId, tab) {
     const { [automaticStorageKey]: automatic, [improvePerformanceStorageKey]: improvePerformance, } = await chrome.storage.sync.get([
@@ -14,9 +15,13 @@ export async function handlePageUpdate(tabId, tab) {
     const url = youTubeShortsRegex.test(tab.url);
     if (url) {
         // Redirecting
-        const cleanURL = tab.url.replace('shorts/', 'watch?v=');
-        await chrome.tabs.update(tabId, {
-            url: cleanURL,
+        await chrome.scripting.executeScript({
+            // @ts-ignore
+            injectImmediately: true,
+            target: {
+                tabId: tabId,
+            },
+            func: redirectShortsPage,
         });
     }
     else {

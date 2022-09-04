@@ -4,9 +4,9 @@
     "license": "MIT",
     "author": "Attituding <Attituding@outlook.com>",
     "devDependencies": {
-        "@types/chrome": "^0.0.195",
-        "@typescript-eslint/eslint-plugin": "^5.35.1",
-        "@typescript-eslint/parser": "^5.35.1",
+        "@types/chrome": "^0.0.196",
+        "@typescript-eslint/eslint-plugin": "^5.36.1",
+        "@typescript-eslint/parser": "^5.36.1",
         "eslint": "^8.23.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-airbnb-typescript": "^17.0.0",
