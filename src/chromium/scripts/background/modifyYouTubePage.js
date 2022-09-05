@@ -42,7 +42,7 @@ export function modifyYouTubePage() {
         // eslint-disable-next-line no-param-reassign
         anchor.href = anchor.href.replace('shorts/', 'watch?v=');
         /*
-        Removed to fix the "Watch Later" and "Add to Queue" buttons
+        Removed to fix the "Watch Later" and "Add to Queue" buttons, which rely on an event listener on teh thumbnail
         Performance impact is minimal
 
         anchor.addEventListener(

@@ -1,3 +1,4 @@
+import { redirectShortsPage } from '../background/redirectShortsPage.js';
 import { desktopHTMLKey, desktopLoadingHTMLKey, youTubeShortsRegex, } from '../util/constants.js';
 const desktopButton = document.getElementById(desktopHTMLKey);
 const desktopButtonLoading = document.getElementById(desktopLoadingHTMLKey);
@@ -26,8 +27,12 @@ chrome.tabs.onUpdated.addListener((_id, _changes, newTab) => {
 desktopButton.addEventListener('click', async () => {
     desktopButton.disabled = true;
     desktopButtonLoading.classList.add('hidden');
-    const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
-    await chrome.tabs.update(tab.id, {
-        url: cleanURL,
+    await chrome.scripting.executeScript({
+        // @ts-ignore
+        injectImmediately: true,
+        target: {
+            tabId: tab.id,
+        },
+        func: redirectShortsPage,
     });
 });
