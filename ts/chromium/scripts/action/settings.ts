@@ -1,10 +1,11 @@
 import {
-    automaticStorageKey,
-    improvePerformanceStorageKey,
-    youTubeHostname,
     allHostname,
+    automaticStorageKey,
     automaticHTMLKey,
     improvePerformanceHTMLKey,
+    improvePerformanceStorageKey,
+    shortsRuleset,
+    youTubeHostname,
 } from '../util/constants.js';
 
 const automaticSwitch = document.getElementById(
@@ -48,7 +49,7 @@ automaticSwitch.addEventListener('click', async () => {
         : 'disableRulesetIds';
 
     await chrome.declarativeNetRequest.updateEnabledRulesets({
-        [declarativeNetRequestKey]: ['shorts'],
+        [declarativeNetRequestKey]: [shortsRuleset],
     });
 });
 

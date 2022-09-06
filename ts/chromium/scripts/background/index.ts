@@ -1,9 +1,9 @@
 import { handlePageUpdate } from './handlePageUpdate.js';
 import {
-    youTubeHostname,
     allHostname,
     automaticStorageKey,
     improvePerformanceStorageKey,
+    youTubeHostname,
 } from '../util/constants.js';
 
 // Install/Update Handling

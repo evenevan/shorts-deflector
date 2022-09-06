@@ -21,6 +21,9 @@ export const improvePerformanceStorageKey = 'improvePerformance';
 export const youTubeRegex = /^http(s)?:\/\/www\.youtube\.com/;
 export const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
+// Rulesets
+export const shortsRuleset = 'shorts';
+
 // Hostnames
 export const youTubeHostname = 'https://www.youtube.com/*';
 export const allHostname = '*://*/*';
