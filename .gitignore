@@ -1,1 +1,7 @@
 src/dist
+src/vendors/chromium/assets
+src/vendors/chromium/resources
+src/vendors/chromium/scripts
+src/vendors/firefox/assets
+src/vendors/firefox/resources
+src/vendors/firefox/scripts
