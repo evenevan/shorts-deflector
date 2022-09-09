@@ -1,5 +1,5 @@
 import { handlePageUpdate } from './handlePageUpdate.js';
-import { youTubeHostname, allHostname, automaticStorageKey, improvePerformanceStorageKey, } from '../util/constants.js';
+import { allHostname, automaticStorageKey, improvePerformanceStorageKey, youTubeHostname, } from '../util/constants.js';
 // Install/Update Handling
 chrome.runtime.onInstalled.addListener(async (details) => {
     if (details.reason === chrome.runtime.OnInstalledReason.INSTALL

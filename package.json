@@ -2,7 +2,7 @@
     "name": "shorts-deflector",
     "description": "Seamlessly play YouTube Shorts with the normal desktop interface.",
     "license": "MIT",
-    "author": "Attituding <Attituding@outlook.com>",
+    "author": "Attituding <attituding@outlook.com>",
     "devDependencies": {
         "@types/chrome": "^0.0.196",
         "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -17,7 +17,8 @@
     },
     "scripts": {
         "build": "npm run typescript && npm run tailwind",
-        "tailwind": "tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css",
-        "typescript": "tsc -p ."
+        "tailwindcss": "tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css",
+        "typescript": "tsc --outDir src",
+        "assets": "xcopy \"./src/assets\" \"./src/vendors/chromium/assets\" /S /Y /I && xcopy \"./src/assets\" \"./src/vendors/firefox/assets\" /S /Y /I"
     }
 }

@@ -1,4 +1,4 @@
-import { automaticStorageKey, improvePerformanceStorageKey, youTubeHostname, allHostname, automaticHTMLKey, improvePerformanceHTMLKey, } from '../util/constants.js';
+import { allHostname, automaticStorageKey, automaticHTMLKey, improvePerformanceHTMLKey, improvePerformanceStorageKey, shortsRuleset, youTubeHostname, } from '../util/constants.js';
 const automaticSwitch = document.getElementById(automaticHTMLKey);
 const improvePerformanceSwitch = document.getElementById(improvePerformanceHTMLKey);
 const storageKeys = await chrome.storage.sync.get([
@@ -26,7 +26,7 @@ automaticSwitch.addEventListener('click', async () => {
         ? 'enableRulesetIds'
         : 'disableRulesetIds';
     await chrome.declarativeNetRequest.updateEnabledRulesets({
-        [declarativeNetRequestKey]: ['shorts'],
+        [declarativeNetRequestKey]: [shortsRuleset],
     });
 });
 improvePerformanceSwitch.addEventListener('click', async () => {
