@@ -17,8 +17,9 @@
     },
     "scripts": {
         "build": "npm run typescript && npm run tailwind",
-        "tailwindcss": "tailwindcss -i ./resources/source.css -o ./src/chromium/resources/tailwind.css && npx tailwindcss -i ./resources/source.css -o ./src/firefox/resources/tailwind.css",
+        "tailwindcss": "tailwindcss -i src/resources/source.css -o src/vendors/chromium/resources/tailwind.css && npx tailwindcss -i src/resources/source.css -o src/vendors/firefox/resources/tailwind.css",
         "typescript": "tsc --outDir src",
-        "assets": "xcopy \"./src/assets\" \"./src/vendors/chromium/assets\" /S /Y /I && xcopy \"./src/assets\" \"./src/vendors/firefox/assets\" /S /Y /I"
+        "assets": "del src/vendors/chromium/assets /q && xcopy src/assets src/vendors/chromium/assets /S /Y /I && del src/vendors/firefox/assets /q && xcopy src/assets src/vendors/firefox/assets /S /Y /I",
+        "zip": "powershell New-Item src\\dist -force -type directory && powershell Compress-Archive src\\vendors\\chromium\\* src\\dist\\chromium.zip -Force && powershell Compress-Archive src\\vendors\\firefox\\* src\\dist\\firefox.zip -Force"
     }
 }
