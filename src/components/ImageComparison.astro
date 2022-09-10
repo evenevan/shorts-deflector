@@ -12,51 +12,24 @@ export interface Props {
     width: string;
 }
 
-const {
-    aspectRatio,
-    height,
-    imageAfterAlt,
-    imageAfterURL,
-    imageBeforeAlt,
-    imageBeforeURL,
-    maxWidth,
-    width,
-} = Astro.props as Props;
-
-
-const imageComparisonId = String(Math.random());
+const { aspectRatio, imageAfterAlt, imageAfterURL, imageBeforeAlt, imageBeforeURL, maxWidth } = Astro.props as Props;
 ---
 
 <div
-    class={`relative rounded-3xl ${maxWidth} overflow-hidden dark:sm:border-0 dark:border-0 sm:border-4 border-2 border-light-1`}
+    class={`rounded-3xl overflow-hidden dark:sm:border-0 dark:border-0 sm:border-4 border-2 border-light-1 ${maxWidth} ${aspectRatio}`}
 >
-    <img
-        alt={imageAfterAlt}
-        class={`absolute w-full h-full object-cover object-left select-none ${aspectRatio}`}
-        id={imageComparisonId}
-        height={height}
-        src={imageAfterURL}
-        width={width}
-    />
-    <img
-        alt={imageBeforeAlt}
-        class={`object-fill select-none ${aspectRatio}`}
-        height={height}
-        src={imageBeforeURL}
-        width={width}
-    />
-    <input
-        alt="Range slider that controls a comparison of two images"
-        class="absolute w-full top-1/2 h-0"
-        data-image-comparison-id={imageComparisonId}
-        id="slider"
-        max="250"
-        name="slider"
-        min="0"
-        type="range"
-        value="125"
-    />
+    <img-comparison-slider value="1">
+        <img alt={imageAfterAlt} slot="first" src={imageAfterURL} />
+        <img alt={imageBeforeAlt} slot="second" src={imageBeforeURL} />
+        <svg slot="handle" viewBox="0 0 24 24" height="100" width="100">
+            <path
+                fill="#f40407"
+                d="M18.17,12L15,8.83L16.41,7.41L21,12L16.41,16.58L15,15.17L18.17,12M5.83,12L9,15.17L7.59,16.59L3,12L7.59,7.42L9,8.83L5.83,12Z"
+            ></path>
+        </svg>
+        <img-comparison-slider />
+    <img-comparison-slider>
 </div>
-<label class="text-neutral-600 dark:text-neutral-400 font-semibold" for="slider">
-    Use the slider to compare the differences between the desktop and shorts video player
-</label>
+<span class="text-light-3 dark:text-dark-3 font-semibold">
+    Move the slider to compare the differences between the desktop and shorts video player
+</span>
