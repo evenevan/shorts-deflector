@@ -16,8 +16,8 @@
         "typescript": "^4.8.2"
     },
     "scripts": {
-        "assets": "del src\\vendors\\chromium\\assets /q && xcopy src\\assets src\\vendors\\chromium\\assets /S /Y /I && del src\\vendors\\firefox\\assets /q && xcopy src\\assets src\\vendors\\firefox\\assets /S /Y /I",
-        "build": "npm run assets && npm run tailwindcss && npm run typescript && npm run zip",
+        "build": "npm run tailwindcss && npm run typescript && npm run zip",
+        "clear": "rmdir src\\dist /s /q && rmdir src\\vendors\\chromium\\resources /s /q && rmdir src\\vendors\\firefox\\resources /s /q && rmdir src\\vendors\\chromium\\scripts /s /q && rmdir src\\vendors\\firefox\\scripts /s /q",
         "tailwindcss": "tailwindcss -i src/resources/source.css -o src/vendors/chromium/resources/tailwind.css && npx tailwindcss -i src/resources/source.css -o src/vendors/firefox/resources/tailwind.css",
         "typescript": "tsc --outDir src/vendors",
         "zip": "powershell New-Item src\\dist -force -type directory && powershell Compress-Archive src\\vendors\\chromium\\* src\\dist\\chromium.zip -Force && powershell Compress-Archive src\\vendors\\firefox\\* src\\dist\\firefox.zip -Force"

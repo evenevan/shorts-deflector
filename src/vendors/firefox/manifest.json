@@ -7,9 +7,9 @@
     "browser_action": {
         "default_popup": "./index.html",
         "default_icon": {
-            "16": "./assets/Shorts Deflector Icon.svg",
-            "48": "./assets/Shorts Deflector Icon.svg",
-            "128": "./assets/Shorts Deflector Icon.svg"
+            "16": "./assets/icon.svg",
+            "48": "./assets/icon.svg",
+            "128": "./assets/icon.svg"
         }
     },
     "browser_specific_settings": {
@@ -20,9 +20,9 @@
     "default_locale": "en",
     "description": "__MSG_extensionDescription__",
     "icons": {
-        "16": "./assets/Shorts Deflector Icon.svg",
-        "48": "./assets/Shorts Deflector Icon.svg",
-        "128": "./assets/Shorts Deflector Icon.svg"
+        "16": "./assets/icon.svg",
+        "48": "./assets/icon.svg",
+        "128": "./assets/icon.svg"
     },
     "manifest_version": 2,
     "name": "__MSG_extensionName__",
