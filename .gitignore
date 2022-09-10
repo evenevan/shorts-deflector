@@ -1,3 +1,7 @@
+# general
+node_modules
+
+# project specific
 src/dist
 src/vendors/chromium/resources
 src/vendors/chromium/scripts
