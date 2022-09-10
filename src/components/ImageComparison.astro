@@ -12,15 +12,15 @@ export interface Props {
     width: string;
 }
 
-const { aspectRatio, imageAfterAlt, imageAfterURL, imageBeforeAlt, imageBeforeURL, maxWidth } = Astro.props as Props;
+const { aspectRatio, height, imageAfterAlt, imageAfterURL, imageBeforeAlt, imageBeforeURL, maxWidth, width } = Astro.props as Props;
 ---
 
 <div
     class={`rounded-3xl overflow-hidden dark:sm:border-0 dark:border-0 sm:border-4 border-2 border-light-1 ${maxWidth} ${aspectRatio}`}
 >
     <img-comparison-slider value="1">
-        <img alt={imageAfterAlt} slot="first" src={imageAfterURL} />
-        <img alt={imageBeforeAlt} slot="second" src={imageBeforeURL} />
+        <img alt={imageAfterAlt} height={height} slot="first" src={imageAfterURL} width={width} />
+        <img alt={imageBeforeAlt} height={height} slot="second" src={imageBeforeURL} width={width} />
         <svg slot="handle" viewBox="0 0 24 24" height="100" width="100">
             <path
                 fill="#f40407"
