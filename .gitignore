@@ -1,6 +1,6 @@
 node_modules
-src/dist
-src/vendors/chromium/_metadata/generated_indexed_rulesets/_ruleset1
+dist
+src/vendors/chromium/_metadata
 src/vendors/chromium/resources
 src/vendors/chromium/scripts
 src/vendors/firefox/resources
