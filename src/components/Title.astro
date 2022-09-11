@@ -9,7 +9,7 @@ const { anchor, heading = '2' } = Astro.props as Props;
 
 {
     anchor ? (
-        <a class="flex flex-row" href={`#${anchor}`}>
+        <a class="flex flex-row" href={`#${anchor}`} id={anchor}>
             <span class={`h${heading}`}>
                 <slot />
             </span>

@@ -15,12 +15,12 @@ const { aspectRatio, imageBottomAlt, imageBottomURL, imageTopAlt, imageTopURL, m
 <div class={`relative ${maxWidth} w-full ${aspectRatio}`}>
     <img
         alt={imageTopAlt}
-        class="absolute rounded-3xl top-0 left-0 sm:border-4 border-2 dark:border-0 dark:sm:border-0 border-light-1 w-2/3 shadow aspect-[1280/800] select-none"
+        class={`absolute rounded-3xl top-0 left-0 sm:border-4 border-2 dark:border-0 dark:sm:border-0 border-light-1 sm:w-2/3 w-5/6 shadow ${aspectRatio} select-none`}
         src={imageTopURL}
     />
     <img
         alt={imageBottomAlt}
-        class="absolute rounded-3xl bottom-0 right-0 w-2/3 dark:sm:border-4 dark:border-2 border-dark-1 shadow aspect-[1280/800] select-none"
+        class={`absolute rounded-3xl bottom-0 right-0 sm:w-2/3 w-5/6 dark:sm:border-4 dark:border-2 border-dark-1 shadow ${aspectRatio} select-none`}
         src={imageBottomURL}
     />
 </div>
