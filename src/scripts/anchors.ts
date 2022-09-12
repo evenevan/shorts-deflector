@@ -1,25 +1,12 @@
 export {};
 
-const anchors = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
-const header = document.getElementById('header') as HTMLDivElement;
+const cleanHash = window.location.hash.slice(1);
+const selectedHash = document.getElementById(cleanHash) as HTMLAnchorElement;
 
-const scrollToAnchor = (anchor: HTMLAnchorElement) => {
-    const top = anchor.getBoundingClientRect().top + window.pageYOffset - header.offsetHeight;
+if (selectedHash) {
+    const top = selectedHash.getBoundingClientRect().top + window.pageYOffset;
 
     window.scrollTo({
         top: top,
-        behavior: 'smooth',
     });
-};
-
-anchors.forEach((anchor) => {
-    anchor.addEventListener('click', () => {
-        scrollToAnchor(anchor);
-    });
-});
-
-const selectedAnchor = Object.values(anchors).find((anchor) => anchor.href === document.URL);
-
-if (selectedAnchor) {
-    scrollToAnchor(selectedAnchor);
 }
