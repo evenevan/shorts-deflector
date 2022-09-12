@@ -19,7 +19,11 @@ const titleMeta = title ? `${title} - ${site}` : site;
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="/icon.webp" rel="shortcut icon" type="image/x-icon" />
+        <link
+            href="/icon.webp"
+            rel="shortcut icon"
+            type="image/x-icon"
+        />
         <script>
             import '../scripts/anchors.js';
             import 'img-comparison-slider';
@@ -27,35 +31,72 @@ const titleMeta = title ? `${title} - ${site}` : site;
 
         <!-- General Meta Tags -->
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta content="width=device-width" name="viewport" />
-        <meta content={Astro.generator} name="generator" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
+        <meta
+            content="width=device-width"
+            name="viewport"
+        />
+        <meta
+            content={Astro.generator}
+            name="generator"
+        />
 
         <title>{titleMeta}</title>
-        <meta content="Watch YouTube Shorts with the normal desktop interface" name="description" />
-        <meta content="#f40407" name="theme-color" />
+        <meta
+            content="Watch YouTube Shorts with the normal desktop interface"
+            name="description"
+        />
+        <meta
+            content="#f40407"
+            name="theme-color"
+        />
 
         <!-- Open Graph -->
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={titleMeta} />
+        <meta
+            property="og:type"
+            content="website"
+        />
+        <meta
+            property="og:title"
+            content={titleMeta}
+        />
         <meta
             property="og:description"
             content="Watch YouTube Shorts with the normal desktop interface"
         />
-        <meta property="og:image" content="/icon.webp" />
+        <meta
+            property="og:image"
+            content="/icon.webp"
+        />
 
         <!-- Twitter -->
-        <meta property="twitter:title" content={titleMeta} />
+        <meta
+            property="twitter:title"
+            content={titleMeta}
+        />
         <meta
             content="Watch YouTube Shorts with the normal desktop interface"
             property="twitter:description"
         />
-        <meta property="twitter:image" content="/icon.webp" />
+        <meta
+            property="twitter:image"
+            content="/icon.webp"
+        />
     </head>
     <body class="flex flex-col dark:bg-dark-1 bg-light-1 font-sans text-light-1 dark:text-dark-1">
         <Header title={site}>
-            <Link href="/privacy" label="Privacy" target="_self" />
-            <Link href="https://github.com/Attituding/shorts-deflector" label="GitHub" />
+            <Link
+                href="/privacy"
+                label="Privacy"
+                target="_self"
+            />
+            <Link
+                href="https://github.com/Attituding/shorts-deflector"
+                label="GitHub"
+            />
             <Link
                 href="https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg"
                 label="Chromium"
@@ -68,6 +109,9 @@ const titleMeta = title ? `${title} - ${site}` : site;
         <Content>
             <slot />
         </Content>
-        <Footer author="Attituding" authorHref="https://attituding.live" />
+        <Footer
+            author="Attituding"
+            authorHref="https://attituding.live"
+        />
     </body>
 </html>

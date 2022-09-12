@@ -1,22 +1,28 @@
 ---
 export interface Props {
     anchor?: string;
-    heading?: '1' | '2' | '4' | '5' | '6';
+    heading: '1' | '2' | '4' | '5' | '6';
 }
 
 const { anchor, heading = '2' } = Astro.props as Props;
+
+const HeadingTag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = `h${heading}`;
 ---
 
 {
     anchor ? (
-        <a class="flex flex-row" href={`#${anchor}`} id={anchor}>
-            <span class={`h${heading}`}>
+        <a
+            class="flex flex-row"
+            href={`#${anchor}`}
+            id={anchor}
+        >
+            <HeadingTag class={`h${heading}`}>
                 <slot />
-            </span>
+            </HeadingTag>
         </a>
     ) : (
-        <span class={`h${heading}`}>
+        <HeadingTag class={`h${heading}`}>
             <slot />
-        </span>
+        </HeadingTag>
     )
 }

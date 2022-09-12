@@ -6,6 +6,4 @@ export interface Props {
 const { heading } = Astro.props as Props;
 ---
 
-<span class={`text-light-3 dark:text-dark-3 h${heading}`}>
-    <slot />
-</span>
+<span class={`text-light-3 dark:text-dark-3 h${heading}`}><slot /></span>

@@ -10,30 +10,37 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base>
+    <Title
+        anchor="introduction"
+        heading="1">Introduction</Title
+    >
     <Block>
-        <Title anchor="youtube-thinks-shorts-belong-on-the-desktop">
-            YouTube thinks that Shorts belong on the desktop
-        </Title>
+        <Title
+            anchor="youtube-thinks-shorts-belong-on-the-desktop"
+            heading="2">YouTube thinks that Shorts belong on the desktop</Title
+        >
         <Paragraph>
             <Text>They're wrong.</Text>
-            <Text>
-                As Shorts is a mobile-optimized format, its player lacks many features of the
-                desktop one.
-            </Text>
-            <Text>
-                YouTube shoves Shorts into our faces through the home page, subscriptions, Explore
-                category, and of course, the Shorts tab.
-            </Text>
+            <Text
+                >As Shorts is a mobile-optimized format, its player lacks many features of the
+                desktop one.</Text
+            >
+            <Text
+                >YouTube shoves Shorts into our faces through the home page, subscriptions, Explore
+                category, and of course, the Shorts tab.</Text
+            >
             <Text>Enough is enough.</Text>
         </Paragraph>
     </Block>
     <div
         class="items-center justify-center bg-gradient-to-t from-transparent to-youtube w-full aspect-[8/1] rounded-t-3xl sm:block hidden"
-    ></div>
+    >
+    </div>
     <Block position="center">
-        <Title anchor="seamlessly-play-youtube-shorts-with-the-normal-desktop-interface">
-            Seamlessly play YouTube Shorts with the normal desktop interface
-        </Title>
+        <Title
+            anchor="seamlessly-play-youtube-shorts-with-the-normal-desktop-interface"
+            heading="2">Seamlessly play YouTube Shorts with the normal desktop interface</Title
+        >
         <Text>Install Shorts Deflector once and never deal with the Shorts player ever again</Text>
         <ImageComparison
             aspectRatio="aspect-[1280/1600]"
@@ -47,9 +54,10 @@ import Base from '../layouts/Base.astro';
         />
     </Block>
     <Block position="center">
-        <Title anchor="minimal-and-effective-user-interface">
-            Minimal and effective user interface
-        </Title>
+        <Title
+            anchor="minimal-and-effective-user-interface"
+            heading="2">Minimal and effective user interface</Title
+        >
         <Text>A simple user interface that doesn't have twenty submenus</Text>
         <ImageStack
             aspectRatio="aspect-[5/3]"
@@ -61,10 +69,13 @@ import Base from '../layouts/Base.astro';
         />
     </Block>
     <Block position="center">
-        <Title anchor="an-open-source-project">An open source project</Title>
-        <Text>
-            Available under the MIT license, you can verify that this extension does nothing fishy
-        </Text>
+        <Title
+            anchor="an-open-source-project"
+            heading="2">An open source project</Title
+        >
+        <Text
+            >Available under the MIT license, you can verify that this extension does nothing fishy</Text
+        >
         <Button
             href="https://github.com/Attituding/shorts-deflector"
             maxWidth="max-w-xl"
@@ -72,7 +83,10 @@ import Base from '../layouts/Base.astro';
         />
     </Block>
     <Block position="center">
-        <Title anchor="ready-to-get-started">Ready to get started?</Title>
+        <Title
+            anchor="ready-to-get-started"
+            heading="2">Ready to get started?</Title
+        >
         <Text>Add Shorts Deflector from the respective web store</Text>
         <div class="flex sm:flex-row flex-col gap-4 items-stretch max-w-4xl w-full h-fit">
             <Button
@@ -88,7 +102,10 @@ import Base from '../layouts/Base.astro';
         </div>
     </Block>
     <Block position="center">
-        <Title anchor="bugs-questions-suggestions">Bugs? Questions? Suggestions?</Title>
+        <Title
+            anchor="bugs-questions-suggestions"
+            heading="2">Bugs? Questions? Suggestions?</Title
+        >
         <Text>Easily get support through your preferred method</Text>
         <div
             class="flex sm:flex-row flex-col gap-4 items-stretch justify-items-stretch max-w-4xl w-full h-fit"
@@ -107,5 +124,6 @@ import Base from '../layouts/Base.astro';
     </Block>
     <div
         class="bg-gradient-to-b from-transparent to-youtube w-full aspect-[8/1] rounded-b-3xl sm:block hidden"
-    ></div>
+    >
+    </div>
 </Base>
