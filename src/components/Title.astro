@@ -1,28 +1,35 @@
 ---
 export interface Props {
-    anchor?: string;
+    createAnchor?: boolean;
     heading: '1' | '2' | '4' | '5' | '6';
+    title: string;
 }
 
-const { anchor, heading = '2' } = Astro.props as Props;
+const { createAnchor = true, heading = '2', title } = Astro.props as Props;
 
 const HeadingTag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' = `h${heading}`;
+
+const cleanHash = title
+    .toLowerCase()
+    .replaceAll(' ', '-')
+    .replace(/[^a-zA-Z0-9?/:@\-._~!$&'()*+,;=]/gm, '');
 ---
 
 {
-    anchor ? (
+    createAnchor === true ? (
         <a
             class="flex flex-row"
-            href={`#${anchor}`}
-            id={anchor}
+            href={`#${cleanHash}`}
+            id={cleanHash}
         >
-            <HeadingTag class={`h${heading}`}>
-                <slot />
-            </HeadingTag>
+            <HeadingTag class={`h${heading}`}>{title}</HeadingTag>
         </a>
     ) : (
-        <HeadingTag class={`h${heading}`}>
-            <slot />
-        </HeadingTag>
+        <div
+            class="flex flex-row"
+            id={cleanHash}
+        >
+            <HeadingTag class={`h${heading}`}>{title}</HeadingTag>
+        </div>
     )
 }
