@@ -2,34 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-.item {
-    @apply w-full gap-1
+.h1 {
+    @apply text-base font-semibold;
 }
 
-.title {
-    @apply truncate text-base font-semibold
+.h2 {
+    @apply text-sm font-normal;
+}
+
+.setting-title {
+    @apply h1 truncate text-base font-semibold;
 }
 
 .description {
-    @apply text-xs text-neutral-800 dark:text-neutral-200
+    @apply h2 text-light-2 dark:text-dark-2;
 }
 
 .toggle-container {
-    @apply flex h-4 w-8 items-center justify-start
+    @apply flex h-4 w-8 items-center justify-start;
 }
 
 .toggle-checkbox {
-    @apply absolute z-40 h-4 w-8 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed
+    @apply absolute z-40 h-4 w-8 appearance-none hover:cursor-pointer disabled:hover:cursor-not-allowed;
 }
 
 .toggle-background {
-    @apply z-10 h-2 w-8 rounded-full bg-neutral-400 peer-disabled:bg-neutral-500 dark:bg-neutral-500 dark:peer-disabled:bg-neutral-700
+    @apply z-10 h-2 w-8 rounded-full bg-neutral-400 peer-disabled:bg-neutral-500 dark:bg-neutral-500 dark:peer-disabled:bg-neutral-700;
 }
 
 .toggle-foreground {
-    @apply absolute z-20 h-2 w-2 rounded-full bg-youtube-red ease-in-out peer-checked:w-6 peer-hover:duration-150 peer-disabled:bg-youtube-red-disabled
+    @apply absolute z-20 h-2 w-2 rounded-full bg-youtube-red ease-in-out peer-checked:w-6 peer-hover:duration-150 peer-disabled:bg-youtube-red-disabled;
 }
 
 .toggle-handle {
-    @apply absolute z-30 h-4 w-4 rounded-full bg-neutral-300 ease-in-out peer-checked:translate-x-4 peer-hover:duration-150 peer-disabled:bg-neutral-400 dark:bg-neutral-400 dark:peer-disabled:bg-neutral-600
+    @apply absolute z-30 h-4 w-4 rounded-full bg-neutral-300 ease-in-out peer-checked:translate-x-4 peer-hover:duration-150 peer-disabled:bg-neutral-400 dark:bg-neutral-400 dark:peer-disabled:bg-neutral-600;
 }

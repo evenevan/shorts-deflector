@@ -1,8 +1,6 @@
 (async () => {
     [
-        'extensionName',
         'switchToDesktopInterfaceTitle',
-        'switchToDesktopInterfaceTooltip',
         'automaticTitle',
         'automaticDescription',
         'newPagesOnlyTitle',

@@ -1,6 +1,6 @@
-import { redirectShortsPage } from '../background/redirectShortsPage.js';
 import {
     desktopHTMLKey,
+    desktopLinkHTMLKey,
     desktopLoadingHTMLKey,
     youTubeShortsRegex,
 } from '../util/constants.js';
@@ -9,44 +9,57 @@ const desktopButton = document.getElementById(
     desktopHTMLKey,
 ) as HTMLButtonElement;
 
+const desktopLinkButton = document.getElementById(
+    desktopLinkHTMLKey,
+) as HTMLAnchorElement;
+
 const desktopButtonLoading = document.getElementById(
     desktopLoadingHTMLKey,
-) as HTMLElement;
+) as HTMLDivElement;
 
 let [tab] = await chrome.tabs.query({
     active: true,
     currentWindow: true,
 });
 
-if (tab.status === 'loading') {
-    desktopButton.disabled = true;
-    desktopButtonLoading.classList.remove('hidden');
-} else {
-    desktopButton.disabled = Boolean(tab?.url?.match(youTubeShortsRegex)) === false;
-}
+update();
 
 chrome.tabs.onUpdated.addListener((_id, _changes, newTab) => {
-    tab = newTab;
+    if (newTab.id === tab.id) {
+        tab = newTab;
 
-    if (newTab.status === 'complete') {
-        desktopButtonLoading.classList.add('hidden');
-        desktopButton.disabled = Boolean(tab?.url?.match(youTubeShortsRegex)) === false;
-    } else {
-        desktopButton.disabled = true;
-        desktopButtonLoading.classList.remove('hidden');
+        update();
     }
 });
 
 desktopButton.addEventListener('click', async () => {
     desktopButton.disabled = true;
-    desktopButtonLoading.classList.add('hidden');
+    desktopButtonLoading.classList.remove('hidden');
 
-    await chrome.scripting.executeScript({
-        // @ts-ignore
-        injectImmediately: true,
-        target: {
-            tabId: tab.id!,
-        },
-        func: redirectShortsPage,
+    const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
+
+    console.log(desktopLinkButton.href, typeof desktopLinkButton.href);
+
+    await chrome.tabs.update(tab.id!, {
+        url: cleanURL,
     });
 });
+
+function update() {
+    const isYouTubeShortsPage = Boolean(tab?.url?.match(youTubeShortsRegex));
+
+    if (isYouTubeShortsPage) {
+        const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
+        desktopLinkButton.href = cleanURL!;
+    } else {
+        desktopLinkButton.removeAttribute('href');
+    }
+
+    if (tab.status === 'complete') {
+        desktopButtonLoading.classList.add('hidden');
+        desktopButton.disabled = isYouTubeShortsPage === false;
+    } else {
+        desktopButton.disabled = true;
+        desktopButtonLoading.classList.remove('hidden');
+    }
+}

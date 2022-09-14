@@ -2,62 +2,97 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
 
-        <link href="./resources/tailwind.css" rel="stylesheet" />
-        <script src="./scripts/action/index.js" type="module"></script>
+        <link
+            href="./resources/tailwind.css"
+            rel="stylesheet"
+        />
+        <script
+            src="./scripts/action/index.js"
+            type="module"
+        ></script>
     </head>
-    <body
-        class="flex w-body flex-col gap-4 bg-white p-4 font-sans text-black dark:bg-neutral-900 dark:text-white"
-    >
-        <a class="flex items-center justify-center gap-2" href="https://github.com/Attituding/shorts-deflector" target="_blank">
-            <img
-                class="h-10 w-10 transition-all duration-1000 ease-in-out hover:rotate-[720deg]"
-                src="./assets/icon.svg"
-            />
-            <span class="text-2xl font-semibold">Shorts Deflector</span>
-        </a>
-        <button
-            id="desktop-button"
-            class="item-box item group relative flex h-10 cursor-pointer items-center justify-center rounded bg-neutral-100 transition-all hover:bg-neutral-200 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-600 dark:bg-neutral-800 dark:hover:bg-neutral-700 disabled:dark:bg-neutral-800 dark:disabled:text-neutral-400"
-            disabled
-        >
-            <div class="peer flex items-center justify-center gap-4">
-                <div
-                    id="desktop-button-loading"
-                    class="hidden h-4 w-4 animate-spin rounded-full border-[3px] border-neutral-200 border-t-black dark:border-neutral-700 dark:border-t-white"
-                ></div>
-                <span id="desktop-button-title" class="title"></span>
+    <body class="h-fit w-96 bg-light-1 p-4 font-sans text-light-1 dark:bg-dark-1 dark:text-dark-1">
+        <main class="flex flex-col gap-4">
+            <div class="grid grid-cols-6 gap-4">
+                <a
+                    class="col-span-1 aspect-square h-full shrink-0"
+                    href="https://github.com/Attituding/shorts-deflector"
+                    target="_blank"
+                >
+                    <img
+                        class="h-full w-full"
+                        src="./assets/icon.svg"
+                    />
+                </a>
+                <button
+                    id="desktop-button"
+                    class="group relative col-span-5 flex h-10 w-full items-center rounded-full bg-light-2 hover:bg-light-3 enabled:active:bg-light-4 disabled:hover:bg-light-2 dark:bg-dark-2 hover:dark:bg-dark-3 enabled:active:dark:bg-dark-4 disabled:hover:dark:bg-dark-2"
+                    disabled
+                >
+                    <div
+                        id="desktop-button-loading"
+                        class="ml-2 hidden h-6 w-6 shrink-0 animate-spin rounded-full border-[4px] border-light-1 border-t-black dark:border-dark-1 dark:border-t-white"
+                    ></div>
+                    <span
+                        class="h1 mx-4 grow truncate group-disabled:text-light-3 group-disabled:dark:text-dark-3"
+                        id="desktop-button-title"
+                    ></span>
+                    <a
+                        class="absolute h-full w-full rounded-full group-enabled:cursor-pointer group-disabled:cursor-not-allowed"
+                        id="desktop-button-link"
+                    >
+                    </a>
+                </button>
             </div>
-            <div
-                class="absolute -top-1/4 max-w-[100%] translate-y-5 scale-0 rounded bg-neutral-100 px-2 py-1 text-xs opacity-0 transition-all ease-in-out peer-hover:-translate-y-12 peer-hover:opacity-100 peer-hover:delay-500 group-disabled:peer-hover:scale-100 dark:bg-neutral-800"
-            >
-                <span id="desktop-button-tooltip" class="description text-[12px]"></span>
-            </div>
-        </button>
-        <div class="item flex flex-col">
-            <div class="flex items-center justify-between">
-                <span id="automatic-title" class="title"></span>
-                <div class="toggle-container">
-                    <input id="automatic" type="checkbox" class="toggle-checkbox peer" />
-                    <div class="toggle-background"></div>
-                    <div class="toggle-foreground"></div>
-                    <div class="toggle-handle"></div>
+            <div class="flex w-full flex-col gap-1">
+                <div class="flex items-center justify-between">
+                    <span
+                        id="automatic-title"
+                        class="setting-title"
+                    ></span>
+                    <div class="toggle-container">
+                        <input
+                            id="automatic"
+                            type="checkbox"
+                            class="toggle-checkbox peer"
+                        />
+                        <div class="toggle-background"></div>
+                        <div class="toggle-foreground"></div>
+                        <div class="toggle-handle"></div>
+                    </div>
                 </div>
+                <span
+                    id="automatic-description"
+                    class="description"
+                ></span>
             </div>
-            <span id="automatic-description" class="description"></span>
-        </div>
-        <div class="item flex flex-col">
-            <div class="flex items-center justify-between">
-                <span id="improve-performance-title" class="title"></span>
-                <div class="toggle-container">
-                    <input id="improve-performance" type="checkbox" class="toggle-checkbox peer" />
-                    <div class="toggle-background"></div>
-                    <div class="toggle-foreground"></div>
-                    <div class="toggle-handle"></div>
+            <div class="flex w-full flex-col gap-1">
+                <div class="flex items-center justify-between">
+                    <span
+                        id="improve-performance-title"
+                        class="setting-title"
+                    ></span>
+                    <div class="toggle-container">
+                        <input
+                            id="improve-performance"
+                            type="checkbox"
+                            class="toggle-checkbox peer"
+                        />
+                        <div class="toggle-background"></div>
+                        <div class="toggle-foreground"></div>
+                        <div class="toggle-handle"></div>
+                    </div>
                 </div>
+                <span
+                    id="improve-performance-description"
+                    class="description"
+                ></span>
             </div>
-            <span id="improve-performance-description" class="description"></span>
-        </div>
+        </main>
     </body>
 </html>
