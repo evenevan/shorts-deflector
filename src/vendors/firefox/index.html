@@ -22,7 +22,7 @@
                 </a>
                 <button
                     id="desktop"
-                    class="group relative col-span-5 flex h-10 w-full items-center rounded-full bg-light-2 hover:bg-light-3 enabled:active:bg-light-4 disabled:hover:bg-light-2 dark:bg-dark-2 hover:dark:bg-dark-3 enabled:active:dark:bg-dark-4 disabled:hover:dark:bg-dark-2"
+                    class="group relative col-span-5 flex h-10 w-full items-center justify-center rounded-full bg-light-2 transition-all hover:bg-light-3 enabled:active:bg-light-4 disabled:hover:bg-light-2 dark:bg-dark-2 hover:dark:bg-dark-3 enabled:active:dark:bg-dark-4 disabled:hover:dark:bg-dark-2"
                     disabled
                 >
                     <div
@@ -34,10 +34,18 @@
                         id="switchToDesktopInterfaceTitle"
                     ></span>
                     <a
-                        class="absolute h-full w-full rounded-full group-enabled:cursor-pointer group-disabled:cursor-not-allowed"
+                        class="peer absolute h-full w-full rounded-full group-enabled:cursor-pointer group-disabled:cursor-not-allowed"
                         id="null"
                     >
                     </a>
+                    <div
+                        class="absolute top-12 z-50 flex h-fit max-w-full scale-0 items-center justify-center rounded-3xl bg-light-3 px-4 py-2 opacity-0 transition-opacity group-disabled:peer-hover:scale-100 group-disabled:peer-hover:opacity-100 dark:bg-dark-3"
+                    >
+                        <span
+                            class="h2"
+                            id="switchToDesktopInterfaceTooltip"
+                        ></span>
+                    </div>
                 </button>
             </div>
             <div class="flex w-full flex-col gap-1">

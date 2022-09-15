@@ -1,6 +1,7 @@
 (async () => {
     [
         'switchToDesktopInterfaceTitle',
+        'switchToDesktopInterfaceTooltip',
         'automaticTitle',
         'automaticDescription',
         'newPagesOnlyTitle',

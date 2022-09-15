@@ -25,7 +25,7 @@
         "128": "./assets/icon.svg"
     },
     "manifest_version": 2,
-    "name": "__MSG_extensionName__",
+    "name": "Shorts Deflector",
     "permissions": [
         "tabs",
         "storage",

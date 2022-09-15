@@ -1,7 +1,4 @@
 {
-    "extensionName": {
-        "message": "Shorts Deflector"
-    },
     "extensionDescription": {
         "message": "Lisez les YouTube Shorts en toute transparence avec l'interface de bureau normale"
     },
@@ -9,7 +6,7 @@
         "message": "Passer à l'interface du bureau"
     },
     "switchToDesktopInterfaceTooltip": {
-        "message": "Disponible quand cette pop-up est ouverte sur une page de YouTube Shorts."
+        "message": "Disponible sur les pages des YouTube Shorts"
     },
     "automaticTitle": {
         "message": "Redirection automatique"

@@ -1,7 +1,4 @@
 {
-    "extensionName": {
-        "message": "Shorts Deflector"
-    },
     "extensionDescription": {
         "message": "Seamlessly play YouTube Shorts with the normal desktop interface"
     },
@@ -9,7 +6,7 @@
         "message": "Switch to Desktop Interface"
     },
     "switchToDesktopInterfaceTooltip": {
-        "message": "Available when this popup is opened on a YouTube Shorts page."
+        "message": "Available on YouTube Shorts pages"
     },
     "automaticTitle": {
         "message": "Automatic Redirecting"
