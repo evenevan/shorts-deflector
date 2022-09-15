@@ -12,7 +12,8 @@ Want to help improve this extension?
 
 1) Fork this project
 2) Make your changes and commit/push to your fork
-3) Make a pull request
+3) Test out your changes (build with "npm run build", make sure you have 7zip and powershell available or adjust the build script)
+4) Make a pull request
 
 # Store Pages
 [Chrome Web Store](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg "Chrome Web Store")
