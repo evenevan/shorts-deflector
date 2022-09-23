@@ -21,6 +21,10 @@ module.exports = {
                 'dark-1': '#404040',
                 'light-1': '#e5e5e5',
             },
+            borderRadius: {
+                '4xl': '2rem',
+                '5xl': '2.5rem',
+            },
             textColor: {
                 'dark-1': '#ffffff',
                 'dark-2': '#d4d4d4',
