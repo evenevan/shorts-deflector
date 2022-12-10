@@ -4,21 +4,21 @@ export function modifyYouTubePage() {
     const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
     const observer = new MutationObserver((mutationRecords) => {
-        const elements = mutationRecords.filter(
-            (mutationRecord) => mutationRecord.type === 'attributes'
-            && mutationRecord.target.nodeType === 1,
-        ).map(
-            (mutationRecord) => mutationRecord.target,
-        ) as HTMLElement[];
+        const elements = mutationRecords
+            .filter(
+                (mutationRecord) => mutationRecord.type === 'attributes' && mutationRecord.target.nodeType === 1,
+            )
+            .map((mutationRecord) => mutationRecord.target) as HTMLElement[];
 
         elements.forEach((element) => {
             switch (element.tagName) {
-                case 'A': {
-                    const anchor = element as HTMLAnchorElement;
-                    if (anchor.href.match(youTubeShortsRegex)) {
-                        patchAnchor(anchor);
+                case 'A':
+                    {
+                        const anchor = element as HTMLAnchorElement;
+                        if (anchor.href.match(youTubeShortsRegex)) {
+                            patchAnchor(anchor);
+                        }
                     }
-                }
                     break;
                 case 'YTD-THUMBNAIL-OVERLAY-TIME-STATUS-RENDERER': {
                     const attribute = element.attributes.getNamedItem('overlay-style');

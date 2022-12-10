@@ -44,14 +44,14 @@ chrome.runtime.onInstalled.addListener(async (details) => {
 // Handle Permission Removal
 chrome.permissions.onRemoved.addListener(async () => {
     // @ts-ignore
-    const automaticPermission = await chrome.permissions.contains({
+    const automaticPermission = (await chrome.permissions.contains({
         origins: [youTubeHostname],
-    }) as unknown as boolean;
+    })) as unknown as boolean;
 
     // @ts-ignore
-    const improvePerformancePermission = await chrome.permissions.contains({
+    const improvePerformancePermission = (await chrome.permissions.contains({
         origins: [allHostname],
-    }) as unknown as boolean;
+    })) as unknown as boolean;
 
     if (automaticPermission === false) {
         await chrome.declarativeNetRequest.updateEnabledRulesets({
@@ -66,37 +66,41 @@ chrome.permissions.onRemoved.addListener(async () => {
 });
 
 // Listener for new pages with the same URL
-chrome.webNavigation.onCommitted.addListener(async (details) => {
-    if (details.frameId === 0) {
-        const tab = await chrome.tabs.get(details.tabId);
+chrome.webNavigation.onCommitted.addListener(
+    async (details) => {
+        if (details.frameId === 0) {
+            const tab = await chrome.tabs.get(details.tabId);
 
-        if (details.url === tab.url) {
-            await handlePageUpdate(details.tabId, tab);
+            if (details.url === tab.url) {
+                await handlePageUpdate(details.tabId, tab);
+            }
         }
-    }
-}, {
-    url: [{
-        schemes: [
-            'http',
-            'https',
+    },
+    {
+        url: [
+            {
+                schemes: ['http', 'https'],
+            },
         ],
-    }],
-});
+    },
+);
 
 // Listener for new pages with new URLs
-chrome.webNavigation.onHistoryStateUpdated.addListener(async (details) => {
-    if (details.frameId === 0) {
-        const tab = await chrome.tabs.get(details.tabId);
+chrome.webNavigation.onHistoryStateUpdated.addListener(
+    async (details) => {
+        if (details.frameId === 0) {
+            const tab = await chrome.tabs.get(details.tabId);
 
-        if (details.url === tab.url) {
-            await handlePageUpdate(details.tabId, tab);
+            if (details.url === tab.url) {
+                await handlePageUpdate(details.tabId, tab);
+            }
         }
-    }
-}, {
-    url: [{
-        schemes: [
-            'http',
-            'https',
+    },
+    {
+        url: [
+            {
+                schemes: ['http', 'https'],
+            },
         ],
-    }],
-});
+    },
+);

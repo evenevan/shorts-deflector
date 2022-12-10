@@ -19,10 +19,7 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
 
     if (
         automatic === false
-        || (
-            improvePerformance === false
-            && youTubeRegex.test(tab.url!) === false
-        )
+        || (improvePerformance === false && youTubeRegex.test(tab.url!) === false)
     ) {
         return;
     }
@@ -43,9 +40,7 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     } else {
         // URL Updating
 
-        const script = youTubeRegex.test(tab.url!)
-            ? modifyYouTubePage
-            : modifyGeneralPage;
+        const script = youTubeRegex.test(tab.url!) ? modifyYouTubePage : modifyGeneralPage;
 
         await chrome.scripting.executeScript({
             target: {

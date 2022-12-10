@@ -19,20 +19,16 @@
     // Desktop Interface Button
     const regex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
 
-    const desktopButton = document.getElementById(
-        desktopKey,
-    ) as HTMLButtonElement;
+    const desktopButton = document.getElementById(desktopKey) as HTMLButtonElement;
 
-    const desktopButtonLoading = document.getElementById(
-        desktopLoadingKey,
-    ) as HTMLElement;
+    const desktopButtonLoading = document.getElementById(desktopLoadingKey) as HTMLElement;
 
     let [tab] = await browser.tabs.query({
         active: true,
         currentWindow: true,
     });
 
-    if (tab.status === 'loading') {
+    if (tab?.status === 'loading') {
         desktopButton.disabled = true;
         desktopButtonLoading.classList.remove('hidden');
     } else {
@@ -54,25 +50,18 @@
     desktopButton.addEventListener('click', async () => {
         desktopButton.disabled = true;
         desktopButtonLoading.classList.add('hidden');
-        const cleanURL = tab.url?.replace('shorts/', 'watch?v=');
-        await browser.tabs.update(tab.id!, {
+        const cleanURL = tab?.url?.replace('shorts/', 'watch?v=');
+        await browser.tabs.update(Number(tab?.id), {
             url: cleanURL,
         });
     });
 
     // Settings Handling
-    const automaticSwitch = document.getElementById(
-        automaticKey,
-    ) as HTMLInputElement;
+    const automaticSwitch = document.getElementById(automaticKey) as HTMLInputElement;
 
-    const newPagesOnlySwitch = document.getElementById(
-        newPagesOnlyKey,
-    ) as HTMLInputElement;
+    const newPagesOnlySwitch = document.getElementById(newPagesOnlyKey) as HTMLInputElement;
 
-    const keys = await browser.storage.sync.get([
-        automaticKey,
-        newPagesOnlyKey,
-    ]);
+    const keys = await browser.storage.sync.get([automaticKey, newPagesOnlyKey]);
 
     automaticSwitch.checked = keys[automaticKey];
     newPagesOnlySwitch.checked = keys[newPagesOnlyKey];

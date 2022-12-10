@@ -5,7 +5,7 @@ export const desktopLinkHTMLKey = 'desktop-button-link';
 export const desktopLoadingHTMLKey = 'desktop-button-loading';
 export const improvePerformanceHTMLKey = 'improve-performance';
 
-export const i18nKeys = [
+export const i18nKeys: [string, string][] = [
     ['desktop-button-tooltip', 'desktopButtonTooltip'],
     ['desktop-button-title', 'desktopButtonTitle'],
     ['automatic-title', 'automaticTitle'],

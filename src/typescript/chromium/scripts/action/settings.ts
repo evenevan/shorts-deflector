@@ -1,16 +1,14 @@
 import {
     allHostname,
-    automaticStorageKey,
     automaticHTMLKey,
+    automaticStorageKey,
     improvePerformanceHTMLKey,
     improvePerformanceStorageKey,
     shortsRuleset,
     youTubeHostname,
 } from '../util/constants.js';
 
-const automaticSwitch = document.getElementById(
-    automaticHTMLKey,
-) as HTMLInputElement;
+const automaticSwitch = document.getElementById(automaticHTMLKey) as HTMLInputElement;
 
 const improvePerformanceSwitch = document.getElementById(
     improvePerformanceHTMLKey,
@@ -27,9 +25,9 @@ improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
 
 automaticSwitch.addEventListener('click', async () => {
     if (automaticSwitch.checked) {
-        const granted = await chrome.permissions.request({
+        const granted = (await chrome.permissions.request({
             origins: [youTubeHostname],
-        }) as unknown as boolean;
+        })) as unknown as boolean;
 
         if (granted === false) {
             automaticSwitch.checked = false;
@@ -55,9 +53,9 @@ automaticSwitch.addEventListener('click', async () => {
 
 improvePerformanceSwitch.addEventListener('click', async () => {
     if (improvePerformanceSwitch.checked) {
-        const granted = await chrome.permissions.request({
+        const granted = (await chrome.permissions.request({
             origins: [allHostname],
-        }) as unknown as boolean;
+        })) as unknown as boolean;
 
         if (granted === false) {
             improvePerformanceSwitch.checked = false;
