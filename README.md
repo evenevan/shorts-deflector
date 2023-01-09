@@ -5,7 +5,7 @@ Shorts Deflector is an extension that allows you to seamlessly watch YouTube Sho
 
 Upon install, the "Read your browsing history" permission may seem alarming, but this permission is only used to detect page updates. 
 
-Read more at https://shortsdeflector.attituding.live/.
+Read more at https://shortsdeflector.attituding.xyz/.
 
 # Contribution
 Want to help improve this extension?
@@ -21,4 +21,4 @@ Want to help improve this extension?
 [Firefox Addons](https://addons.mozilla.org/firefox/addon/shorts-deflector/ "Firefox Addons")
 
 # Home Page
-[https://shortsdeflector.attituding.live/](https://attituding.github.io/shorts-deflector/)
+[https://shortsdeflector.attituding.xyz/](https://attituding.github.io/shorts-deflector/)
