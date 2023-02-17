@@ -12,8 +12,9 @@ Want to help improve this extension?
 
 1) Fork this project
 2) Make your changes and commit/push to your fork
-3) Test out your changes [Build](#build)
-4) Make a pull request
+3) [Build](#build)
+4) Test out your changes
+5) Make a pull request
 
 # Build
 Prerequisites:
