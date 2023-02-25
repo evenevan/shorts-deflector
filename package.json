@@ -14,11 +14,13 @@
         "eslint-plugin-import": "^2.26.0",
         "prettier-plugin-tailwindcss": "^0.2.1",
         "tailwindcss": "^3.2.4",
-        "typescript": "^4.9.4"
+        "typescript": "^4.9.4",
+        "web-ext": "^7.5.0"
     },
     "scripts": {
         "build": "npm run clear && npm run tailwindcss && npm run typescript && npm run zip",
         "clear": "(if exist dist rmdir dist /s /q) && (if exist src\\vendors\\chromium\\resources rmdir src\\vendors\\chromium\\resources /s /q) && (if exist src\\vendors\\firefox\\resources rmdir src\\vendors\\firefox\\resources /s /q) && (if exist src\\vendors\\chromium\\scripts rmdir src\\vendors\\chromium\\scripts /s /q) && (if exist src\\vendors\\firefox\\scripts rmdir src\\vendors\\firefox\\scripts /s /q)",
+        "firefox": "web-ext run --source-dir ./src/vendors/firefox",
         "format": "prettier --write \"**/*.ts\" && eslint --fix \"**/*.ts\"",
         "tailwindcss": "npx tailwindcss -i src/resources/source.css -o src/vendors/chromium/resources/tailwind.css && npx tailwindcss -i src/resources/source.css -o src/vendors/firefox/resources/tailwind.css",
         "typescript": "tsc --outDir src/vendors",

@@ -2,10 +2,19 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
 
-        <link href="./resources/tailwind.css" rel="stylesheet" />
-        <script src="./scripts/index.js" type="module"></script>
+        <link
+            href="./resources/tailwind.css"
+            rel="stylesheet"
+        />
+        <script
+            src="./scripts/action/index.js"
+            type="module"
+        ></script>
     </head>
     <body class="h-fit w-96 bg-light-1 p-4 font-sans text-light-1 dark:bg-dark-1 dark:text-dark-1">
         <main class="flex flex-col gap-4">
@@ -21,21 +30,21 @@
                     />
                 </a>
                 <button
-                    id="desktop"
+                    id="desktop-button"
                     class="group relative col-span-5 flex h-10 w-full items-center justify-center rounded-full bg-light-2 transition-all hover:bg-light-3 enabled:active:bg-light-4 disabled:hover:bg-light-2 dark:bg-dark-2 hover:dark:bg-dark-3 enabled:active:dark:bg-dark-4 disabled:hover:dark:bg-dark-2"
                     disabled
                 >
                     <div
-                        id="desktopLoading"
+                        id="desktop-button-loading"
                         class="ml-2 hidden h-6 w-6 shrink-0 animate-spin rounded-full border-[4px] border-light-1 border-t-black dark:border-dark-1 dark:border-t-white"
                     ></div>
                     <span
                         class="h1 mx-4 grow truncate group-disabled:text-light-3 group-disabled:dark:text-dark-3"
-                        id="switchToDesktopInterfaceTitle"
+                        id="desktop-button-title"
                     ></span>
                     <a
                         class="peer absolute h-full w-full rounded-full group-enabled:cursor-pointer group-disabled:cursor-not-allowed"
-                        id="null"
+                        id="desktop-button-link"
                     >
                     </a>
                     <div
@@ -43,7 +52,7 @@
                     >
                         <span
                             class="h2"
-                            id="switchToDesktopInterfaceTooltip"
+                            id="desktop-button-tooltip"
                         ></span>
                     </div>
                 </button>
@@ -51,7 +60,7 @@
             <div class="flex w-full flex-col gap-1">
                 <div class="flex items-center justify-between">
                     <span
-                        id="automaticTitle"
+                        id="automatic-title"
                         class="setting-title"
                     ></span>
                     <div class="toggle-container">
@@ -66,19 +75,19 @@
                     </div>
                 </div>
                 <span
-                    id="automaticDescription"
+                    id="automatic-description"
                     class="description"
                 ></span>
             </div>
             <div class="flex w-full flex-col gap-1">
                 <div class="flex items-center justify-between">
                     <span
-                        id="newPagesOnlyTitle"
+                        id="improve-performance-title"
                         class="setting-title"
                     ></span>
                     <div class="toggle-container">
                         <input
-                            id="new-pages-only"
+                            id="improve-performance"
                             type="checkbox"
                             class="toggle-checkbox peer"
                         />
@@ -88,7 +97,7 @@
                     </div>
                 </div>
                 <span
-                    id="newPagesOnlyDescription"
+                    id="improve-performance-description"
                     class="description"
                 ></span>
             </div>

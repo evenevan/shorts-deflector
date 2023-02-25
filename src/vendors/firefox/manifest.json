@@ -1,16 +1,15 @@
 {
-    "background": {
-        "scripts": [
-            "./scripts/background.js"
-        ]
-    },
-    "browser_action": {
+    "action": {
         "default_popup": "./index.html",
         "default_icon": {
             "16": "./assets/icon.svg",
             "48": "./assets/icon.svg",
             "128": "./assets/icon.svg"
         }
+    },
+    "author": "Attituding",
+    "background": {
+        "page": "./background.html"
     },
     "browser_specific_settings": {
         "gecko": {
@@ -19,19 +18,23 @@
     },
     "default_locale": "en",
     "description": "__MSG_extensionDescription__",
+    "host_permissions": [
+        "https://www.youtube.com/*"
+    ],
     "icons": {
         "16": "./assets/icon.svg",
         "48": "./assets/icon.svg",
         "128": "./assets/icon.svg"
     },
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Shorts Deflector",
-    "permissions": [
-        "tabs",
-        "storage",
-        "webRequest",
-        "webRequestBlocking",
-        "https://www.youtube.com/*"
+    "optional_permissions": [
+        "*://*/*"
     ],
-    "version": "1.9.0_firefox"
+    "permissions": [
+        "scripting",
+        "storage",
+        "webNavigation"
+    ],
+    "version": "1.15.0"
 }

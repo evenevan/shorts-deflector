@@ -2,22 +2,22 @@
     "extensionDescription": {
         "message": "Seamlessly play YouTube Shorts with the normal desktop interface"
     },
-    "switchToDesktopInterfaceTitle": {
+    "desktopButtonTitle": {
         "message": "Switch to Desktop Interface"
     },
-    "switchToDesktopInterfaceTooltip": {
+    "desktopButtonTooltip": {
         "message": "Available on YouTube Shorts pages"
     },
     "automaticTitle": {
-        "message": "Automatic Redirecting"
+        "message": "Automatic Switching"
     },
     "automaticDescription": {
-        "message": "Automatically redirect YouTube Shorts to the desktop UI."
+        "message": "Automatically switch YouTube Shorts to the desktop UI."
     },
-    "newPagesOnlyTitle": {
-        "message": "New Pages Only"
+    "improvePerformanceTitle": {
+        "message": "Improve Performance"
     },
-    "newPagesOnlyDescription": {
-        "message": "Only automatically redirect when a YouTube Short is opened in a new tab or window."
+    "improvePerformanceDescription": {
+        "message": "Improve performance when switching to the desktop UI from other websites. Extra permissions are required."
     }
 }
