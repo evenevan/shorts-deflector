@@ -6,9 +6,7 @@ import {
 } from '../util/constants.js';
 
 const desktopButton = document.getElementById(desktopHTMLKey) as HTMLButtonElement;
-
-const desktopLinkButton = document.getElementById(desktopLinkHTMLKey) as HTMLAnchorElement;
-
+const desktopButtonLink = document.getElementById(desktopLinkHTMLKey) as HTMLAnchorElement;
 const desktopButtonLoading = document.getElementById(desktopLoadingHTMLKey) as HTMLDivElement;
 
 let [tab] = await browser.tabs.query({
@@ -27,31 +25,38 @@ browser.tabs.onUpdated.addListener((_id, _changes, newTab) => {
 });
 
 desktopButton.addEventListener('click', async () => {
-    desktopButton.disabled = true;
-    desktopButtonLoading.classList.remove('hidden');
+    loading();
 
     const cleanURL = tab?.url?.replace('shorts/', 'watch?v=');
 
-    await browser.tabs.update(Number(tab?.id), {
+    await browser.tabs.update((tab!.id!), {
         url: cleanURL,
     });
 });
 
 function update() {
-    const isYouTubeShortsPage = Boolean(tab?.url?.match(youTubeShortsRegex));
-
-    if (isYouTubeShortsPage) {
-        const cleanURL = tab?.url?.replace('shorts/', 'watch?v=');
-        desktopLinkButton.href = cleanURL!;
-    } else {
-        desktopLinkButton.removeAttribute('href');
-    }
-
     if (tab?.status === 'complete') {
-        desktopButtonLoading.classList.add('hidden');
-        desktopButton.disabled = isYouTubeShortsPage === false;
+        loaded();
     } else {
-        desktopButton.disabled = true;
-        desktopButtonLoading.classList.remove('hidden');
+        loading();
     }
+}
+
+function loading() {
+    desktopButton.disabled = true;
+    desktopButtonLink.removeAttribute('href');
+    desktopButtonLink.setAttribute('aria-disabled', 'true');
+    desktopButtonLoading.dataset.loading = 'true';
+}
+
+function loaded() {
+    const isNotYouTubeShortsPage = !tab?.url?.match(youTubeShortsRegex);
+    desktopButton.disabled = isNotYouTubeShortsPage;
+    if (isNotYouTubeShortsPage) {
+        desktopButtonLink.removeAttribute('href');
+    } else {
+        desktopButtonLink.href = tab?.url?.replace('shorts/', 'watch?v=')!;
+    }
+    desktopButtonLink.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
+    desktopButtonLoading.dataset.loading = 'false';
 }

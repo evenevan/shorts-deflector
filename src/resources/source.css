@@ -10,6 +10,10 @@
     @apply text-sm font-normal;
 }
 
+.h3 {
+    @apply text-xs font-normal;
+}
+
 .setting-title {
     @apply h1 truncate text-base font-semibold;
 }

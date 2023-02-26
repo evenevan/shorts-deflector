@@ -9,9 +9,6 @@ const desktopButton = document.getElementById(desktopHTMLKey) as HTMLButtonEleme
 const desktopButtonLink = document.getElementById(desktopLinkHTMLKey) as HTMLAnchorElement;
 const desktopButtonLoading = document.getElementById(desktopLoadingHTMLKey) as HTMLDivElement;
 
-// eslint-disable-next-line no-script-url
-const blankHref = 'javascript:void(0);';
-
 let [tab] = await chrome.tabs.query({
     active: true,
     currentWindow: true,
@@ -47,17 +44,19 @@ function update() {
 
 function loading() {
     desktopButton.disabled = true;
-    desktopButtonLink.href = blankHref;
-    desktopButtonLink.ariaDisabled = 'true';
+    desktopButtonLink.removeAttribute('href');
+    desktopButtonLink.setAttribute('aria-disabled', 'true');
     desktopButtonLoading.dataset.loading = 'true';
 }
 
 function loaded() {
     const isNotYouTubeShortsPage = !tab?.url?.match(youTubeShortsRegex);
     desktopButton.disabled = isNotYouTubeShortsPage;
-    desktopButtonLink.href = isNotYouTubeShortsPage
-        ? blankHref
-        : tab?.url?.replace('shorts/', 'watch?v=')!;
-    desktopButtonLink.ariaDisabled = `${isNotYouTubeShortsPage}`;
+    if (isNotYouTubeShortsPage) {
+        desktopButtonLink.removeAttribute('href');
+    } else {
+        desktopButtonLink.href = tab?.url?.replace('shorts/', 'watch?v=')!;
+    }
+    desktopButtonLink.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
     desktopButtonLoading.dataset.loading = 'false';
 }

@@ -2,89 +2,95 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <meta
-            http-equiv="X-UA-Compatible"
-            content="IE=edge"
-        />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link
-            href="./resources/tailwind.css"
-            rel="stylesheet"
-        />
-        <script
-            src="./scripts/action/index.js"
-            type="module"
-        ></script>
+        <link href="./resources/tailwind.css" rel="stylesheet" />
+        <script src="./scripts/action/index.js" type="module"></script>
     </head>
-    <body class="h-fit w-96 bg-light-1 p-4 font-sans text-light-1 dark:bg-dark-1 dark:text-dark-1">
+    <body
+        class="h-fit w-[25rem] bg-light-1 p-4 font-sans text-light-1 dark:bg-dark-1 dark:text-dark-1"
+    >
         <main class="flex flex-col gap-4">
-            <div class="grid grid-cols-6 gap-4">
+            <div class="flex h-12 gap-4">
                 <a
                     class="col-span-1 aspect-square h-full shrink-0"
                     href="https://github.com/Attituding/shorts-deflector"
                     target="_blank"
                 >
-                    <img
-                        class="h-full w-full"
-                        src="./assets/icon.svg"
-                    />
+                    <img class="h-full w-full" src="./assets/icon.svg" />
                 </a>
-                <button
-                    id="desktop-button"
-                    class="group relative col-span-5 flex h-10 w-full items-center justify-center rounded-full bg-light-2 transition-all hover:bg-light-3 enabled:active:bg-light-4 disabled:hover:bg-light-2 dark:bg-dark-2 hover:dark:bg-dark-3 enabled:active:dark:bg-dark-4 disabled:hover:dark:bg-dark-2"
-                    disabled
-                >
-                    <div
-                        id="desktop-button-loading"
-                        class="ml-2 hidden h-6 w-6 shrink-0 animate-spin rounded-full border-[4px] border-light-1 border-t-black dark:border-dark-1 dark:border-t-white"
-                    ></div>
-                    <span
-                        class="h1 mx-4 grow truncate group-disabled:text-light-3 group-disabled:dark:text-dark-3"
-                        id="desktop-button-title"
-                    ></span>
-                    <a
-                        class="peer absolute h-full w-full rounded-full group-enabled:cursor-pointer group-disabled:cursor-not-allowed"
-                        id="desktop-button-link"
-                    >
-                    </a>
-                    <div
-                        class="absolute top-12 z-50 flex h-fit max-w-full scale-0 items-center justify-center rounded-3xl bg-light-3 px-4 py-2 opacity-0 transition-opacity group-disabled:peer-hover:scale-100 group-disabled:peer-hover:opacity-100 dark:bg-dark-3"
+                <div class="peer relative flex min-w-0 grow justify-center">
+                    <button
+                        class="peer/button group grow truncate rounded-l-full bg-light-2 px-4 transition-colors duration-75 enabled:hover:bg-light-3 enabled:active:hover:bg-light-4 disabled:cursor-not-allowed dark:bg-dark-2 enabled:hover:dark:bg-dark-3 enabled:active:hover:dark:bg-dark-4"
+                        id="desktop-button"
+                        disabled
                     >
                         <span
-                            class="h2"
-                            id="desktop-button-tooltip"
+                            class="h1 text-light-1 group-disabled:text-light-3 dark:text-dark-1 group-disabled:dark:text-dark-3"
+                            id="desktop-button-title"
+                            disabled
+                            aria-disabled="true"
                         ></span>
+                    </button>
+                    <div
+                        class="peer/seperator flex h-full w-fit bg-light-2 peer-disabled:cursor-not-allowed dark:bg-dark-2"
+                    >
+                        <div class="my-auto h-3/4 w-[1px] bg-light-4 dark:bg-dark-4"> </div>
                     </div>
-                </button>
+                    <div
+                        class="peer/link flex aspect-square h-full shrink-0 items-center justify-center rounded-r-full bg-light-2 dark:bg-dark-2"
+                    >
+                        <div
+                            class="peer hidden h-2/3 w-2/3 animate-spin rounded-full border-[6px] border-light-1 border-t-black data-[loading=true]:block dark:border-dark-1 dark:border-t-white"
+                            data-loading="false"
+                            id="desktop-button-loading"
+                        ></div>
+                        <a
+                            aria-disabled="true"
+                            class="group flex h-full w-full items-center justify-center aria-disabled:cursor-not-allowed peer-data-[loading=true]:hidden"
+                            href="javascript:void(0);"
+                            id="desktop-button-link"
+                            target="_blank"
+                        >
+                            <!-- Icon by GitHub under the MIT license, https://primer.github.io/octicons/link-external-24 -->
+                            <svg
+                                class="h-1/2 w-1/2 fill-light-1 stroke-2 group-aria-disabled:fill-light-3 dark:fill-dark-1 group-aria-disabled:dark:fill-dark-3"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                width="24"
+                                height="24"
+                            >
+                                <path
+                                    d="M15.5 2.25a.75.75 0 0 1 .75-.75h5.5a.75.75 0 0 1 .75.75v5.5a.75.75 0 0 1-1.5 0V4.06l-6.22 6.22a.75.75 0 1 1-1.06-1.06L19.94 3h-3.69a.75.75 0 0 1-.75-.75Z"
+                                ></path>
+                                <path
+                                    d="M2.5 4.25c0-.966.784-1.75 1.75-1.75h8.5a.75.75 0 0 1 0 1.5h-8.5a.25.25 0 0 0-.25.25v15.5c0 .138.112.25.25.25h15.5a.25.25 0 0 0 .25-.25v-8.5a.75.75 0 0 1 1.5 0v8.5a1.75 1.75 0 0 1-1.75 1.75H4.25a1.75 1.75 0 0 1-1.75-1.75V4.25Z"
+                                ></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div
+                        class="absolute top-20 z-50 flex h-fit max-w-full scale-0 items-center justify-center justify-self-center rounded-md bg-light-3 px-2 py-3 opacity-0 transition-opacity peer-disabled/button:peer-hover/button:scale-100 peer-disabled/button:peer-hover/link:scale-100 peer-disabled/button:peer-hover/seperator:scale-100 peer-disabled/button:peer-hover/button:opacity-95 peer-disabled/button:peer-hover/link:opacity-95 peer-disabled/button:peer-hover/seperator:opacity-95 dark:bg-dark-3"
+                    >
+                        <span class="h3" id="desktop-button-tooltip"></span>
+                    </div>
+                </div>
             </div>
             <div class="flex w-full flex-col gap-1">
                 <div class="flex items-center justify-between">
-                    <span
-                        id="automatic-title"
-                        class="setting-title"
-                    ></span>
+                    <span id="automatic-title" class="setting-title"></span>
                     <div class="toggle-container">
-                        <input
-                            id="automatic"
-                            type="checkbox"
-                            class="toggle-checkbox peer"
-                        />
+                        <input id="automatic" type="checkbox" class="toggle-checkbox peer" />
                         <div class="toggle-background"></div>
                         <div class="toggle-foreground"></div>
                         <div class="toggle-handle"></div>
                     </div>
                 </div>
-                <span
-                    id="automatic-description"
-                    class="description"
-                ></span>
+                <span id="automatic-description" class="description"></span>
             </div>
             <div class="flex w-full flex-col gap-1">
                 <div class="flex items-center justify-between">
-                    <span
-                        id="improve-performance-title"
-                        class="setting-title"
-                    ></span>
+                    <span id="improve-performance-title" class="setting-title"></span>
                     <div class="toggle-container">
                         <input
                             id="improve-performance"
@@ -96,10 +102,7 @@
                         <div class="toggle-handle"></div>
                     </div>
                 </div>
-                <span
-                    id="improve-performance-description"
-                    class="description"
-                ></span>
+                <span id="improve-performance-description" class="description"></span>
             </div>
         </main>
     </body>
