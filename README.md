@@ -7,6 +7,14 @@ Upon install, the "Read your browsing history" permission may seem alarming, but
 
 Read more at https://shortsdeflector.attituding.xyz/.
 
+# Home Page
+[https://shortsdeflector.attituding.xyz/](https://attituding.github.io/shorts-deflector/)
+
+# Store Pages
+[Chrome Web Store](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg "Chrome Web Store")
+
+[Firefox Addons](https://addons.mozilla.org/firefox/addon/shorts-deflector/ "Firefox Addons")
+
 # Contribution
 Want to help improve this extension?
 
@@ -17,20 +25,20 @@ Want to help improve this extension?
 5) Make a pull request
 
 # Build
-Prerequisites:
+## Prerequisites (available via cli):
 - Version of Node.js >= v18 w/ NPM
 - Powershell
 - 7zip
 
+## Steps:
 1) Open terminal with this directory
 2) Run "npm i"
 3) Run "npm run build"
 4) Output zips will appear in /dist folder
 
-# Store Pages
-[Chrome Web Store](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg "Chrome Web Store")
-
-[Firefox Addons](https://addons.mozilla.org/firefox/addon/shorts-deflector/ "Firefox Addons")
-
-# Home Page
-[https://shortsdeflector.attituding.xyz/](https://attituding.github.io/shorts-deflector/)
+# Develop
+## Firefox
+Use
+```
+npm run firefox
+```
