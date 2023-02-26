@@ -20,6 +20,14 @@ module.exports = {
                 'dark-1': '#404040',
                 'light-1': '#e5e5e5',
             },
+            fill: {
+                'dark-1': '#ffffff',
+                'dark-2': '#d4d4d4',
+                'dark-3': '#a3a3a3',
+                'light-1': '#000000',
+                'light-2': '#404040',
+                'light-3': '#525252',
+            },
             textColor: {
                 'dark-1': '#ffffff',
                 'dark-2': '#d4d4d4',
