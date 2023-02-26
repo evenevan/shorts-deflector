@@ -52,11 +52,12 @@ function loading() {
 function loaded() {
     const isNotYouTubeShortsPage = !tab?.url?.match(youTubeShortsRegex);
     desktopButton.disabled = isNotYouTubeShortsPage;
+    desktopButtonLink.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
+    desktopButtonLoading.dataset.loading = 'false';
+
     if (isNotYouTubeShortsPage) {
         desktopButtonLink.removeAttribute('href');
     } else {
         desktopButtonLink.href = tab?.url?.replace('shorts/', 'watch?v=')!;
     }
-    desktopButtonLink.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
-    desktopButtonLoading.dataset.loading = 'false';
 }
