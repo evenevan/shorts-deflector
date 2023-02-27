@@ -31,7 +31,7 @@
 }
 
 .toggle-background {
-    @apply z-10 h-2 w-8 rounded-full bg-neutral-400 peer-disabled:bg-neutral-500 dark:bg-neutral-500 dark:peer-disabled:bg-neutral-700;
+    @apply z-10 h-2 w-8 rounded-full bg-light-5 dark:bg-dark-5 peer-disabled:bg-light-4 peer-disabled:dark:bg-dark-3;
 }
 
 .toggle-foreground {
@@ -39,5 +39,5 @@
 }
 
 .toggle-handle {
-    @apply absolute z-30 h-4 w-4 rounded-full bg-neutral-300 ease-in-out peer-checked:translate-x-4 peer-hover:duration-150 peer-disabled:bg-neutral-400 dark:bg-neutral-400 dark:peer-disabled:bg-neutral-600;
+    @apply absolute z-30 h-4 w-4 rounded-full bg-light-4 ease-in-out peer-checked:translate-x-4 peer-hover:duration-150 peer-disabled:bg-light-3 dark:bg-dark-6 peer-disabled:dark:bg-dark-4;
 }

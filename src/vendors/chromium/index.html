@@ -13,7 +13,7 @@
         <main class="flex flex-col gap-4">
             <div class="flex h-12 gap-4">
                 <a
-                    class="col-span-1 aspect-square h-full shrink-0"
+                    class="col-span-1 aspect-square h-full shrink-0 select-none"
                     href="https://github.com/Attituding/shorts-deflector"
                     target="_blank"
                 >
@@ -26,12 +26,12 @@
                         disabled
                     >
                         <span
-                            class="h1 text-light-1 group-disabled:text-light-3 dark:text-dark-1 group-disabled:dark:text-dark-3"
+                            class="h1 select-none text-light-1 group-disabled:text-light-3 dark:text-dark-1 group-disabled:dark:text-dark-3"
                             id="desktop-button-title"
                         ></span>
                     </button>
                     <div
-                        class="peer/seperator flex h-full w-fit bg-light-2 peer-disabled:cursor-not-allowed dark:bg-dark-2"
+                        class="peer/seperator flex h-full w-fit bg-light-2 peer-disabled/button:cursor-not-allowed dark:bg-dark-2"
                     >
                         <div class="my-auto h-3/4 w-[1px] bg-light-4 dark:bg-dark-4"> </div>
                     </div>
@@ -39,18 +39,18 @@
                         class="peer/link flex aspect-square h-full shrink-0 items-center justify-center rounded-r-full bg-light-2 dark:bg-dark-2"
                     >
                         <div
-                            class="peer hidden h-2/3 w-2/3 animate-spin rounded-full border-[6px] border-light-1 border-t-black data-[loading=true]:block dark:border-dark-1 dark:border-t-white"
+                            class="peer hidden h-2/3 w-2/3 animate-spin rounded-full border-[6px] border-light-3 border-t-light-5 data-[loading=true]:block dark:border-dark-3 dark:border-t-dark-5"
                             data-loading="false"
                             id="desktop-button-loading"
                         ></div>
                         <a
-                            class="group flex h-full w-full items-center justify-center aria-disabled:cursor-not-allowed peer-data-[loading=true]:hidden rounded-r-full"
+                            class="group flex h-full w-full items-center justify-center rounded-r-full aria-disabled:cursor-not-allowed peer-data-[loading=true]:hidden"
                             id="desktop-button-link"
                             target="_blank"
                         >
                             <!-- Icon by GitHub under the MIT license, https://primer.github.io/octicons/link-external-24 -->
                             <svg
-                                class="h-1/2 w-1/2 fill-light-1 stroke-2 group-aria-disabled:fill-light-3 dark:fill-dark-1 group-aria-disabled:dark:fill-dark-3"
+                                class="h-1/2 w-1/2 fill-light-1 stroke-inherit stroke-2 group-aria-disabled:fill-light-3 dark:fill-dark-1 group-aria-disabled:dark:fill-dark-3"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                                 width="24"
@@ -66,9 +66,12 @@
                         </a>
                     </div>
                     <div
-                        class="absolute top-20 z-50 flex h-fit max-w-full scale-0 items-center justify-center justify-self-center rounded-md bg-light-3 px-2 py-3 opacity-0 transition-opacity peer-disabled/button:peer-hover/button:scale-100 peer-disabled/button:peer-hover/link:scale-100 peer-disabled/button:peer-hover/seperator:scale-100 peer-disabled/button:peer-hover/button:opacity-95 peer-disabled/button:peer-hover/link:opacity-95 peer-disabled/button:peer-hover/seperator:opacity-95 dark:bg-dark-3"
+                        class="absolute top-16 z-50 flex h-fit max-w-full scale-0 items-center justify-center justify-self-center rounded-md bg-light-tooltip px-2 py-3 opacity-0 transition-opacity peer-disabled/button:peer-hover/button:scale-100 peer-disabled/button:peer-hover/link:scale-100 peer-disabled/button:peer-hover/seperator:scale-100 peer-disabled/button:peer-hover/button:opacity-95 peer-disabled/button:peer-hover/link:opacity-95 peer-disabled/button:peer-hover/seperator:opacity-95 dark:bg-dark-tooltip"
                     >
-                        <span class="h3" id="desktop-button-tooltip"></span>
+                        <span
+                            class="h3 text-light-tooltip dark:text-dark-tooltip"
+                            id="desktop-button-tooltip"
+                        ></span>
                     </div>
                 </div>
             </div>

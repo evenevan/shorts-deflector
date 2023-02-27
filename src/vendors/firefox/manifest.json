@@ -14,8 +14,8 @@
     "browser_specific_settings": {
         "gecko": {
             "id": "shortsdeflector@addons.com",
-            "strict_min_version": "101.*",
-            "strict_max_version": "111.*"
+            "strict_min_version": "101.0",
+            "strict_max_version": "111.0"
         }
     },
     "default_locale": "en",
