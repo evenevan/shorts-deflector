@@ -2,10 +2,10 @@
     "extensionDescription": {
         "message": "Lisez les YouTube Shorts en toute transparence avec l'interface de bureau normale."
     },
-    "desktopButtonTitle": {
+    "desktopTitle": {
         "message": "Passer à l'Interface du bureau"
     },
-    "desktopButtonTooltip": {
+    "desktopTooltip": {
         "message": "Disponible sur les pages des YouTube Shorts"
     },
     "automaticTitle": {

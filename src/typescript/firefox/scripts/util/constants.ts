@@ -1,13 +1,13 @@
 // HTML Ids
 export const automaticHTMLKey = 'automatic';
-export const desktopHTMLKey = 'desktop-button';
-export const desktopLinkHTMLKey = 'desktop-button-link';
-export const desktopLoadingHTMLKey = 'desktop-button-loading';
+export const desktopHTMLKey = 'desktop';
 export const improvePerformanceHTMLKey = 'improve-performance';
+export const linkHTMLKey = 'link';
+export const loadingHTMLKey = 'loading';
 
 export const i18nKeys: [string, string][] = [
-    ['desktop-button-tooltip', 'desktopButtonTooltip'],
-    ['desktop-button-title', 'desktopButtonTitle'],
+    ['desktop-tooltip', 'desktopTooltip'],
+    ['desktop-title', 'desktopTitle'],
     ['automatic-title', 'automaticTitle'],
     ['automatic-description', 'automaticDescription'],
     ['improve-performance-title', 'improvePerformanceTItle'],

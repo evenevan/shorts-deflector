@@ -21,31 +21,31 @@
                 </a>
                 <div class="peer relative flex min-w-0 grow justify-center">
                     <button
-                        class="peer/button group grow truncate rounded-l-full bg-light-2 px-4 transition-colors duration-75 enabled:hover:bg-light-3 enabled:active:hover:bg-light-4 disabled:cursor-not-allowed dark:bg-dark-2 enabled:hover:dark:bg-dark-3 enabled:active:hover:dark:bg-dark-4"
-                        id="desktop-button"
+                        class="peer/desktop group grow truncate rounded-l-full bg-light-2 px-4 transition-colors duration-75 enabled:hover:bg-light-3 enabled:active:hover:bg-light-4 disabled:cursor-not-allowed dark:bg-dark-2 enabled:hover:dark:bg-dark-3 enabled:active:hover:dark:bg-dark-4"
+                        id="desktop"
                         disabled
                     >
                         <span
                             class="h1 select-none text-light-1 group-disabled:text-light-3 dark:text-dark-1 group-disabled:dark:text-dark-3"
-                            id="desktop-button-title"
+                            id="desktop-title"
                         ></span>
                     </button>
                     <div
-                        class="peer/seperator flex h-full w-fit bg-light-2 peer-disabled/button:cursor-not-allowed dark:bg-dark-2"
+                        class="peer/seperator flex h-full w-fit bg-light-2 peer-disabled/desktop:cursor-not-allowed dark:bg-dark-2"
                     >
                         <div class="my-auto h-3/4 w-[1px] bg-light-4 dark:bg-dark-4"> </div>
                     </div>
                     <div
-                        class="peer/link flex aspect-square h-full shrink-0 items-center justify-center rounded-r-full bg-light-2 dark:bg-dark-2"
+                        class="peer/dynamic flex aspect-square h-full shrink-0 items-center justify-center rounded-r-full bg-light-2 dark:bg-dark-2"
                     >
                         <div
                             class="peer hidden h-2/3 w-2/3 animate-spin rounded-full border-[6px] border-light-3 border-t-light-5 data-[loading=true]:block dark:border-dark-3 dark:border-t-dark-5"
                             data-loading="false"
-                            id="desktop-button-loading"
+                            id="loading"
                         ></div>
                         <a
                             class="group flex h-full w-full items-center justify-center rounded-r-full aria-disabled:cursor-not-allowed peer-data-[loading=true]:hidden"
-                            id="desktop-button-link"
+                            id="link"
                             target="_blank"
                         >
                             <!-- Icon by GitHub under the MIT license, https://primer.github.io/octicons/link-external-24 -->
@@ -66,11 +66,11 @@
                         </a>
                     </div>
                     <div
-                        class="absolute top-16 z-50 flex h-fit max-w-full scale-0 items-center justify-center justify-self-center rounded-md bg-light-tooltip px-2 py-3 opacity-0 transition-opacity peer-disabled/button:peer-hover/button:scale-100 peer-disabled/button:peer-hover/link:scale-100 peer-disabled/button:peer-hover/seperator:scale-100 peer-disabled/button:peer-hover/button:opacity-95 peer-disabled/button:peer-hover/link:opacity-95 peer-disabled/button:peer-hover/seperator:opacity-95 dark:bg-dark-tooltip"
+                        class="absolute top-16 z-50 flex h-fit max-w-full scale-0 items-center justify-center justify-self-center rounded-md bg-light-tooltip px-2 py-3 opacity-0 transition-opacity peer-disabled/desktop:peer-hover/desktop:scale-100 peer-disabled/desktop:peer-hover/dynamic:scale-100 peer-disabled/desktop:peer-hover/seperator:scale-100 peer-disabled/desktop:peer-hover/desktop:opacity-95 peer-disabled/desktop:peer-hover/dynamic:opacity-95 peer-disabled/desktop:peer-hover/seperator:opacity-95 dark:bg-dark-tooltip"
                     >
                         <span
                             class="h3 text-light-tooltip dark:text-dark-tooltip"
-                            id="desktop-button-tooltip"
+                            id="desktop-tooltip"
                         ></span>
                     </div>
                 </div>

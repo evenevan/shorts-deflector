@@ -1,4 +1,4 @@
-import './button.js';
+import './desktop.js';
 import './settings.js';
 import { i18nKeys } from '../util/constants.js';
 

@@ -1,13 +1,13 @@
 import {
     desktopHTMLKey,
-    desktopLinkHTMLKey,
-    desktopLoadingHTMLKey,
+    linkHTMLKey,
+    loadingHTMLKey,
     youTubeShortsRegex,
 } from '../util/constants.js';
 
 const desktopButton = document.getElementById(desktopHTMLKey) as HTMLButtonElement;
-const desktopButtonLink = document.getElementById(desktopLinkHTMLKey) as HTMLAnchorElement;
-const desktopButtonLoading = document.getElementById(desktopLoadingHTMLKey) as HTMLDivElement;
+const linkAnchor = document.getElementById(linkHTMLKey) as HTMLAnchorElement;
+const loadingDiv = document.getElementById(loadingHTMLKey) as HTMLDivElement;
 
 let [tab] = await browser.tabs.query({
     active: true,
@@ -44,20 +44,20 @@ function update() {
 
 function loading() {
     desktopButton.disabled = true;
-    desktopButtonLink.removeAttribute('href');
-    desktopButtonLink.setAttribute('aria-disabled', 'true');
-    desktopButtonLoading.dataset.loading = 'true';
+    linkAnchor.removeAttribute('href');
+    linkAnchor.setAttribute('aria-disabled', 'true');
+    loadingDiv.dataset.loading = 'true';
 }
 
 function loaded() {
     const isNotYouTubeShortsPage = !tab?.url?.match(youTubeShortsRegex);
     desktopButton.disabled = isNotYouTubeShortsPage;
-    desktopButtonLink.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
-    desktopButtonLoading.dataset.loading = 'false';
+    linkAnchor.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
+    loadingDiv.dataset.loading = 'false';
 
     if (isNotYouTubeShortsPage) {
-        desktopButtonLink.removeAttribute('href');
+        linkAnchor.removeAttribute('href');
     } else {
-        desktopButtonLink.href = tab?.url?.replace('shorts/', 'watch?v=')!;
+        linkAnchor.href = tab?.url?.replace('shorts/', 'watch?v=')!;
     }
 }

@@ -2,10 +2,10 @@
     "extensionDescription": {
         "message": "Seamlessly play YouTube Shorts with the normal desktop interface"
     },
-    "desktopButtonTitle": {
+    "desktopTitle": {
         "message": "Switch to Desktop Interface"
     },
-    "desktopButtonTooltip": {
+    "desktopTooltip": {
         "message": "Available on YouTube Shorts pages"
     },
     "automaticTitle": {
