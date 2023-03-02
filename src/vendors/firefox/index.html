@@ -36,15 +36,16 @@
                         <div class="my-auto h-3/4 w-[1px] bg-light-4 dark:bg-dark-4"> </div>
                     </div>
                     <div
-                        class="peer/dynamic flex aspect-square h-full shrink-0 items-center justify-center rounded-r-full bg-light-2 dark:bg-dark-2"
+                        class="peer/dynamic group flex aspect-square h-full shrink-0 items-center justify-center rounded-r-full bg-light-2 dark:bg-dark-2"
+                        data-state="link"
+                        id="dynamic"
                     >
                         <div
-                            class="peer hidden h-2/3 w-2/3 animate-spin rounded-full border-[6px] border-light-3 border-t-light-5 data-[loading=true]:block dark:border-dark-3 dark:border-t-dark-5"
-                            data-loading="false"
-                            id="loading"
+                            class="peer hidden h-2/3 w-2/3 animate-spin rounded-full border-[6px] border-light-3 border-t-light-5 group-data-[state=loading]:block dark:border-dark-3 dark:border-t-dark-5"
                         ></div>
                         <a
-                            class="group flex h-full w-full items-center justify-center rounded-r-full aria-disabled:cursor-not-allowed peer-data-[loading=true]:hidden"
+                            aria-disabled="true"
+                            class="group hidden h-full w-full items-center justify-center rounded-r-full aria-disabled:cursor-not-allowed group-data-[state=link]:flex"
                             id="link"
                             target="_blank"
                         >
@@ -69,7 +70,7 @@
                         class="absolute top-16 z-50 flex h-fit max-w-full scale-0 items-center justify-center justify-self-center rounded-md bg-light-tooltip px-2 py-3 opacity-0 transition-opacity peer-disabled/desktop:peer-hover/desktop:scale-100 peer-disabled/desktop:peer-hover/dynamic:scale-100 peer-disabled/desktop:peer-hover/seperator:scale-100 peer-disabled/desktop:peer-hover/desktop:opacity-95 peer-disabled/desktop:peer-hover/dynamic:opacity-95 peer-disabled/desktop:peer-hover/seperator:opacity-95 dark:bg-dark-tooltip"
                     >
                         <span
-                            class="h3 text-light-tooltip dark:text-dark-tooltip"
+                            class="h3 text-center text-light-tooltip dark:text-dark-tooltip"
                             id="desktop-tooltip"
                         ></span>
                     </div>

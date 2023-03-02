@@ -1,13 +1,14 @@
+import { cleanURL } from '../util/cleanURL.js';
 import {
     desktopHTMLKey,
+    dynamicHTMLKey,
     linkHTMLKey,
-    loadingHTMLKey,
     youTubeShortsRegex,
 } from '../util/constants.js';
 
 const desktopButton = document.getElementById(desktopHTMLKey) as HTMLButtonElement;
 const linkAnchor = document.getElementById(linkHTMLKey) as HTMLAnchorElement;
-const loadingDiv = document.getElementById(loadingHTMLKey) as HTMLDivElement;
+const dynamicDiv = document.getElementById(dynamicHTMLKey) as HTMLDivElement;
 
 let [tab] = await chrome.tabs.query({
     active: true,
@@ -27,10 +28,8 @@ chrome.tabs.onUpdated.addListener((_id, _changes, newTab) => {
 desktopButton.addEventListener('click', async () => {
     loading();
 
-    const cleanURL = tab?.url?.replace('shorts/', 'watch?v=');
-
     await chrome.tabs.update((tab!.id!), {
-        url: cleanURL,
+        url: cleanURL(tab?.url),
     });
 });
 
@@ -44,20 +43,21 @@ function update() {
 
 function loading() {
     desktopButton.disabled = true;
+    dynamicDiv.dataset.state = 'loading';
     linkAnchor.removeAttribute('href');
     linkAnchor.setAttribute('aria-disabled', 'true');
-    loadingDiv.dataset.loading = 'true';
 }
 
 function loaded() {
     const isNotYouTubeShortsPage = !tab?.url?.match(youTubeShortsRegex);
+
     desktopButton.disabled = isNotYouTubeShortsPage;
-    linkAnchor.setAttribute('aria-disabled', `${isNotYouTubeShortsPage}`);
-    loadingDiv.dataset.loading = 'false';
+    dynamicDiv.dataset.state = 'link';
+    linkAnchor.setAttribute('aria-disabled', isNotYouTubeShortsPage.toString());
 
     if (isNotYouTubeShortsPage) {
         linkAnchor.removeAttribute('href');
     } else {
-        linkAnchor.href = tab?.url?.replace('shorts/', 'watch?v=')!;
+        linkAnchor.setAttribute('href', cleanURL(tab?.url));
     }
 }

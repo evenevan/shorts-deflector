@@ -1,9 +1,9 @@
 // HTML Ids
 export const automaticHTMLKey = 'automatic';
 export const desktopHTMLKey = 'desktop';
+export const dynamicHTMLKey = 'dynamic';
 export const improvePerformanceHTMLKey = 'improve-performance';
 export const linkHTMLKey = 'link';
-export const loadingHTMLKey = 'loading';
 
 export const i18nKeys: [string, string][] = [
     ['desktop-tooltip', 'desktopTooltip'],
