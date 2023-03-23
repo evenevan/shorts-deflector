@@ -57,7 +57,9 @@ function loaded() {
 
     if (isNotYouTubeShortsPage) {
         linkAnchor.removeAttribute('href');
+        linkAnchor.setAttribute('tabIndex', '-1');
     } else {
         linkAnchor.setAttribute('href', cleanURL(tab?.url));
+        linkAnchor.removeAttribute('tabIndex');
     }
 }
