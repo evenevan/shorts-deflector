@@ -23,11 +23,12 @@ export function modifyYouTubePage() {
                 case 'YTD-THUMBNAIL-OVERLAY-TIME-STATUS-RENDERER': {
                     const attribute = element.attributes.getNamedItem('overlay-style');
 
-                    if (attribute) {
+                    if (attribute?.value === 'SHORTS') {
                         attribute.value = 'DEFAULT';
+
+                        // eslint-disable-next-line no-param-reassign
+                        element.innerHTML = '<span class="style-scope ytd-thumbnail-overlay-time-status-renderer">< 1:00</span>';
                     }
-                    // eslint-disable-next-line no-param-reassign
-                    element.innerHTML = '<span class="style-scope ytd-thumbnail-overlay-time-status-renderer">< 1:00</span>';
                 }
                 // no default
             }
@@ -54,7 +55,6 @@ export function modifyYouTubePage() {
 
         /*
         Removed to fix the "Watch Later" and "Add to Queue" buttons, which rely on this event listener
-        Performance impact is minimal
 
         anchor.addEventListener(
             'click',

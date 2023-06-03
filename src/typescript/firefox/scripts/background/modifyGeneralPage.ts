@@ -42,6 +42,9 @@ export function modifyGeneralPage() {
         // eslint-disable-next-line no-param-reassign
         anchor.href = anchor.href.replace('shorts/', 'watch?v=');
 
+        /*
+        This probably breaks things more than it helps
+
         anchor.addEventListener(
             'click',
             (event) => {
@@ -49,5 +52,6 @@ export function modifyGeneralPage() {
             },
             true,
         );
+         */
     }
 }
