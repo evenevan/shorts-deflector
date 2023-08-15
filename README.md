@@ -10,10 +10,8 @@ Read more at https://shortsdeflector.attituding.xyz/.
 # Home Page
 [https://shortsdeflector.attituding.xyz/](https://attituding.github.io/shorts-deflector/)
 
-# Store Pages
-[Chrome Web Store](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg "Chrome Web Store")
-
-[Firefox Addons](https://addons.mozilla.org/firefox/addon/shorts-deflector/ "Firefox Addons")
+# Install
+[![](https://user-images.githubusercontent.com/585534/107280622-91a8ea80-6a26-11eb-8d07-77c548b28665.png)](https://chrome.google.com/webstore/detail/shorts-deflector/gilmponliddppjjcfjmanmmfgiilikhg) [![](https://user-images.githubusercontent.com/585534/107280546-7b9b2a00-6a26-11eb-8f9f-f95932f4bfec.png)](https://addons.mozilla.org/firefox/addon/shorts-deflector/)
 
 # Contribution
 Want to help improve this extension?
