@@ -4,6 +4,7 @@ import {
     automaticStorageKey,
     improvePerformanceHTMLKey,
     improvePerformanceStorageKey,
+    shortsRuleset,
     youTubeHostname,
 } from '../util/constants.js';
 
@@ -39,6 +40,14 @@ automaticSwitch.addEventListener('click', async () => {
 
     await browser.storage.sync.set({
         [automaticStorageKey]: automaticSwitch.checked,
+    });
+
+    const declarativeNetRequestKey = automaticSwitch.checked
+        ? 'enableRulesetIds'
+        : 'disableRulesetIds';
+
+    await browser.declarativeNetRequest.updateEnabledRulesets({
+        [declarativeNetRequestKey]: [shortsRuleset],
     });
 });
 
