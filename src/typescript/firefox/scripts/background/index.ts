@@ -53,6 +53,12 @@ browser.permissions.onRemoved.addListener(async () => {
         origins: [allHostname],
     })) as unknown as boolean;
 
+    if (automaticPermission === false) {
+        await browser.declarativeNetRequest.updateEnabledRulesets({
+            disableRulesetIds: ['shorts'],
+        });
+    }
+
     await browser.storage.sync.set({
         [automaticStorageKey]: automaticPermission,
         [improvePerformanceStorageKey]: improvePerformancePermission,
