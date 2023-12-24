@@ -4,6 +4,7 @@ import {
     automaticStorageKey,
     improvePerformanceHTMLKey,
     improvePerformanceStorageKey,
+    runtime,
     shortsRuleset,
     youTubeHostname,
 } from '../util/constants.js';
@@ -14,7 +15,7 @@ const improvePerformanceSwitch = document.getElementById(
     improvePerformanceHTMLKey,
 ) as HTMLInputElement;
 
-const storageKeys = await chrome.storage.sync.get([
+const storageKeys = await runtime.storage.sync.get([
     automaticStorageKey,
     improvePerformanceStorageKey,
 ]);
@@ -25,7 +26,7 @@ improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
 
 automaticSwitch.addEventListener('click', async () => {
     if (automaticSwitch.checked) {
-        const granted = (await chrome.permissions.request({
+        const granted = (await runtime.permissions.request({
             origins: [youTubeHostname],
         })) as unknown as boolean;
 
@@ -38,7 +39,7 @@ automaticSwitch.addEventListener('click', async () => {
 
     improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
 
-    await chrome.storage.sync.set({
+    await runtime.storage.sync.set({
         [automaticStorageKey]: automaticSwitch.checked,
     });
 
@@ -46,14 +47,14 @@ automaticSwitch.addEventListener('click', async () => {
         ? 'enableRulesetIds'
         : 'disableRulesetIds';
 
-    await chrome.declarativeNetRequest.updateEnabledRulesets({
+    await runtime.declarativeNetRequest.updateEnabledRulesets({
         [declarativeNetRequestKey]: [shortsRuleset],
     });
 });
 
 improvePerformanceSwitch.addEventListener('click', async () => {
     if (improvePerformanceSwitch.checked) {
-        const granted = (await chrome.permissions.request({
+        const granted = (await runtime.permissions.request({
             origins: [allHostname],
         })) as unknown as boolean;
 
@@ -64,7 +65,7 @@ improvePerformanceSwitch.addEventListener('click', async () => {
         }
     }
 
-    await chrome.storage.sync.set({
+    await runtime.storage.sync.set({
         [improvePerformanceStorageKey]: improvePerformanceSwitch.checked,
     });
 });

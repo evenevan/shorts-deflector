@@ -4,6 +4,7 @@ import { redirectShortsPage } from './redirectShortsPage.js';
 import {
     automaticStorageKey,
     improvePerformanceStorageKey,
+    runtime,
     youTubeRegex,
     youTubeShortsRegex,
 } from '../util/constants.js';
@@ -12,7 +13,7 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     const {
         [automaticStorageKey]: automatic,
         [improvePerformanceStorageKey]: improvePerformance,
-    } = await browser.storage.sync.get([
+    } = await runtime.storage.sync.get([
         automaticStorageKey,
         improvePerformanceStorageKey,
     ]);
@@ -29,7 +30,7 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     if (url) {
         // Redirecting
 
-        await browser.scripting.executeScript({
+        await runtime.scripting.executeScript({
             // @ts-ignore
             injectImmediately: true,
             target: {
@@ -42,7 +43,7 @@ export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
 
         const script = youTubeRegex.test(tab.url!) ? modifyYouTubePage : modifyGeneralPage;
 
-        await browser.scripting.executeScript({
+        await runtime.scripting.executeScript({
             target: {
                 tabId: tabId,
             },

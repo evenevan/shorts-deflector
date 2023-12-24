@@ -3,6 +3,7 @@ import {
     desktopHTMLKey,
     dynamicHTMLKey,
     linkHTMLKey,
+    runtime,
     youTubeShortsRegex,
 } from '../util/constants.js';
 
@@ -10,14 +11,14 @@ const desktopButton = document.getElementById(desktopHTMLKey) as HTMLButtonEleme
 const linkAnchor = document.getElementById(linkHTMLKey) as HTMLAnchorElement;
 const dynamicDiv = document.getElementById(dynamicHTMLKey) as HTMLDivElement;
 
-let [tab] = await chrome.tabs.query({
+let [tab] = await runtime.tabs.query({
     active: true,
     currentWindow: true,
 });
 
 update();
 
-chrome.tabs.onUpdated.addListener((_id, _changes, newTab) => {
+runtime.tabs.onUpdated.addListener((_id, _changes, newTab) => {
     if (newTab.id === tab?.id) {
         tab = newTab;
 
@@ -28,7 +29,7 @@ chrome.tabs.onUpdated.addListener((_id, _changes, newTab) => {
 desktopButton.addEventListener('click', async () => {
     loading();
 
-    await chrome.tabs.update((tab!.id!), {
+    await runtime.tabs.update((tab!.id!), {
         url: cleanURL(tab?.url),
     });
 });

@@ -28,3 +28,12 @@ export const shortsRuleset = 'shorts';
 // Hostnames
 export const youTubeHostname = 'https://www.youtube.com/*';
 export const allHostname = '*://*/*';
+
+// Runtime selection
+// eslint-disable-next-line import/no-mutable-exports
+export let runtime = chrome;
+
+try {
+    runtime = browser;
+    // eslint-disable-next-line no-empty
+} catch {}

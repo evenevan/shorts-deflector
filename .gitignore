@@ -1,7 +1,16 @@
 node_modules
 dist
-src/vendors/chromium/_metadata
+tmp
+src/vendors/chromium/_locales
+src/vendors/chromium/assets
+src/vendors/chromium/index.html
+src/vendors/chromium/netRequestRule.json
 src/vendors/chromium/resources
 src/vendors/chromium/scripts
+src/vendors/common/scripts
+src/vendors/firefox/_locales
+src/vendors/firefox/assets
+src/vendors/firefox/index.html
+src/vendors/firefox/netRequestRule.json
 src/vendors/firefox/resources
 src/vendors/firefox/scripts

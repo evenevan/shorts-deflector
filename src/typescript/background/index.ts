@@ -3,24 +3,25 @@ import {
     allHostname,
     automaticStorageKey,
     improvePerformanceStorageKey,
+    runtime,
     youTubeHostname,
 } from '../util/constants.js';
 
 // Install/Update Handling
-chrome.runtime.onInstalled.addListener(async (details) => {
+runtime.runtime.onInstalled.addListener(async (details) => {
     if (
-        details.reason === chrome.runtime.OnInstalledReason.INSTALL
-        || details.reason === chrome.runtime.OnInstalledReason.UPDATE
+        details.reason === runtime.runtime.OnInstalledReason.INSTALL
+        || details.reason === runtime.runtime.OnInstalledReason.UPDATE
     ) {
-        const keys = await chrome.storage.sync.get(null);
+        const keys = await runtime.storage.sync.get(null);
 
         // @ts-ignore
-        const automaticPermission = await chrome.permissions.contains({
+        const automaticPermission = await runtime.permissions.contains({
             origins: [youTubeHostname],
         });
 
         // @ts-ignore
-        const improvePerformancePermission = await chrome.permissions.contains({
+        const improvePerformancePermission = await runtime.permissions.contains({
             origins: [allHostname],
         });
 
@@ -35,41 +36,41 @@ chrome.runtime.onInstalled.addListener(async (details) => {
                     : improvePerformancePermission,
         };
 
-        await chrome.storage.sync.set(newKeys);
+        await runtime.storage.sync.set(newKeys);
 
         console.log('Set settings', newKeys);
     }
 });
 
 // Handle Permission Removal
-chrome.permissions.onRemoved.addListener(async () => {
+runtime.permissions.onRemoved.addListener(async () => {
     // @ts-ignore
-    const automaticPermission = (await chrome.permissions.contains({
+    const automaticPermission = (await runtime.permissions.contains({
         origins: [youTubeHostname],
     })) as unknown as boolean;
 
     // @ts-ignore
-    const improvePerformancePermission = (await chrome.permissions.contains({
+    const improvePerformancePermission = (await runtime.permissions.contains({
         origins: [allHostname],
     })) as unknown as boolean;
 
     if (automaticPermission === false) {
-        await chrome.declarativeNetRequest.updateEnabledRulesets({
+        await runtime.declarativeNetRequest.updateEnabledRulesets({
             disableRulesetIds: ['shorts'],
         });
     }
 
-    await chrome.storage.sync.set({
+    await runtime.storage.sync.set({
         [automaticStorageKey]: automaticPermission,
         [improvePerformanceStorageKey]: improvePerformancePermission,
     });
 });
 
 // Listener for new pages with the same URL
-chrome.webNavigation.onCommitted.addListener(
+runtime.webNavigation.onCommitted.addListener(
     async (details) => {
         if (details.frameId === 0) {
-            const tab = await chrome.tabs.get(details.tabId);
+            const tab = await runtime.tabs.get(details.tabId);
 
             if (details.url === tab.url) {
                 await handlePageUpdate(details.tabId, tab);
@@ -86,10 +87,10 @@ chrome.webNavigation.onCommitted.addListener(
 );
 
 // Listener for new pages with new URLs
-chrome.webNavigation.onHistoryStateUpdated.addListener(
+runtime.webNavigation.onHistoryStateUpdated.addListener(
     async (details) => {
         if (details.frameId === 0) {
-            const tab = await chrome.tabs.get(details.tabId);
+            const tab = await runtime.tabs.get(details.tabId);
 
             if (details.url === tab.url) {
                 await handlePageUpdate(details.tabId, tab);
