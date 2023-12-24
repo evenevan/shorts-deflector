@@ -7,6 +7,7 @@ src/vendors/chromium/index.html
 src/vendors/chromium/netRequestRule.json
 src/vendors/chromium/resources
 src/vendors/chromium/scripts
+src/vendors/common/resources
 src/vendors/common/scripts
 src/vendors/firefox/_locales
 src/vendors/firefox/assets
