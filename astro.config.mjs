@@ -8,10 +8,9 @@ export default defineConfig({
     integrations: [
         sitemap(),
         tailwind({
-            config: {
-                applyBaseStyles: false,
-            },
+            applyBaseStyles: false,
         }),
     ],
-    site: 'https://shortsdeflector.attituding.xyz',
+    site: 'https://attituding.github.io',
+    base: '/shorts-deflector',
 });

@@ -2,15 +2,15 @@
     "license": "MIT",
     "author": "Attituding <attituding@outlook.com>",
     "devDependencies": {
-        "@astrojs/sitemap": "^1.2.2",
-        "@astrojs/tailwind": "^3.1.1",
-        "@tsconfig/strictest": "^2.0.0",
-        "astro": "^2.3.0",
-        "img-comparison-slider": "^8.0.0",
-        "prettier": "^2.8.7",
-        "prettier-plugin-astro": "^0.8.0",
-        "prettier-plugin-tailwindcss": "^0.2.7",
-        "tailwindcss": "^3.3.1"
+        "@astrojs/sitemap": "^3.0.4",
+        "@astrojs/tailwind": "^5.1.0",
+        "@tsconfig/strictest": "^2.0.2",
+        "astro": "^4.0.9",
+        "img-comparison-slider": "^8.0.6",
+        "prettier": "^3.1.1",
+        "prettier-plugin-astro": "^0.12.3",
+        "prettier-plugin-tailwindcss": "^0.5.10",
+        "tailwindcss": "^3.4.0"
     },
     "scripts": {
         "dev": "astro dev",

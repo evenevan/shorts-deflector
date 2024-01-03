@@ -20,7 +20,7 @@ const titleMeta = title ? `${title} - ${site}` : site;
 <html class="scroll-smooth" lang="en">
     <head>
         <link
-            href="/icon.webp"
+            href="/shorts-deflector/icon.webp"
             rel="shortcut icon"
             type="image/x-icon"
         />
@@ -69,7 +69,7 @@ const titleMeta = title ? `${title} - ${site}` : site;
         />
         <meta
             property="og:image"
-            content="/icon.webp"
+            content="/shorts-deflector/icon.webp"
         />
 
         <!-- Twitter -->
@@ -83,13 +83,13 @@ const titleMeta = title ? `${title} - ${site}` : site;
         />
         <meta
             property="twitter:image"
-            content="/icon.webp"
+            content="/shorts-deflector/icon.webp"
         />
     </head>
     <body class="flex flex-col dark:bg-dark-1 bg-light-1 font-sans text-light-1 dark:text-dark-1 h-screen min-h-fit">
         <Header title={site}>
             <Link
-                href="/privacy"
+                href="/shorts-deflector/privacy"
                 label="Privacy"
                 target="_self"
             />
@@ -110,8 +110,8 @@ const titleMeta = title ? `${title} - ${site}` : site;
             <slot />
         </Content>
         <Footer
-            author="Attituding"
-            authorHref="https://attituding.xyz"
+            author="attituding"
+            authorHref="https://github.com/attituding"
         />
     </body>
 </html>
