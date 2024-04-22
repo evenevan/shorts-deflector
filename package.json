@@ -2,7 +2,7 @@
     "name": "shorts-deflector",
     "description": "Seamlessly play YouTube Shorts with the normal desktop interface.",
     "license": "MIT",
-    "author": "Attituding <attituding@outlook.com>",
+    "author": "Evan <attituding@outlook.com>",
     "devDependencies": {
         "@tsconfig/strictest": "^2.0.2",
         "@types/chrome": "^0.0.254",
