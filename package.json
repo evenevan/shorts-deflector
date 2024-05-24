@@ -25,6 +25,6 @@
         "format": "prettier --write \"**/*.ts\" && eslint --fix \"**/*.ts\"",
         "tailwindcss": "npx tailwindcss -i src/resources/source.css -o src/vendors/common/resources/tailwind.css",
         "typescript": "tsc --outDir src/vendors/common/scripts",
-        "zip": "(if not exist dist mkdir dist) && cd src/vendors/chromium && 7z a -tzip ../../../dist/chromium.zip * && cd ../firefox && 7z a -tzip ../../../dist/firefox.zip *"
+        "zip": "7z a -tzip ./dist/chromium.zip ./src/vendors/chromium/* && 7z a -tzip ./dist/firefox.zip ./src/vendors/firefox/*"
     }
 }
