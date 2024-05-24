@@ -2,6 +2,11 @@ name: Release
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: "Version"
+        required: true
+        type: string
 
 permissions:
   contents: write
@@ -33,3 +38,4 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: /dist/*.zip
+          tag_name: "${{ inputs.version }}"
