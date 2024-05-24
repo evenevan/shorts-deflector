@@ -18,9 +18,9 @@
         "web-ext": "^7.9.0"
     },
     "scripts": {
-        "build": "npm run clear && npm run tailwindcss && npm run typescript && npm run clone && npm run zip",
+        "build": "npm run clear && npm run tailwindcss && npm run typescript && npm run copy && npm run zip",
         "clear": "bash -c \"echo './dist ./src/vendors/chromium/_locales ./src/vendors/chromium/assets ./src/vendors/chromium/index.html ./src/vendors/chromium/netRequestRule.json ./src/vendors/chromium/resources ./src/vendors/chromium/scripts ./src/vendors/common/resources ./src/vendors/common/scripts ./src/vendors/firefox/_locales ./src/vendors/firefox/assets ./src/vendors/firefox/index.html ./src/vendors/firefox/netRequestRule.json ./src/vendors/firefox/resources ./src/vendors/firefox/scripts' | xargs rm -rf\"",
-        "clone": "xcopy \"./src\\vendors\\common\" \"src\\vendors\\chromium\" /S /E /Y && xcopy \"./src\\vendors\\common\" \"src\\vendors\\firefox\" /S /E /Y",
+        "copy": "bash -c \"cp -r ./src/vendors/common/* src/vendors/chromium && cp -r ./src/vendors/common/* src/vendors/firefox/\"",
         "firefox": "web-ext run --source-dir ./src/vendors/firefox",
         "format": "prettier --write \"**/*.ts\" && eslint --fix \"**/*.ts\"",
         "tailwindcss": "npx tailwindcss -i src/resources/source.css -o src/vendors/common/resources/tailwind.css",
