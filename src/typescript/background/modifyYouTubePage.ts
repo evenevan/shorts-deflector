@@ -27,7 +27,7 @@ export function modifyYouTubePage() {
                         attribute.value = 'DEFAULT';
 
                         // eslint-disable-next-line no-param-reassign
-                        element.innerHTML = '<span class="style-scope ytd-thumbnail-overlay-time-status-renderer">< 1:00</span>';
+                        element.innerHTML = '<div class="badge-shape-wiz badge-shape-wiz--thumbnail-default badge-shape-wiz--thumbnail-badge" role="img" aria-label="Less than a minute">&lt; 1:00</div>';
                     }
                 }
                 // no default
