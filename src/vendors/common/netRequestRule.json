@@ -5,11 +5,14 @@
         "action": {
             "type": "redirect",
             "redirect": {
-                "regexSubstitution": "https://www.youtube.com/watch?v=\\1"
+                "regexSubstitution": "https://www.youtube.com/watch?v=\\2"
             }
         },
         "condition": {
-            "regexFilter": "^https://www\\.youtube\\.com/shorts/(.+)"
+            "regexFilter": "^https://(www\\.)?youtube\\.com/shorts/(.+)",
+            "resourceTypes": [
+                "main_frame"
+            ]
         }
     }
 ]
