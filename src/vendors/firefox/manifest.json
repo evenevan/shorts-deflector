@@ -42,6 +42,7 @@
         "*://*/*"
     ],
     "permissions": [
+        "declarativeNetRequestWithHostAccess",
         "scripting",
         "storage",
         "webNavigation"
