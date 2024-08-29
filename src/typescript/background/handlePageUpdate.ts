@@ -3,7 +3,7 @@ import { modifyYouTubePage } from './modifyYouTubePage.js';
 import { redirectShortsPage } from './redirectShortsPage.js';
 import {
     automaticStorageKey,
-    improvePerformanceStorageKey,
+    changeLinksStorageKey,
     runtime,
     youTubeRegex,
     youTubeShortsRegex,
@@ -12,10 +12,10 @@ import {
 export async function handlePageUpdate(tabId: number, tab: chrome.tabs.Tab) {
     const {
         [automaticStorageKey]: automatic,
-        [improvePerformanceStorageKey]: improvePerformance,
+        [changeLinksStorageKey]: improvePerformance,
     } = await runtime.storage.sync.get([
         automaticStorageKey,
-        improvePerformanceStorageKey,
+        changeLinksStorageKey,
     ]);
 
     if (

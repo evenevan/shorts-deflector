@@ -2,8 +2,8 @@ import {
     allHostname,
     automaticHTMLKey,
     automaticStorageKey,
+    changeLinksStorageKey,
     improvePerformanceHTMLKey,
-    improvePerformanceStorageKey,
     runtime,
     shortsRuleset,
     youTubeHostname,
@@ -17,11 +17,11 @@ const improvePerformanceSwitch = document.getElementById(
 
 const storageKeys = await runtime.storage.sync.get([
     automaticStorageKey,
-    improvePerformanceStorageKey,
+    changeLinksStorageKey,
 ]);
 
 automaticSwitch.checked = storageKeys[automaticStorageKey];
-improvePerformanceSwitch.checked = storageKeys[improvePerformanceStorageKey];
+improvePerformanceSwitch.checked = storageKeys[changeLinksStorageKey];
 improvePerformanceSwitch.disabled = automaticSwitch.checked === false;
 
 automaticSwitch.addEventListener('click', async () => {
@@ -66,6 +66,6 @@ improvePerformanceSwitch.addEventListener('click', async () => {
     }
 
     await runtime.storage.sync.set({
-        [improvePerformanceStorageKey]: improvePerformanceSwitch.checked,
+        [changeLinksStorageKey]: improvePerformanceSwitch.checked,
     });
 });

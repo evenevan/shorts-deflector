@@ -14,10 +14,10 @@
     "automaticDescription": {
         "message": "Changement automatiquement les YouTube Shorts à l'interface de bureau."
     },
-    "improvePerformanceTitle": {
-        "message": "Amélioration des performances"
+    "changeLinksTitle": {
+        "message": "Modifier les hyperliens sur les pages web"
     },
-    "improvePerformanceDescription": {
-        "message": "Améliorez les performances lorsque vous passez à l'interface de bureau à partir d'autres sites Web, mais des autorisations supplémentaires sont requises."
+    "changeLinksDescription": {
+        "message": "Modifiez les liens hypertextes des YouTube Shorts directement sur les pages web. Nécessite des autorisations supplémentaires et a un impact sur les performances."
     }
 }

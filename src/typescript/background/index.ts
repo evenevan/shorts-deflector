@@ -2,7 +2,7 @@ import { handlePageUpdate } from './handlePageUpdate.js';
 import {
     allHostname,
     automaticStorageKey,
-    improvePerformanceStorageKey,
+    changeLinksStorageKey,
     runtime,
     youTubeHostname,
 } from '../util/constants.js';
@@ -30,9 +30,9 @@ runtime.runtime.onInstalled.addListener(async (details) => {
                 typeof keys[automaticStorageKey] !== 'undefined'
                     ? keys[automaticStorageKey] && automaticPermission
                     : automaticPermission,
-            [improvePerformanceStorageKey]:
-                typeof keys[improvePerformanceStorageKey] !== 'undefined'
-                    ? keys[improvePerformanceStorageKey] && improvePerformancePermission
+            [changeLinksStorageKey]:
+                typeof keys[changeLinksStorageKey] !== 'undefined'
+                    ? keys[changeLinksStorageKey] && improvePerformancePermission
                     : improvePerformancePermission,
         };
 
@@ -62,7 +62,7 @@ runtime.permissions.onRemoved.addListener(async () => {
 
     await runtime.storage.sync.set({
         [automaticStorageKey]: automaticPermission,
-        [improvePerformanceStorageKey]: improvePerformancePermission,
+        [changeLinksStorageKey]: improvePerformancePermission,
     });
 });
 

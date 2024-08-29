@@ -10,13 +10,14 @@ export const i18nKeys: [string, string][] = [
     ['desktop-title', 'desktopTitle'],
     ['automatic-title', 'automaticTitle'],
     ['automatic-description', 'automaticDescription'],
-    ['improve-performance-title', 'improvePerformanceTItle'],
-    ['improve-performance-description', 'improvePerformanceDescription'],
+    ['change-links-title', 'changeLinksTitle'],
+    ['change-links-description', 'changeLinksDescription'],
 ];
 
 // browser.storage Keys
 export const automaticStorageKey = 'automatic';
-export const improvePerformanceStorageKey = 'improvePerformance';
+// improvePerformance is the legacy name for changeLinks
+export const changeLinksStorageKey = 'improvePerformance';
 
 // Regex
 export const youTubeRegex = /^http(s)?:\/\/www\.youtube\.com/;
@@ -36,4 +37,4 @@ export let runtime = chrome;
 try {
     runtime = browser;
     // eslint-disable-next-line no-empty
-} catch {}
+} catch { }

@@ -12,12 +12,12 @@
         "message": "Automatic Switching"
     },
     "automaticDescription": {
-        "message": "Automatically switch YouTube Shorts to the desktop UI"
+        "message": "Automatically switch YouTube Shorts to the desktop UI."
     },
-    "improvePerformanceTitle": {
-        "message": "Improve Performance"
+    "changeLinksTitle": {
+        "message": "Change Links on Pages"
     },
-    "improvePerformanceDescription": {
-        "message": "Improve performance when switching to the desktop UI from other websites, but extra permissions are required"
+    "changeLinksDescription": {
+        "message": "Change YouTube Shorts hyperlinks directly on pages. Requires extra permissions and has a performance impact."
     }
 }
