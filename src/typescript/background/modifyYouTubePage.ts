@@ -17,9 +17,7 @@ export function modifyYouTubePage() {
                 case 'A':
                     {
                         const anchor = element as HTMLAnchorElement;
-                        if (anchor.href.match(youTubeShortsRegex)) {
-                            patchAnchor(anchor);
-                        }
+                        patchAnchor(anchor);
                     }
                     break;
                 case 'YTD-THUMBNAIL-OVERLAY-TIME-STATUS-RENDERER': {
@@ -46,14 +44,14 @@ export function modifyYouTubePage() {
 
     // eslint-disable-next-line no-restricted-syntax
     for (const anchor of document.getElementsByTagName('a')) {
-        if (anchor.href.match(youTubeShortsRegex)) {
-            patchAnchor(anchor);
-        }
+        patchAnchor(anchor);
     }
 
     function patchAnchor(anchor: HTMLAnchorElement) {
-        // eslint-disable-next-line no-param-reassign
-        anchor.href = anchor.href.replace('shorts/', 'watch?v=');
+        if (anchor.href.match(youTubeShortsRegex)) {
+            // eslint-disable-next-line no-param-reassign
+            anchor.href = anchor.href.replace('shorts/', 'watch?v=');
+        }
 
         /*
         Removed to fix the "Watch Later" and "Add to Queue" buttons, which rely on this event listener
