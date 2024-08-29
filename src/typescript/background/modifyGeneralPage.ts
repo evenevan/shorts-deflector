@@ -1,5 +1,7 @@
 export function modifyGeneralPage() {
-    const youTubeShortsRegex = /^http(s)?:\/\/www\.youtube\.com\/shorts\/(.+)$/;
+    // While we don't have the host permissions for non www, we can still change them
+    // as YouTube uses non www for the share link for Shorts
+    const youTubeShortsRegex = /^http(s)?:\/\/(www.)?youtube\.com\/shorts\/(.+)$/;
 
     const observer = new MutationObserver((mutationRecords) => {
         const addedNodes = mutationRecords
