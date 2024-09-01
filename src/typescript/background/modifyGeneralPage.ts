@@ -41,7 +41,7 @@ export function modifyGeneralPage() {
     }
 
     // If patchAnchor modifies the href, that will indeed cause the observer
-    // to fire an event. I don't know a fix and the overhead shouodl be minimal
+    // to fire an event. I don't know a fix and the overhead should be minimal
     // but this is something to keep in mind
     function patchAnchor(anchor: HTMLAnchorElement) {
         if (anchor.href.match(youTubeShortsRegex)) {
