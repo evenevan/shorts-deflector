@@ -1,6 +1,6 @@
 {
     "license": "MIT",
-    "author": "Attituding <attituding@outlook.com>",
+    "author": "Evan F <attituding@outlook.com>",
     "devDependencies": {
         "@astrojs/sitemap": "^3.0.4",
         "@astrojs/tailwind": "^5.1.0",

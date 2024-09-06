@@ -11,6 +11,6 @@ export default defineConfig({
             applyBaseStyles: false,
         }),
     ],
-    site: 'https://attituding.github.io',
+    site: 'https://evenevan.github.io',
     base: '/shorts-deflector',
 });
