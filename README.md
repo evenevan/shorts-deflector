@@ -31,7 +31,7 @@ Want to help improve this extension?
 ## Prerequisites (available via cli):
 
 - Version of Node.js >= v18 w/ NPM
-- Powershell
+- Bash
 - 7zip
 
 ## Steps:
